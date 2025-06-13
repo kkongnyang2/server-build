@@ -1,7 +1,17 @@
-## Ubuntu 22.04.5에서 웹서버를 구축해보자.
+## Ubuntu-22.04-server-arm64에서 웹서버를 구축해보자.
 
 ### 목표: 네트워크의 이해
 작성자: kkongnyang2 작성일: 2025-06-05
+
+---
+### 0> 환경 점검
+
+하드웨어: raspberrypi4 model B
+├─cpu: arm cortex A72
+├─ram: 4GB
+└─sd카드: 32GB micro
+운영체제: ubuntu-22.04-server-arm64
+외부 저장장치: 없음
 
 ---
 ### 1> 서버란?
@@ -26,12 +36,10 @@
 
 
 ---
-### 2> 환경 점검
+### 2> 구성 결정
 
 오늘 만들 구성은 다음과 같다
 
-* 하드웨어: raspberrypi4 model B
-* 운영체제 : Ubuntu 22.04.5 server
 * 서버 프로그램 : Apache(웹서버)
 * 네트워크 설정 : IP주소 고정, 포트포워딩, DDNS 설정
 * 보안 설정 : 인증서
@@ -283,11 +291,8 @@ LTE/5G 데이터                       X                     O                O 
 도메인 입력 i-kkongnyang2.myddns.me
 ```
 
+---
 ### 11> html 파일 업로드
-
-▶️ Apache 기본 웹페이지 수정해보기
-
-    → HTML 파일을 직접 바꾸고, 내 홈페이지를 직접 구성
 
 step 1. 컴퓨터에 있는 파일 html로 번역
 ```

@@ -1,19 +1,23 @@
-## Raspberrypi 4B에 우분투 서버 환경을 세팅하자
+## Ubuntu-22.04-server-arm64.img를 설치하자
 
 ### 목표: 미니 컴퓨터 이해
 작성자: kkongnyang2 작성일: 2025-06-05
 
 ---
-### 1> 환경 점검
+### 0> 환경 점검
 
 하드웨어: raspberrypi4 model B
-사용할 저장장치: 32GB microSD카드
+├─cpu: arm cortex A72
+├─ram: 4GB
+└─sd카드: 32GB micro
+운영체제: 설치 예정
+외부 저장장치: 없음
 
 > ⚠️ 원래는 usb로 부팅하려 했으나 실패. 그냥 공식대로 sd카드로 하는게 안전해보임
 > ⚠️ 모니터 연결을 위해선 microHDMI가 필요하지만 ssh로 대체 가능.
 
 ---
-### 2> sd 카드 만들기 - 방법1. etcher로 굽기
+### 1> sd 카드 만들기 - 방법1. etcher로 굽기
 
 step 1. ubuntu-22.04.5-preinstalled-server-arm64+raspi.img.xz 다운받기
 * preintalled: 얘는 따로 설치 없이 이미 그 자체를 저장장치로 씀.
@@ -55,7 +59,7 @@ chpasswd:
 > ⚠️ 만약 라즈비언os라면 wpa_supplicant.conf를 만들어주기
 
 ---
-### 3> sd 카드 만들기 - 방법2. raspi-imager로 굽기
+### 2> sd 카드 만들기 - 방법2. raspi-imager로 굽기
 
 step 1. ubuntu-22.04.5-preinstalled-server-arm64+raspi.img.xz 다운받기
 * preintalled: 얘는 따로 설치 없이 이미 그 자체를 저장장치로 씀.
@@ -78,7 +82,7 @@ ssh 사용: 비밀번호 인증 사용
 ```
 
 ---
-### 4> 부팅하기
+### 3> 부팅하기
 
 step 1. 라즈베리파이에 sd를 꽂고 act led가 적어질 때까지 기다리기
 
@@ -113,4 +117,11 @@ BOOTLOADER: up to date
    CURRENT: 000138a1
     LATEST: 000138a1
 ~$ sudo reboot
+```
+
+---
+### 4> 종료하기
+```bash
+~$ sudo shutdown -h now
+~$ sudo poweroff
 ```

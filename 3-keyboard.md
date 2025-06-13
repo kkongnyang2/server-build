@@ -1,7 +1,17 @@
-## Ubuntu-22.04-desktop에서 keyboard 커스터마이징
+## Ubuntu-22.04-desktop-amd64에서 keyboard 커스터마이징
 
 ### 목표: I/O 장치의 이해
 작성자: kkongnyang2 작성일: 2025-06-04
+
+---
+### 0> 환경 점검
+
+하드웨어: 삼성 노트북
+├─cpu: i5-10th amd64
+├─ram: 8GB
+└─ssd: 256GB
+운영체제: ubuntu-22.04.5-desktop-amd64
+외부 저장장치: 없음
 
 ---
 ### 1> 입력기 시스템 어떻게 되어있나요
