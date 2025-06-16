@@ -14,38 +14,15 @@
 외부 저장장치: 없음
 
 ---
-### 1> 서버란?
-
-"내 컴퓨터가 다른 기기의 요청을 받아 응답할 수 있게 만든다"
-`http://컴퓨터주소`를 입력하면 내 컴퓨터가 웹사이트, 파일, 사진을 보내주는 역할.
-
-그럼 컴퓨터 주소가 뭔지를 설명해야한다.
-
-네트워크가 크게 로컬 네트워크와 외부 네트워크로 나뉘는 건 알 것이다.
-로컬 네트워크는 한 공유기 내에 기기들이 wi-fi(무선 랜선)로 서로 연결되어 로컬 ip주소로 서로를 찾는 것이다.
-이때 공유기는 라우터 기능을 겸용하여 외부에 집 안내원 역할도 해준다. 외부 공인 ip주소(집주소)를 바깥에 내세우는 것이다.
-쉽게 말해 외부 공인 ip주소 = 집주소, 로컬 ip주소 = 안방, mac 주소 = 김철수
-
-내 컴퓨터로 만든 서버 주소 = 내 컴퓨터 로컬 ip주소 지만, 외부에서는 우리들 방까지 알 수는 없다.
-따라서 외부에서 `http://공유기 외부 공인 ip` 를 치고 들어오면 내 로컬 주소로 들어올 수 있도록 누가 안내해줘야 한다. 그게 포트포워딩이다. 
-
-접속 과정
-1. 누군가 공유기 주소를 입력
-2. 라우터(공유기)가 포트포워딩으로 해당 요청을 내 컴퓨터로 전달
-3. 내 컴퓨터가 응답하여 파일 등을 반환 
-
-
----
-### 2> 구성 결정
+### 1> 구성 결정
 
 오늘 만들 구성은 다음과 같다
 
 * 서버 프로그램 : Apache(웹서버)
-* 네트워크 설정 : IP주소 고정, 포트포워딩, DDNS 설정
-* 보안 설정 : 인증서
+* 네트워크 설정 : IP주소 고정, 포트포워딩, 방화벽 설정, 도메인 생성, DDNS 설정, 인증서
 
 ---
-### 3> ip 주소 확인
+### 2> ip 주소 확인
 
 step 1. 내 기기 ip 주소 확인
 ```bash
@@ -100,31 +77,10 @@ default via 172.30.1.254 dev wlo1 proto dhcp metric 600
 * 172.30.1.254로 확인
 
 ---
-### 4> ip 주소 고정 - server 버전
+### 3> ip 주소 고정 - server 버전
 
-step 1. 부팅 네트워크 파일 수정
-```bash
-~$ ls -l /boot/firmware/network-config     #파일위치 확인
-~$ sudo nano /boot/firmware/network-config
-version: 2
-wifis:
-  renderer: networkd
-  wlan0:
-    dhcp4: false
-    addresses:
-      - 172.30.1.220/24
-    gateway4: 172.30.1.254
-    nameservers:
-      addresses:
-        - 8.8.8.8
-        - 1.1.1.1
-    optional: true
-    access-points:
-      "KT_GiGA_1D39":
-        password: "eec0hc4206"
 ```
-
-step 2. netplan 설정파일 수정
+step 1. netplan 설정파일 수정
 ```bash
 ~$ ls /etc/netplan/             #파일이름 확인
 50-cloud-init.yaml
@@ -140,7 +96,7 @@ network:
         wlan0:
             access-points:
                 KT_GiGA_1D39:
-                    password: 4cfa7026f817ab13ef66eb1e898d54830629ad2b173447184>
+                    password: 4cfa7026f817ab13ef66eb1e898d54830629ad2b1734471844c7cb8ca7d31fba
             dhcp4: true
             optional: true
 ```
@@ -152,11 +108,11 @@ network:
         renderer: networkd
         wlan0:
             access-points:
-                "KT_GiGA_1D39":
-                    password: "eec0hc4206"
+                KT_GiGA_1D39:
+                    password: 4cfa7026f817ab13ef66eb1e898d54830629ad2b1734471844c7cb8ca7d31fba
             dhcp4: false
             addresses:
-              - 172.30.1.220/24
+              - 172.30.1.222/24
             gateway4: 172.30.1.254
             nameservers:
               addresses:
@@ -164,22 +120,37 @@ network:
                 - 1.1.1.1
             optional: true
 ```
-* dhcp4 할당을 없애고, 주소를 172.30.1.220으로 고정
+* dhcp4 할당을 없애고, 주소를 172.30.1.222으로 고정
 * gateway4는 공유기 주소 입력란. 우리는 172.30.1.254임
 * 8.8.8.8은 구글에서 제공하는 DNS 서버
 
+> ⚠️ 만약 부팅 파일이 어떤 일이 있어도 영향을 안주게 하고 싶다면 주석이 시키는대로 (어차피 최초 부팅때 netplan/50-cloud-init.yaml을 생성하고 사라지긴 함)
+```
+# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
+# network: {config: disabled}
+```
+
 step 3. 적용
 ```
+~$ sudo netplan generate      #문법 확인
 ~$ sudo netplan apply
 ```
 
 step 4. ip 주소 변화로 ssh 끊겼으니 재접속
-```
-~$ ssh kkongnyang2@172.30.1.220
+```bash
+~$ ssh-keygen -R 172.30.1.89      #기존 known_hosts 삭제
+~$ ssh kkongnyang2@172.30.1.222
+The authenticity of host '172.30.1.222 (172.30.1.222)' can't be established.
+ED25519 key fingerprint is SHA256:B5ycXkgh3UjpXdAqAmERIIt83MZghSEiIo+p+tj3fvo.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])?  yes
+Warning: Permanently added '172.30.1.222' (ED25519) to the list of known hosts.
+kkongnyang2@172.30.1.222's password: 
+Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 5.15.0-1079-raspi aarch64)
 ```
 
 ---
-### 5> ip 주소 고정 - desktop 버전
+### 4> ip 주소 고정 - desktop 버전
 
 *ubuntu desktop에서는 netplan보다 networkmanager우선
 
@@ -194,7 +165,6 @@ DNS servers: 8.8.8.8, 1.1.1.1 입력
 
 step 2. 저장 후 wifi 껐다 키기
 
-
 > ⚠️ 안될때 테스트:
 ```bash
 ping 172.30.1.254     #안되면 로컬 공유기 통신 문제
@@ -205,37 +175,84 @@ ping google.com       #안되면 DNS 문제
 여기까지 하면 내 기기의 ip주소를 하나로 고정한거임!
 
 ---
-### 6> Apache2 웹 서버 설치
+### 5> Apache2 웹 서버 설치
 
 Apache2는 가장 널리 쓰이는 웹 서버로, 브라우저에서 http://내IP로 접속하면 html페이지를 보여줌
 
+step 1. 설치
 ```bash
-~$ sudo apt update && sudo apt install apache2  #2.4.52-1ubuntu4.14 버전
+~$ sudo apt update && sudo apt install apache2
+~$ apache2 -version
+Server version: Apache/2.4.52 (Ubuntu)
+Server built:   2025-04-03T09:05:48
 ```
 
-확인:
+step 2. 확인
 ```
-로컬 네트워크로 http://172.30.1.220 들어가보기
+~$ sudo timedatectl set-timezone Asia/Seoul     #서버 시간 업데이트
+로컬 네트워크로 http://172.30.1.222 들어가보기
+```
+
+step 3. 소유자 및 퍼미션 확인
+```
+~$ ls -ld /var/www/html
+drwxr-xr-x 2 root root 4096 Jun 14 04:55 /var/www/html      #이미 잘 되어있지만 안되어 있으면 아래대로
+~$ sudo chown root:root /var/www/html
+~$ sudo find /var/www/html -type d -exec chmod 755 {} \;
+~$ sudo find /var/www/html -type f -exec chmod 644 {} \;
+```
+* 소유자는 root:root, 755(디렉토리)임을 확인
+* apache2 기본 페이지는 정적 사이트로 html만 업로드 할거기에 변경 필요 없음.
+* 만일 쓰기가 필요한 동적 폴더가 있다면 따로 chown(소유자)를 www-data:www-data로 줘야함.
+
+step 4. html 파일 업로드
+```
+~$ pandoc -s ~/dev-environment/1-os.md -o ~/for-upload/1-os.html    #html로 번역. -s를 넣어줘야 완결된 파일.
+~$ sudo nano /var/www/html/index.html           #index 파일 수정
+~$ sudo mkdir /var/www/html/dev-environment     #새 디렉토리 생성
+~$ sudo touch /var/www/html/dev-environment/1-os-f.html   #파일 생성
+~$ sudo nano /var/www/html/dev-environment/1-os-f.html    #파일 수정
+~$ ls -ld /var/www/html/dev-environment/1-os-f.html       #권한 정상인지 확인
+-rw-r--r-- 1 root root 7962 Jun 14 05:28 /var/www/html/dev-environment/1-os-f.html
+~$ sudo rm -rf /var/www/html/test      # 콘텐츠·폴더 모두 완전 삭제
 ```
 
 ---
-### 7> 포트포워딩
+### 6> 포트포워딩
 
 외부에서 접속 가능하도록.
-외부 공인 ip인 125.154.102.145 를 치고 들어오면 공유기(안내원)가 포트포워딩 규칙에 의해 172.30.1.220 서버로 전달되도록.
+외부 공인 ip인 125.154.102.145 를 치고 들어오면 공유기(안내원)가 포트포워딩 규칙에 의해 172.30.1.222 서버로 전달되도록.
 
+step 1. 포트 연결
 ```
 http://172.30.1.254 로 접속(공유기 페이지)
-외부 포트 80과 125.154.102.145 -> 내부 포트 80과 172.30.1.220로 대응. 프로토콜은 TCP.
-외부 포트 443과 125.154.102.145 -> 내부 포트 443과 172.30.1.220로 대응. 프로토콜은 TCP.
+외부 포트 80과 125.154.102.145 -> 내부 포트 80과 172.30.1.222로 대응. 프로토콜은 TCP.
+외부 포트 443과 125.154.102.145 -> 내부 포트 443과 172.30.1.222로 대응. 프로토콜은 TCP.
 ```
-확인:
+
+step 2. 확인
 ```
 외부 네트워크로 http://125.154.102.145 들어가보기
 ```
 
+step 3. 방화벽 설정
+```bash
+~$ sudo ufw status verbose
+Status: inactive          #방화벽 비활성화인거 확인
+~$ sudo ufw allow 22/tcp     #얘넨 허용
+~$ sudo ufw allow 80,443/tcp #얘넨 허용
+~$ sudo ufw enable           #방화벽 활성화
+~$ sudo ufw status verbose
+To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW IN    Anywhere                  
+80,443/tcp                 ALLOW IN    Anywhere                  
+22/tcp (v6)                ALLOW IN    Anywhere (v6)             
+80,443/tcp (v6)            ALLOW IN    Anywhere (v6) 
+```
+
 ---
-### 8> 도메인 및 DDNS
+### 7> 도메인 및 DDNS
 
 step 1. No-ip 사이트 가입
 ```
@@ -248,6 +265,7 @@ step 2. 도메인 생성
 도메인 http://i-kkongnyang2.myddns.me와 외부 공인 ip(현재는 125.154.102.145) 연결.
 ```
 
+> ⚠️ KT 공유기 NAT 문제로 이건 안해놓음. 그래서 외부 공인 ip 바뀌면 수동으로 바꿔줘야 함.
 step 3. DDNS 클라이언트 설치
 ```bash
 ~$ wget https://www.noip.com/client/linux/noip-duc-linux.tar.gz
@@ -269,48 +287,39 @@ step 4. DDNS 클라이언트 실행
 ~$ sudo /usr/local/bin/noip2            #실행
 ~$ sudo /usr/local/bin/noip2 -S         #실행 확인
 ```
-* 부팅마다 자동으로 noip를 실행해주는 파일은 만들까 말까 고민중이다.
+* NAT=주소 변환
+[Raspberry Pi] 172.30.1.220 ──
+                           ├─ 포트포워딩 (80/443)
+[공유기]        112.168.5.119 (1차 IP)
+                           │  <─ 내부 NAT (KT 라우터/BRAS)
+[KT망]          125.154.102.145 (2차 IP) ── Internet
+
+---
+### 8> https로 리디렉션
+
+step 1. apache2 설정파일에 도메인 추가
+```bash
+~$ sudo nano /etc/apache2/sites-available/000-default.conf
+ServerName i-kkongnyang2.myddns.me
+ServerAdmin webmaster@localhost
+DocumentRoot /var/www/html
+```
+
+step 2. certbot 설치
+```bash
+~$ sudo apt install certbot python3-certbot-apache
+~$ sudo certbot --apache -d i-kkongnyang2.myddns.me
+안내받을 이메일 i.kkongnyang2@gmail.com
+약관동의 y
+광고수신동의 N
+Successfully deployed certificate for i-kkongnyang2.myddns.me to /etc/apache2/sites-available/000-default-le-ssl.conf
+Congratulations! You have successfully enabled HTTPS on https://i-kkongnyang2.myddns.me
+```
 
 ---
 ### 9> 테스트
 
-      테스트 환경           로컬(172.30.1.220)    외부IP(125.154.102.145)    도메인
+      테스트 환경           로컬(172.30.1.222)    외부IP(125.154.102.145)    도메인
 KT_GiGA_1D39(동일 와이파이)          O                     X                X            #NAT loopback이 없어서 불가능
 KT_GiGA_5G_1D39(다른 와이파이)       O                     O                O
 LTE/5G 데이터                       X                     O                O           #인터넷에선 로컬 ip주소를 쳤을때 안내해줄 안내원이 없음
-
----
-### 10> https로 리디렉션
-
-```bash
-~$ sudo apt install certbot python3-certbot-apache
-~$ sudo certbot --apache
-안내받을 이메일 i.kkongnyang2@gmail.com
-약관동의 y
-광고수신동의 N
-도메인 입력 i-kkongnyang2.myddns.me
-```
-
----
-### 11> html 파일 업로드
-
-step 1. 컴퓨터에 있는 파일 html로 번역
-```
-~$ pandoc -s ~/server-build/index.md -o ~/Downloads/index.html
-```
-step 2. 라즈베리파이에 전송(복사)
-```bash
-~$ scp ~/Downloads/index.html kkongnyang2@172.30.1.220:/home/kkongnyang2/
-```
-* 루트 경로로는 바로 못가기 때문에 한번 홈을 거침
-
-step 3. 기존 default html 파일 삭제
-```bash
-~$ ssh kkongnyang2@172.30.1.220
-kongnyang2@raspberrypi:~$ sudo mv /var/www/html/index.html /var/www/html/index.html.bak
-```
-
-step 4. html 파일 배치
-```bash
-kkongnyang2@raspberrypi:~$ sudo mv ~/index.html /var/www/html/
-```

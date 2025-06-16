@@ -17,7 +17,7 @@
 > ⚠️ 모니터 연결을 위해선 microHDMI가 필요하지만 ssh로 대체 가능.
 
 ---
-### 1> sd 카드 만들기 - 방법1. etcher로 굽기
+### 1> sd 카드 만들기 - 방법1. etcher로 굽기(권장x)
 
 step 1. ubuntu-22.04.5-preinstalled-server-arm64+raspi.img.xz 다운받기
 * preintalled: 얘는 따로 설치 없이 이미 그 자체를 저장장치로 씀.
@@ -72,13 +72,13 @@ step 3. rpi-imager에서 굽기 전 사용자 커스터마이징
 ```
 hostname: raspberrypi.local
 사용자 이름: kkongnyang2
-비밀번호: 1234
+비밀번호: 4108
 무선 LAN SSID: KT_GiGA_1D39
 무선 LAN 비밀번호: eec0hc4206
 무선 LAN 국가: KR
 로케일 설정 지정: Asia/Seoul
 키보드 레이아웃: us
-ssh 사용: 비밀번호 인증 사용
+ssh 사용: 비밀번호로
 ```
 
 ---
@@ -94,16 +94,37 @@ http://172.30.1.254로 들어갔더니 라즈베리파이 172.30.1.89 확인
 step 3. 노트북에서 라즈베리파이 ssh 접속
 ```bash
 ~$ ssh kkongnyang2@172.30.1.89
+The authenticity of host '172.30.1.89 (172.30.1.89)' can't be established.
+ED25519 key fingerprint is SHA256:B5ycXkgh3UjpXdAqAmERIIt83MZghSEiIo+p+tj3fvo.    #처음에 ssh키 생성
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])?  yes
+Warning: Permanently added '172.30.1.89' (ED25519) to the list of known hosts.
+kkongnyang2@172.30.1.89's password: 
 Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 5.15.0-1061-raspi aarch64)
+~$ exit                       #ssh 종료 명령어
+```
+
+> ⚠️ 기존 known_hosts를 지워야 한다면
+```
+~$ ssh-keygen -R 172.30.1.89
 ```
 
 step 4. 패키지 최신상태 확인
 ```bash
 ~$ sudo apt update && sudo apt upgrade -y
+커널 새버전 업데이트 됐는데 알아서 재부팅하라는 안내문 -> 확인
+서비스들 지금 재시작할거니? -> tab으로 cancel 선택(어차피 재부팅할거니)
 ```
 * &&는 명령어 연속. -y는 자동 yes
 
-step 5. eeprom 최신상태 확인
+step 5. 재부팅
+```bash
+~$ sudo poweroff          #전원끄기
+act led 반응 없고 빨간불만 남으면 전원 뽑기.
+그리고 전원 꼽으면 다시 부팅
+```
+
+step 6. eeprom 최신상태 확인
 ```bash
 ~$ sudo rpi-eeprom-update
 BOOTLOADER: up to date
@@ -116,12 +137,19 @@ BOOTLOADER: up to date
      VL805: up to date
    CURRENT: 000138a1
     LATEST: 000138a1
-~$ sudo reboot
 ```
+* 이미 최신 버전이니 건드릴 필요x
 
 ---
-### 4> 종료하기
-```bash
-~$ sudo shutdown -h now
-~$ sudo poweroff
-```
+### 4> 부팅 설정파일 만들어지는 과정
+
+step 0. SD 카드 제작:	pi OS 이미지를 굽는 시점에 /boot/firmware/network-config, user-data, meta-data 등의 시드(seed) 파일을 넣어 둔다.
+step 1. init-local: cloud-init-local.service가 파티션 확장, seed 파일 수집.
+step 2. init: cloud-init.service가 시드 설정으로 /etc/netplan/50-cloud-init.yaml•/etc/hostname 등을 작성.
+step 3. modules: cloud-config.service, cloud-final.service가 유저 추가, SSH 키 배포, 팩키지 설치 “run-once” 모듈 실행.
+step 4. 정상 부팅: 이제부터는 일반 부팅 루틴. systemd-networkd, sshd 등이 작동.
+
+/var/lib/cloud/instance/
+├─ cloud-config.txt
+├─ datasource.json
+└─ boot-finished -> 이게 있으면 첫 부팅 아닌걸로 인지.

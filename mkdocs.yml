@@ -1,0 +1,13 @@
+site_name: server-build
+theme:
+  name: material
+nav:
+  - 이론: 0-network.md
+  - pi: 1-raspberrypi.md
+  - server: 2-server.md
+  - cloud: 3-cloud.md
+  - html: 4-html.md
+site_dir: site          # <- 기본값이지만 명시해 둡니다
+markdown_extensions:
+  - toc
+  - codehilite
