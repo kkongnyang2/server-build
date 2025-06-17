@@ -144,7 +144,7 @@ sda                                               233G
 ~$ sudo mount -a                #마운트 적용
 ```
 * nofail은 이거 없이 부팅해도 켜지긴 한다는 뜻
-* automount 선택해놨으니 usb를 꽂고 부팅해야함
+* x-systemd.automount 필요해질 때 마운트
 * umount는 sudo poweroff시 자동으로
 
 step 3. 퍼미션 설정
