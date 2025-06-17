@@ -132,7 +132,7 @@ sudo -u deployer chmod 700 /home/deployer/.ssh      #디렉토리 퍼미션을 7
 sudo -u deployer nano /home/deployer/.ssh/authorized_keys   #아까 내 컴퓨터에서 생성한 ssh 키 중 public key 입력
 sudo chmod 600 /home/deployer/.ssh/authorized_keys  #파일 퍼미션을 600으로 해두기
 
-### 5> portal
+### 6> portal
 
 제일 첫 페이지
 
@@ -144,7 +144,7 @@ deploy.yml 수정
 mkdocs 부분만 빼고 target:     "/var/www/html/"으로만 수정하면 됨
 
 
-### 6> 마지막 작업
+### 7> 마지막 작업
 레포 공개 public 으로 당연히 바꿔주기
 repo - settings - actions - general 들어가서
 workflow permissions 섹션에서 read and write permissions 로 변경
