@@ -3,7 +3,7 @@ theme:
   name: material
 nav:
   - 이론: 0-network.md
-  - pi: 1-raspberrypi.md
+  - pi: 1-pi.md
   - server: 2-server.md
   - cloud: 3-cloud.md
   - html: 4-html.md
