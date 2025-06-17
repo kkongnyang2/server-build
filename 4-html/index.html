@@ -1,0 +1,721 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../3-cloud/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>html - server-build</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#html" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="server-build" class="md-header__button md-logo" aria-label="server-build" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            server-build
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              html
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="server-build" class="md-nav__button md-logo" aria-label="server-build" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    server-build
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0-network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    이론
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-raspberrypi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pi
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    html
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    html
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#html" class="md-nav__link">
+    <span class="md-ellipsis">
+      html 파일 업로드
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="html 파일 업로드">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1&gt; 흐름
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2&gt; 폴더 구조
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3&gt; 내 컴퓨터에서
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      4&gt; secret값 입력
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-pi" class="md-nav__link">
+    <span class="md-ellipsis">
+      5&gt; pi에서
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      5&gt; portal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6&gt; 마지막 작업
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#html" class="md-nav__link">
+    <span class="md-ellipsis">
+      html 파일 업로드
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="html 파일 업로드">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1&gt; 흐름
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2&gt; 폴더 구조
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3&gt; 내 컴퓨터에서
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      4&gt; secret값 입력
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-pi" class="md-nav__link">
+    <span class="md-ellipsis">
+      5&gt; pi에서
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      5&gt; portal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6&gt; 마지막 작업
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>html</h1>
+
+<h2 id="html">html 파일 업로드</h2>
+<h3 id="1">1&gt; 흐름</h3>
+<p>로컬 폴더    -push-&gt;  github 레지스토리  -workflow-&gt;  github action  -mkdocs   -&gt; -deploy-&gt; github.io/server-build
+server-build            server-build                   클라이언트       html로   └─ -ssh-&gt; pi의 /var/www/html -apache2-&gt; i-kkongnyang2.myddns.me/server-build</p>
+<h3 id="2">2&gt; 폴더 구조</h3>
+<p>server-build/
+├─ docs/
+│   ├─ 1.md
+│   └─ 2.md
+├─ mkdocs.yml
+└─ .github/workflows/deploy.yml</p>
+<p>mkdocs.yml</p>
+<div class="codehilite"><pre><span></span><code><span class="n">site_name</span><span class="o">:</span><span class="w"> </span><span class="n">server</span><span class="o">-</span><span class="n">build</span>
+<span class="n">theme</span><span class="o">:</span>
+<span class="w">  </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">material</span>
+<span class="n">nav</span><span class="o">:</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="err">이론</span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="o">-</span><span class="n">network</span><span class="o">.</span><span class="na">md</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">pi</span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="o">-</span><span class="n">raspberrypi</span><span class="o">.</span><span class="na">md</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">server</span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="o">-</span><span class="n">server</span><span class="o">.</span><span class="na">md</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">cloud</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="o">-</span><span class="n">cloud</span><span class="o">.</span><span class="na">md</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">html</span><span class="o">:</span><span class="w"> </span><span class="mi">4</span><span class="o">-</span><span class="n">html</span><span class="o">.</span><span class="na">md</span>
+<span class="n">docs_dir</span><span class="o">:</span><span class="w"> </span><span class="n">docs</span><span class="w">          </span><span class="err">#기본값은</span><span class="w"> </span><span class="n">docs</span><span class="o">.</span><span class="w"> </span><span class="err">따라서</span><span class="w"> </span><span class="err">안써도</span><span class="w"> </span><span class="err">되지만</span><span class="w"> </span><span class="err">그냥</span><span class="w"> </span><span class="err">명시</span>
+<span class="n">site_dir</span><span class="o">:</span><span class="w"> </span><span class="n">site</span><span class="w">          </span><span class="err">#기본값은</span><span class="w"> </span><span class="n">site</span><span class="o">.</span><span class="w"> </span><span class="err">따라서</span><span class="w"> </span><span class="err">안써도</span><span class="w"> </span><span class="err">되지만</span><span class="w"> </span><span class="err">그냥</span><span class="w"> </span><span class="err">명시</span>
+<span class="n">markdown_extensions</span><span class="o">:</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">toc</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">codehilite</span>
+</code></pre></div>
+
+<p>mkdir -p .github/workflows
+.github/workflows/deploy.yml</p>
+<div class="codehilite"><pre><span></span><code><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Daily</span><span class="w"> </span><span class="n">Deploy</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">GitHub</span><span class="w"> </span><span class="n">Pages</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">Raspberry</span><span class="w"> </span><span class="n">Pi</span><span class="w">       </span><span class="err">#이름</span>
+
+<span class="n">on</span><span class="o">:</span>
+<span class="w">  </span><span class="n">push</span><span class="o">:</span><span class="w">                 </span><span class="err">#</span><span class="w"> </span><span class="err">수동</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="err">시</span><span class="w"> </span><span class="err">즉시</span>
+<span class="w">  </span><span class="n">schedule</span><span class="o">:</span><span class="w">             </span><span class="err">#</span><span class="w"> </span><span class="err">매일</span><span class="w"> </span><span class="mi">18</span><span class="o">:</span><span class="mi">00</span><span class="w"> </span><span class="n">UTC</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">cron</span><span class="o">:</span><span class="w">  </span><span class="s1">&#39;0 18 * * *&#39;</span>
+
+<span class="n">jobs</span><span class="o">:</span>
+<span class="w">  </span><span class="n">build</span><span class="o">:</span>
+<span class="w">    </span><span class="n">runs</span><span class="o">-</span><span class="n">on</span><span class="o">:</span><span class="w"> </span><span class="n">ubuntu</span><span class="o">-</span><span class="n">latest</span><span class="w">      </span><span class="err">#</span><span class="n">github가</span><span class="w"> </span><span class="err">제공하는</span><span class="w"> </span><span class="err">우분투</span><span class="w"> </span><span class="err">러너</span><span class="w"> </span><span class="err">사용</span>
+<span class="w">    </span><span class="n">steps</span><span class="o">:</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">uses</span><span class="o">:</span><span class="w"> </span><span class="n">actions</span><span class="o">/</span><span class="n">checkout</span><span class="err">@</span><span class="n">v4</span>
+
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">uses</span><span class="o">:</span><span class="w"> </span><span class="n">actions</span><span class="o">/</span><span class="n">setup</span><span class="o">-</span><span class="n">python</span><span class="err">@</span><span class="n">v5</span><span class="w">     </span><span class="err">#</span><span class="n">mkdocs가</span><span class="w"> </span><span class="err">필요로</span><span class="w"> </span><span class="err">하는</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="err">설치</span>
+<span class="w">      </span><span class="k">with</span><span class="o">:</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">python</span><span class="o">-</span><span class="n">version</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;3.11&#39;</span><span class="w"> </span><span class="o">}</span>
+
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Install</span><span class="w"> </span><span class="n">MkDocs</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">theme</span>
+<span class="w">      </span><span class="n">run</span><span class="o">:</span><span class="w"> </span><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">mkdocs</span><span class="w"> </span><span class="n">mkdocs</span><span class="o">-</span><span class="n">material</span><span class="w">     </span><span class="err">#추가</span><span class="w"> </span><span class="err">플러그인</span><span class="w"> </span><span class="err">있으면</span><span class="w"> </span><span class="err">스페이스로</span><span class="w"> </span><span class="err">이어서</span><span class="w"> </span><span class="err">적을것</span>
+
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Build</span><span class="w"> </span><span class="n">MkDocs</span>
+<span class="w">      </span><span class="n">run</span><span class="o">:</span><span class="w"> </span><span class="n">mkdocs</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="o">--</span><span class="n">strict</span><span class="w">             </span><span class="err">#</span><span class="w"> </span><span class="n">mkdocs</span><span class="o">.</span><span class="na">yml을</span><span class="w"> </span><span class="err">읽어</span><span class="w"> </span><span class="n">site</span><span class="o">/</span><span class="w"> </span><span class="err">폴더</span><span class="w"> </span><span class="err">생성</span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="o">----------</span><span class="w"> </span><span class="n">GitHub</span><span class="w"> </span><span class="n">Pages</span><span class="w"> </span><span class="err">배포</span><span class="w"> </span><span class="o">----------</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Deploy</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">GitHub</span><span class="w"> </span><span class="n">Pages</span>
+<span class="w">      </span><span class="n">uses</span><span class="o">:</span><span class="w"> </span><span class="n">peaceiris</span><span class="o">/</span><span class="n">actions</span><span class="o">-</span><span class="n">gh</span><span class="o">-</span><span class="n">pages</span><span class="err">@</span><span class="n">v4</span>
+<span class="w">      </span><span class="k">with</span><span class="o">:</span>
+<span class="w">        </span><span class="n">github_token</span><span class="o">:</span><span class="w"> </span><span class="n">$</span><span class="o">{{</span><span class="w"> </span><span class="n">secrets</span><span class="o">.</span><span class="na">GITHUB_TOKEN</span><span class="w"> </span><span class="o">}}</span>
+<span class="w">        </span><span class="n">publish_dir</span><span class="o">:</span><span class="w">  </span><span class="n">site</span><span class="w">                   </span><span class="err">#</span><span class="w"> </span><span class="n">site</span><span class="o">/</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">gh</span><span class="o">-</span><span class="n">pages</span><span class="w"> </span><span class="err">브랜치</span><span class="w"> </span><span class="err">푸시</span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="o">----------</span><span class="w"> </span><span class="n">Raspberry</span><span class="w"> </span><span class="n">Pi</span><span class="w"> </span><span class="err">배포</span><span class="w"> </span><span class="o">----------</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Add</span><span class="w"> </span><span class="n">Pi</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">known_hosts</span>
+<span class="w">      </span><span class="n">run</span><span class="o">:</span><span class="w"> </span><span class="o">|</span>
+<span class="w">        </span><span class="n">mkdir</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="o">~/.</span><span class="n">ssh</span>
+<span class="w">        </span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;${{ secrets.PI_KNOWN_HOSTS }}&quot;</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">known_hosts</span><span class="w">      </span><span class="err">#</span><span class="n">pi의</span><span class="w"> </span><span class="err">호스트</span><span class="w"> </span><span class="err">키</span><span class="w"> </span><span class="err">사전</span><span class="w"> </span><span class="err">등록</span>
+
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Copy</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">Raspberry</span><span class="w"> </span><span class="n">Pi</span>
+<span class="w">      </span><span class="n">uses</span><span class="o">:</span><span class="w"> </span><span class="n">appleboy</span><span class="o">/</span><span class="n">scp</span><span class="o">-</span><span class="n">action</span><span class="err">@</span><span class="n">v0</span><span class="o">.</span><span class="mf">1.3</span>
+<span class="w">      </span><span class="k">with</span><span class="o">:</span>
+<span class="w">        </span><span class="n">host</span><span class="o">:</span><span class="w">       </span><span class="n">$</span><span class="o">{{</span><span class="w"> </span><span class="n">secrets</span><span class="o">.</span><span class="na">PI_HOST</span><span class="w"> </span><span class="o">}}</span><span class="w">          </span><span class="err">#</span><span class="n">pi의</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="err">주소</span>
+<span class="w">        </span><span class="n">username</span><span class="o">:</span><span class="w">   </span><span class="n">$</span><span class="o">{{</span><span class="w"> </span><span class="n">secrets</span><span class="o">.</span><span class="na">PI_USER</span><span class="w"> </span><span class="o">}}</span><span class="w">          </span><span class="err">#</span><span class="n">pi의</span><span class="w"> </span><span class="err">사용자</span>
+<span class="w">        </span><span class="n">key</span><span class="o">:</span><span class="w">        </span><span class="n">$</span><span class="o">{{</span><span class="w"> </span><span class="n">secrets</span><span class="o">.</span><span class="na">PI_SSH_KEY</span><span class="w"> </span><span class="o">}}</span><span class="w">       </span><span class="err">#</span><span class="n">ssh로그인을</span><span class="w"> </span><span class="err">위한</span><span class="w"> </span><span class="kd">private</span><span class="w"> </span><span class="n">key</span>
+<span class="w">        </span><span class="n">source</span><span class="o">:</span><span class="w">     </span><span class="s2">&quot;site/*&quot;</span><span class="w">                        </span><span class="err">#보낼것</span>
+<span class="w">        </span><span class="n">target</span><span class="o">:</span><span class="w">     </span><span class="s2">&quot;/var/www/html/${{ github.event.repository.name }}/&quot;</span><span class="w">   </span><span class="err">#붙이는거</span><span class="w"> </span><span class="err">없이</span><span class="w"> </span><span class="err">루트에</span><span class="w"> </span><span class="err">두려면</span><span class="w"> </span><span class="sr">/var/www/</span><span class="n">html로</span><span class="w"> </span><span class="err">바꾸기</span>
+<span class="w">        </span><span class="n">strip_components</span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="w">                         </span><span class="err">#</span><span class="w"> </span><span class="n">site</span><span class="o">/</span><span class="w"> </span><span class="err">디렉터리</span><span class="w"> </span><span class="err">계층</span><span class="w"> </span><span class="err">제거</span>
+</code></pre></div>
+
+<h3 id="3">3&gt; 내 컴퓨터에서</h3>
+<p>ssh-keyscan -p22 172.30.1.222                           #PI_KNOWN_HOSTS 알아내기
+ssh-keygen -t ed25519 -f id_ed25519_pi -N ""            #비밀번호 없는 ssh 키 쌍 생성
+Generating public/private ed25519 key pair.
+Your identification has been saved in id_ed25519_pi
+Your public key has been saved in id_ed25519_pi.pub
+The key fingerprint is:
+SHA256:sDGJubvrofTtJOfdXydN052qkDMxUIGuitUg1SaNJJ8 kkongnyang2@kkongnyang2-930XCJ-931XCJ-930XCR
+The key's randomart image is:
++--[ED25519 256]--+
+| ...+   .o.      |
+|  o+.<em> o.        |
+|  .E= </em>.         |
+| . . . *.       +|
+|  . + o So     o+|
+|   . +    +   .o.|
+|  + = o  =   .o o|
+| o + O . .+ .. o |
+|  ..=o+ . .o.    |
++----[SHA256]-----+</p>
+<h3 id="4-secret">4&gt; secret값 입력</h3>
+<p>github - repo - settings - secrets and varables - actions 에 들어가 입력</p>
+<p>PI_HOST : 172.30.1.222      #pi의 ip주소
+PI_USER : deployer       #pi의 사용자 이름
+PI_SSH_KEY : #내 컴퓨터에서 keygen하고 private key 입력
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+QyNTUxOQAAACBC4ALhGcfEwRoT0Twq9YNL3XyE6PDY6qmK74qyZvatuAAAALCs5NegrOTX
+oAAAAAtzc2gtZWQyNTUxOQAAACBC4ALhGcfEwRoT0Twq9YNL3XyE6PDY6qmK74qyZvatuA
+AAAEDTndvXduj9G0yedw1h6LTUrKLFIOKEXbEGm/yE6ydTD0LgAuEZx8TBGhPRPCr1g0vd
+fITo8NjqqYrvirJm9q24AAAALGtrb25nbnlhbmcyQGtrb25nbnlhbmcyLTkzMFhDSi05Mz
+FYQ0otOTMwWENSAQ==
+-----END OPENSSH PRIVATE KEY-----
+PI_KNOWN_HOSTS : 172.30.1.222 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKsC8q8JdGM+d6RIkWQLKM2kG2PnUdiNrnM4swlYYbnh  #내 컴퓨터에서 172.30.1.222 known_hosts 베끼기</p>
+<h3 id="5-pi">5&gt; pi에서</h3>
+<p>pi에서 업로드용 사용자 생성
+sudo adduser --disabled-password --gecos "" deployer    #비밀번호도 설명란도 없는 사용자 'deployer' 생성
+sudo usermod -aG www-data deployer         # www-data 그룹에 추가
+sudo chown -R deployer:www-data /var/www/html       #/var/www/html의 소유자와 그룹 변경(퍼미션은 755니까 이러면 deployer만 쓸수 있음)
+sudo chown -R www-data:www-data /var/www/html/nextcloud     #내부에 nextcloud의 소유자와 그룹도 바꼈을테니 다시 올바르게(퍼미션은 바꾼적 없으니 750 잘되어있음)
+sudo -u deployer mkdir -p /home/deployer/.ssh       #해당 계정 home에서 .ssh 디렉토리 생성
+sudo -u deployer chmod 700 /home/deployer/.ssh      #디렉토리 퍼미션을 700으로 해두기
+sudo -u deployer nano /home/deployer/.ssh/authorized_keys   #아까 내 컴퓨터에서 생성한 ssh 키 중 public key 입력
+sudo chmod 600 /home/deployer/.ssh/authorized_keys  #파일 퍼미션을 600으로 해두기</p>
+<h3 id="5-portal">5&gt; portal</h3>
+<p>제일 첫 페이지</p>
+<p>portal/
+├─ index.html
+└─ .github/workflows/deploy.yml</p>
+<p>deploy.yml 수정
+mkdocs 부분만 빼고 target:     "/var/www/html/"으로만 수정하면 됨</p>
+<h3 id="6">6&gt; 마지막 작업</h3>
+<p>레포 공개 public 으로 당연히 바꿔주기
+repo - settings - actions - general 들어가서
+workflow permissions 섹션에서 read and write permissions 로 변경
+* (레포 Settings → Pages 에서 Deploy from branch → gh-pages / (root) 확인)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,602 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="../1-raspberrypi/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>이론 - server-build</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="server-build" class="md-header__button md-logo" aria-label="server-build" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            server-build
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              이론
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="server-build" class="md-nav__button md-logo" aria-label="server-build" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    server-build
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    이론
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    이론
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1&gt; 서버란?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2&gt; 프로토콜
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      3&gt; ssh?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4&gt; 퍼미션
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-raspberrypi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pi
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4-html/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    html
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1&gt; 서버란?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2&gt; 프로토콜
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      3&gt; ssh?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4&gt; 퍼미션
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>이론</h1>
+
+<h3 id="1">1&gt; 서버란?</h3>
+<p>"내 컴퓨터가 다른 기기의 요청을 받아 응답할 수 있게 만든다"
+<code>http://컴퓨터주소</code>를 입력하면 내 컴퓨터가 웹사이트, 파일, 사진을 보내주는 역할.</p>
+<p>그럼 컴퓨터 주소가 뭔지를 설명해야한다.</p>
+<p>네트워크는 크게 로컬 네트워크와 외부 네트워크로 나뉜다.
+로컬 네트워크는 한 공유기 내에 기기들이 wi-fi(무선 랜선)로 서로 연결되어 로컬 ip주소로 서로를 찾는 것이다.
+이때 공유기는 라우터 기능을 겸용하여 외부에 집 안내원 역할도 해준다. 외부 공인 ip주소(집주소)를 바깥에 내세우는 것이다.
+쉽게 말해 외부 공인 ip주소 = 집주소, 로컬 ip주소 = 안방, mac 주소 = 김철수</p>
+<p>내 컴퓨터로 만든 서버 주소 = 내 컴퓨터 로컬 ip주소지만, 외부에서는 우리들 방까지 알 수는 없다.
+따라서 외부에서 <code>http://공유기 외부 공인 ip</code> 를 치고 들어오면 내 로컬 주소로 들어올 수 있도록 누가 안내해줘야 한다. 그게 포트포워딩이다. </p>
+<p>접속 과정
+1. 누군가 공유기 주소를 입력
+2. 라우터(공유기)가 포트포워딩으로 해당 요청을 내 컴퓨터로 전달
+3. 내 컴퓨터가 응답하여 파일 등을 반환 </p>
+<h3 id="2">2&gt; 프로토콜</h3>
+<p>“TCP 소켓(IP:Port) 위에서 SSH/HTTP/HTTPS 같은 응용 프로토콜이 자기 규칙대로 대화한다.”</p>
+<p>[응용 계층]  SSH   HTTP   HTTPS   …
+──────────────────────────────────
+[전송 계층]  TCP (or UDP)
+──────────────────────────────────
+[인터넷 계층]  IP
+──────────────────────────────────
+[링크 계층]   이더넷, Wi-Fi …</p>
+<p>응용 계층 프로토콜
+ssh(22) : 원격 터미널, 파일 전송을 암호화해서 제공
+http(80) : 웹 페이지 요청 및 응답
+https(443) : http에 tls 암호화
+같은 tcp 위에서 여러 응용 프로토콜이 포트를 나눠씀</p>
+<p>전송 계층 프로토콜
+tcp : 데이터가 순서, 무결성을 잃지 않도록 전달
+끝점을 (IP, Port) ↔ (IP, Port) 쌍으로 구분</p>
+<p>ip 주소 : 어느 컴퓨터냐
+포트 번호 : 그 컴퓨터 안의 어느 서비스냐(창구번호)</p>
+<p>[클라이언트]           [서버]
+     49152              22       ← SSH용 소켓
+     50432              80       ← HTTP용 소켓
+     49500              443      ← HTTPS용 소켓
+   (임의)</p>
+<p>8080같은 임의 포트로 웹서버를 띄우려면 http://example.com:8080</p>
+<h3 id="3-ssh">3&gt; ssh?</h3>
+<p>네트워크를 통한 다른 컴퓨터 원격 접속 프로토콜.
+주로 원격 로그인(라즈베리파이 터미널 연결), 파일 전송(git), 포트 포워딩용.</p>
+<p>sshd : 서버 측 데몬으로, ssh 연결을 대기함</p>
+<p>step 1. 서버 신뢰성</p>
+<div class="codehilite"><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="n">서버는</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">ssh_host_ed25519_key와</span><span class="w"> </span><span class="n">그</span><span class="mf">.</span><span class="n">pub에</span><span class="w"> </span><span class="n">ssh</span><span class="o">-</span><span class="n">ed25519</span><span class="p">,</span><span class="w"> </span><span class="n">ssh</span><span class="o">-</span><span class="n">rsa</span><span class="p">,</span><span class="w"> </span><span class="n">ecdsa</span><span class="o">-</span><span class="n">sha2</span><span class="o">-</span><span class="n">nistp256</span><span class="w"> </span><span class="n">세</span><span class="w"> </span><span class="n">개의</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">key의</span><span class="w"> </span><span class="n">공개키</span><span class="o">-</span><span class="n">개인키를</span><span class="w"> </span><span class="n">준비해</span><span class="w"> </span><span class="n">둠</span><span class="mf">.</span>
+<span class="mf">2.</span><span class="w"> </span><span class="n">클라이언트가</span><span class="w"> </span><span class="n">접속하면</span><span class="p">,</span><span class="w"> </span><span class="n">서버는</span><span class="w"> </span><span class="n">자신의</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">key의</span><span class="w"> </span><span class="n">공개키를</span><span class="w"> </span><span class="n">제시하고</span><span class="w"> </span><span class="n">개인키로</span><span class="w"> </span><span class="n">서명하여</span><span class="w"> </span><span class="n">본인</span><span class="w"> </span><span class="n">인증도</span><span class="w"> </span><span class="n">함께</span><span class="w"> </span><span class="n">보냄</span>
+<span class="mf">3.</span><span class="w"> </span><span class="n">클라이언트는</span><span class="w"> </span><span class="err">~</span><span class="o">/</span><span class="mf">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">known_hosts를</span><span class="w"> </span><span class="n">참고하여</span><span class="w"> </span><span class="n">예전과</span><span class="w"> </span><span class="n">동일한</span><span class="w"> </span><span class="n">키인지</span><span class="w"> </span><span class="n">확인함</span>
+<span class="mf">4.</span><span class="w"> </span><span class="n">없으면</span><span class="w"> </span><span class="n">새로</span><span class="w"> </span><span class="n">추가하고</span><span class="p">,</span><span class="w"> </span><span class="n">동일하면</span><span class="w"> </span><span class="s">&quot;이 서버는 내가 알던 서버다&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MITM</span><span class="p">(</span><span class="n">중간자</span><span class="w"> </span><span class="n">공격</span><span class="p">)</span><span class="w"> </span><span class="n">방지</span>
+</code></pre></div>
+
+<p>step 2. 로그인 (비밀번호 로그인으로 대체 가능)</p>
+<div class="codehilite"><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="n">클라이언트는</span><span class="w"> </span><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">ed25519로</span><span class="w"> </span><span class="n">개인키</span><span class="p">(</span><span class="n">열쇠</span><span class="p">),</span><span class="w"> </span><span class="n">공개키</span><span class="p">(</span><span class="n">자물쇠</span><span class="p">)</span><span class="n">를</span><span class="w"> </span><span class="n">쌍으로</span><span class="w"> </span><span class="n">생성</span>
+<span class="mf">2.</span><span class="w"> </span><span class="n">공개키는</span><span class="w"> </span><span class="err">~</span><span class="o">/</span><span class="mf">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_ed25519</span><span class="mf">.</span><span class="n">pub에</span><span class="w"> </span><span class="n">ssh</span><span class="o">-</span><span class="n">ed25519</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="n">base64로</span><span class="w"> </span><span class="n">인코딩된</span><span class="w"> </span><span class="n">키</span><span class="w"> </span><span class="mf">100</span><span class="n">자</span><span class="w"> </span><span class="n">정도</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="n">주석</span><span class="w"> </span><span class="n">형식으로</span><span class="w"> </span><span class="n">저장</span><span class="mf">.</span>
+<span class="mf">3.</span><span class="w"> </span><span class="n">개인키는</span><span class="w"> </span><span class="err">~</span><span class="o">/</span><span class="mf">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_ed25519에</span><span class="w"> </span><span class="o">-----</span><span class="n">BEGIN</span><span class="w"> </span><span class="kr">OPEN</span><span class="n">SSH</span><span class="w"> </span><span class="n">PRIVATE</span><span class="w"> </span><span class="n">KEY</span><span class="o">-----</span><span class="n">base64로</span><span class="w"> </span><span class="n">인코딩된</span><span class="w"> </span><span class="n">키</span><span class="w"> </span><span class="mf">400</span><span class="err">~</span><span class="mf">800</span><span class="n">자</span><span class="o">-----</span><span class="kr">END</span><span class="w"> </span><span class="kr">OPEN</span><span class="n">SSH</span><span class="w"> </span><span class="n">PRIVATE</span><span class="w"> </span><span class="n">KEY</span><span class="o">-----</span><span class="w"> </span><span class="n">형식으로</span><span class="w"> </span><span class="n">저장</span><span class="mf">.</span>
+<span class="mf">4.</span><span class="w"> </span><span class="n">공개키를</span><span class="w"> </span><span class="n">서버에</span><span class="w"> </span><span class="n">직접</span><span class="w"> </span><span class="n">적어놔</span><span class="w"> </span><span class="n">이를</span><span class="w"> </span><span class="n">로그인용</span><span class="w"> </span><span class="n">authorized_key로</span><span class="w"> </span><span class="n">만듦</span><span class="mf">.</span><span class="w"> </span><span class="n">이때</span><span class="w"> </span><span class="n">보통</span><span class="w"> </span><span class="n">SHA256</span><span class="p">(</span><span class="n">공개키를</span><span class="w"> </span><span class="n">요약한</span><span class="w"> </span><span class="n">fingerprint</span><span class="p">)</span><span class="n">로</span><span class="w"> </span><span class="n">간단히</span><span class="w"> </span><span class="n">표기됨</span><span class="mf">.</span>
+<span class="mf">5.</span><span class="w"> </span><span class="n">서버에</span><span class="w"> </span><span class="n">로그인할때마다</span><span class="w"> </span><span class="n">공개키를</span><span class="w"> </span><span class="n">제시하고</span><span class="w"> </span><span class="n">개인키로</span><span class="w"> </span><span class="n">서명하여</span><span class="w"> </span><span class="n">본인</span><span class="w"> </span><span class="n">인증도</span><span class="w"> </span><span class="n">함께</span><span class="w"> </span><span class="n">보냄</span><span class="mf">.</span>
+<span class="mf">6.</span><span class="w"> </span><span class="n">서버는</span><span class="w"> </span><span class="n">공개키</span><span class="w"> </span><span class="n">목록을</span><span class="w"> </span><span class="n">보고</span><span class="w"> </span><span class="n">있는지</span><span class="w"> </span><span class="n">확인함</span><span class="mf">.</span>
+</code></pre></div>
+
+<h3 id="4">4&gt; 퍼미션</h3>
+<p>755
+소유자/그룹/기타 순
+읽기=4 쓰기=2 실행=1 rwx</p>
+<table>
+<thead>
+<tr>
+<th>경로</th>
+<th>소유자:그룹</th>
+<th>디렉터리</th>
+<th>파일</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>/var/www/html</code></strong> <em>(웹루트 상위)</em></td>
+<td><code>root:root</code></td>
+<td><strong>755</strong></td>
+<td>n/a</td>
+<td>코드·데이터를 직접 포함하지 않으므로 <strong>읽기 전용</strong>으로 잠금</td>
+</tr>
+<tr>
+<td><strong><code>/var/www/html/nextcloud</code></strong> <em>(애플리케이션 코드)</em></td>
+<td><code>www-data:www-data</code></td>
+<td><strong>750</strong></td>
+<td><strong>640</strong></td>
+<td>앱이 캐시·업데이트 파일을 쓸 수 있도록 소유자 변경</td>
+</tr>
+<tr>
+<td><strong><code>/srv/nextcloud-data</code></strong> <em>(USB 데이터 폴더)</em></td>
+<td><code>www-data:www-data</code></td>
+<td><strong>750</strong></td>
+<td><strong>640</strong></td>
+<td>업 / 다운로드·섬네일 저장 등 <strong>쓰기</strong> 필요</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
