@@ -131,7 +131,6 @@ sudo -u deployer mkdir -p /home/deployer/.ssh       #해당 계정 home에서 .s
 sudo -u deployer chmod 700 /home/deployer/.ssh      #디렉토리 퍼미션을 700으로 해두기
 sudo -u deployer nano /home/deployer/.ssh/authorized_keys   #아까 내 컴퓨터에서 생성한 ssh 키 중 public key 입력
 sudo chmod 600 /home/deployer/.ssh/authorized_keys  #파일 퍼미션을 600으로 해두기
-Pi SSH 보안: /etc/ssh/sshd_config 에서 PasswordAuthentication no 로 바꾼 뒤 sudo systemctl reload ssh.
 
 ### 6> portal
 
@@ -149,4 +148,4 @@ mkdocs 부분만 빼고 target:     "/var/www/html/"으로만 수정하면 됨
 레포 공개 public 으로 당연히 바꿔주기
 repo - settings - actions - general 들어가서
 workflow permissions 섹션에서 read and write permissions 로 변경
-* (레포 Settings → Pages 에서 Deploy from branch → gh-pages / (root) 확인)
+repo - settings → Pages 에서 Deploy from branch → gh-pages / (root) 확인      #얘는 github pages에 업로드하는 브랜치
