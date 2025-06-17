@@ -107,7 +107,7 @@ The key's randomart image is:
 
 github - repo - settings - secrets and varables - actions 에 들어가 입력
 
-PI_HOST : 172.30.1.222      #pi의 ip주소
+PI_HOST : 125.154.102.145      #pi의 ip주소
 PI_USER : deployer       #pi의 사용자 이름
 PI_SSH_KEY : #내 컴퓨터에서 keygen하고 private key 입력
 -----BEGIN OPENSSH PRIVATE KEY-----
