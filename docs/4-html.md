@@ -9,9 +9,9 @@ server-build            server-build                   클라이언트       htm
 ### 2> 폴더 구조
 
 server-build/
-├─ 1.md    
-├─ 2.md
-├─ 3.md
+├─ docs/
+│   ├─ 1.md
+│   └─ 2.md
 ├─ mkdocs.yml
 └─ .github/workflows/deploy.yml
 
@@ -26,7 +26,7 @@ nav:
   - server: 2-server.md
   - cloud: 3-cloud.md
   - html: 4-html.md
-docs_dir: .             #기본값은 docs. 따로 문서 폴더 안만들거기에 루트로.
+docs_dir: docs          #기본값은 docs. 따라서 안써도 되지만 그냥 명시
 site_dir: site          #기본값은 site. 따라서 안써도 되지만 그냥 명시
 markdown_extensions:
   - toc
@@ -81,7 +81,6 @@ jobs:
         target:     "/var/www/html/${{ github.event.repository.name }}/"   #붙이는거 없이 루트에 두려면 /var/www/html로 바꾸기
         strip_components: 1                         # site/ 디렉터리 계층 제거
 ```
-* (레포 Settings → Pages 에서 Deploy from branch → gh-pages / (root) 확인)
 
 ### 3> 내 컴퓨터에서
 ssh-keyscan -p22 172.30.1.222                           #PI_KNOWN_HOSTS 알아내기
@@ -110,12 +109,15 @@ github - repo - settings - secrets and varables - actions 에 들어가 입력
 
 PI_HOST : 172.30.1.222      #pi의 ip주소
 PI_USER : deployer       #pi의 사용자 이름
-PI_SSH_KEY : b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+PI_SSH_KEY : #내 컴퓨터에서 keygen하고 private key 입력
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
 QyNTUxOQAAACBC4ALhGcfEwRoT0Twq9YNL3XyE6PDY6qmK74qyZvatuAAAALCs5NegrOTX
 oAAAAAtzc2gtZWQyNTUxOQAAACBC4ALhGcfEwRoT0Twq9YNL3XyE6PDY6qmK74qyZvatuA
 AAAEDTndvXduj9G0yedw1h6LTUrKLFIOKEXbEGm/yE6ydTD0LgAuEZx8TBGhPRPCr1g0vd
 fITo8NjqqYrvirJm9q24AAAALGtrb25nbnlhbmcyQGtrb25nbnlhbmcyLTkzMFhDSi05Mz
-FYQ0otOTMwWENSAQ==       #내 컴퓨터에서 keygen하고 private key 입력
+FYQ0otOTMwWENSAQ==
+-----END OPENSSH PRIVATE KEY-----
 PI_KNOWN_HOSTS : 172.30.1.222 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKsC8q8JdGM+d6RIkWQLKM2kG2PnUdiNrnM4swlYYbnh  #내 컴퓨터에서 172.30.1.222 known_hosts 베끼기
 
 ### 5> pi에서
@@ -135,7 +137,15 @@ sudo chmod 600 /home/deployer/.ssh/authorized_keys  #파일 퍼미션을 600으�
 제일 첫 페이지
 
 portal/
-├─ index.html    
+├─ index.html
 └─ .github/workflows/deploy.yml
 
+deploy.yml 수정
 mkdocs 부분만 빼고 target:     "/var/www/html/"으로만 수정하면 됨
+
+
+### 6> 마지막 작업
+레포 공개 public 으로 당연히 바꿔주기
+repo - settings - actions - general 들어가서
+workflow permissions 섹션에서 read and write permissions 로 변경
+* (레포 Settings → Pages 에서 Deploy from branch → gh-pages / (root) 확인)
