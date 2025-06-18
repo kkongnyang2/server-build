@@ -1,27 +1,45 @@
 ## html 파일 업로드
 
+---
 ### 1> 흐름
 
+```
    로컬 폴더    -push->  github 레지스토리  -workflow->  github action  -mkdocs   -> -deploy-> github.io/server-build
 server-build            server-build                   클라이언트       html로   └─ -ssh-> pi의 /var/www/html -apache2-> i-kkongnyang2.myddns.me/server-build
+```
 
-
+---
 ### 2> 폴더 구조
 
+step 1. 폴더 구조 만들기
+```
 server-build/
 ├─ docs/
-│   ├─ 1.md
-│   └─ 2.md
+│   ├─ index.md
+│   ├─ 0.md
+│   └─ 1.md
 ├─ mkdocs.yml
 └─ .github/workflows/deploy.yml
+```
 
-mkdocs.yml
+step 2. index.md
+```
+## 📚 목차
+
+- [0. study](0-study.md)
+- [1. pi](1-pi.md)
+- [2. server](2-server.md)
+- [3. cloud](3-cloud.md)
+- [4. html](4-html.md)
+```
+
+step 3. mkdocs.yml
 ```
 site_name: server-build
 theme:
   name: material
-nav:
-  - 이론: 0-network.md
+nav:                    #사이드바 목차
+  - 이론: 0-study.md
   - pi: 1-pi.md
   - server: 2-server.md
   - cloud: 3-cloud.md
@@ -29,12 +47,19 @@ nav:
 docs_dir: docs          #기본값은 docs. 따라서 안써도 되지만 그냥 명시
 site_dir: site          #기본값은 site. 따라서 안써도 되지만 그냥 명시
 markdown_extensions:
-  - toc
-  - codehilite
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.extra
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - nl2br       # ← 줄바꿈 자동 처리
 ```
 
-mkdir -p .github/workflows
-.github/workflows/deploy.yml
+step 4. .github/workflows/deploy.yml
+```
+~$ mkdir -p .github/workflows
+```
 ```
 name: Daily Deploy to GitHub Pages & Raspberry Pi       #이름
 
@@ -82,12 +107,20 @@ jobs:
         strip_components: 1                         # site/ 디렉터리 계층 제거
 ```
 
+---
 ### 3> 내 컴퓨터에서
-ssh-keyscan -p22 172.30.1.222                           #PI_KNOWN_HOSTS 알아내기
-ssh-keygen -t ed25519 -f id_ed25519_pi -N ""            #비밀번호 없는 ssh 키 쌍 생성
+
+step 1. PI_KNOWN_HOSTS 알아내기
+```bash
+~$ ssh-keyscan -p22 172.30.1.222
+```
+
+step 2. 비밀번호 없는 ssh 키 쌍 생성
+```bash
+~$ ssh-keygen -t ed25519 -f id_ed25519_pi -N ""
 Generating public/private ed25519 key pair.
-Your identification has been saved in id_ed25519_pi
-Your public key has been saved in id_ed25519_pi.pub
+Your identification has been saved in id_ed25519_pi       #private key는 id_ed25519_pi에 저장
+Your public key has been saved in id_ed25519_pi.pub       #public kye는 id_ed25519_pi.pub에 저장
 The key fingerprint is:
 SHA256:sDGJubvrofTtJOfdXydN052qkDMxUIGuitUg1SaNJJ8 kkongnyang2@kkongnyang2-930XCJ-931XCJ-930XCR
 The key's randomart image is:
@@ -102,49 +135,68 @@ The key's randomart image is:
 | o + O . .+ .. o |
 |  ..=o+ . .o.    |
 +----[SHA256]-----+
+```
 
-### 4> secret값 입력
+step 3. secret 입력
 
 github - repo - settings - secrets and varables - actions 에 들어가 입력
 
-PI_HOST : 125.154.102.145      #pi의 ip주소
+```
+PI_HOST : U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용)      #pi의 공인ip주소
 PI_USER : deployer       #pi의 사용자 이름
-PI_SSH_KEY : #내 컴퓨터에서 keygen하고 private key 입력
+PI_SSH_KEY : #아까 keygen한 private key
 -----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
 QyNTUxOQAAACBC4ALhGcfEwRoT0Twq9YNL3XyE6PDY6qmK74qyZvatuAAAALCs5NegrOTX
 oAAAAAtzc2gtZWQyNTUxOQAAACBC4ALhGcfEwRoT0Twq9YNL3XyE6PDY6qmK74qyZvatuA
 AAAEDTndvXduj9G0yedw1h6LTUrKLFIOKEXbEGm/yE6ydTD0LgAuEZx8TBGhPRPCr1g0vd
 fITo8NjqqYrvirJm9q24AAAALGtrb25nbnlhbmcyQGtrb25nbnlhbmcyLTkzMFhDSi05Mz
-FYQ0otOTMwWENSAQ==
+FYQ0otOTMwWENSAQ==(업로드용)
 -----END OPENSSH PRIVATE KEY-----
-PI_KNOWN_HOSTS : 172.30.1.222 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKsC8q8JdGM+d6RIkWQLKM2kG2PnUdiNrnM4swlYYbnh  #내 컴퓨터에서 172.30.1.222 known_hosts 베끼기
+PI_KNOWN_HOSTS : #아까 찾아놓은 known_hosts
+172.30.1.222 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKsC8q8JdGM+d6RIkWQLKM2kG2PnUdiNrnM4swlYYbnh
+```
+* 입력하는 이유? github action이 클라이언트가 되어 내 pi 서버에 로그인해야함
 
-### 5> pi에서
+---
+### 4> pi에서
 
-pi에서 업로드용 사용자 생성
-sudo adduser --disabled-password --gecos "" deployer    #비밀번호도 설명란도 없는 사용자 'deployer' 생성
-sudo usermod -aG www-data deployer         # www-data 그룹에 추가
-sudo chown -R deployer:www-data /var/www/html       #/var/www/html의 소유자와 그룹 변경(퍼미션은 755니까 이러면 deployer만 쓸수 있음)
-sudo chown -R www-data:www-data /var/www/html/nextcloud     #내부에 nextcloud의 소유자와 그룹도 바꼈을테니 다시 올바르게(퍼미션은 바꾼적 없으니 750 잘되어있음)
+step 1. 업로드용 사용자 생성
+```bash
+~$ sudo adduser --disabled-password --gecos "" deployer    #비밀번호도 설명란도 없는 사용자 'deployer' 생성
+~$ sudo usermod -aG www-data deployer         # www-data를 그룹에 추가
+```
+
+step 2. 업로드할 곳 퍼미션 설정
+```bash
+~$ sudo chown -R deployer:www-data /var/www/html       #/var/www/html의 소유자와 그룹 변경(퍼미션은 755니까 이러면 deployer만 write할수 있음)
+~$ sudo chown -R www-data:www-data /var/www/html/nextcloud     #내부에 nextcloud의 소유자와 그룹도 바꼈을테니 다시 올바르게(퍼미션은 바꾼적 없으니 750 잘되어있음)
+```
+
+step 3. public key 등록
+```bash
 sudo -u deployer mkdir -p /home/deployer/.ssh       #해당 계정 home에서 .ssh 디렉토리 생성
 sudo -u deployer chmod 700 /home/deployer/.ssh      #디렉토리 퍼미션을 700으로 해두기
 sudo -u deployer nano /home/deployer/.ssh/authorized_keys   #아까 내 컴퓨터에서 생성한 ssh 키 중 public key 입력
 sudo chmod 600 /home/deployer/.ssh/authorized_keys  #파일 퍼미션을 600으로 해두기
+```
 
-### 6> portal 레포 추가
+---
+### 5> kkongnyang2.github.io 레포 추가
 
-제일 첫 페이지
+웹페이지 제일 첫 페이지가 될 거
 
-portal/
+```
+kkongnyang2.github.io/
 ├─ index.html
 └─ .github/workflows/deploy.yml
+```
 
-deploy.yml 수정
-mkdocs 부분만 빼고 target:     "/var/www/html/"으로만 수정하면 됨
+얘는 이미 html파일이라 docs.yml를 넣어줄 필요가 없다.
+deploy.yml에서 mkdocs 부분만 빼고 target:     "/var/www/html/"으로만 수정하면 됨
 
-
-### 7> 마지막 작업
+---
+### 6> 마지막 작업
 
 step 1. 레포 공개 public 으로 당연히 바꿔주기
 
@@ -154,3 +206,28 @@ workflow permissions 섹션에서 read and write permissions 로 변경
 step 3. 공유기 페이지 들어가서 22번 포트 포트포워딩 해주기
 
 step 4. 첫 업로드 이후 repo - settings → Pages 에서 Deploy from branch → gh-pages / (root) 설정     #얘는 github pages에 업로드하는 브랜치
+
+---
+### 7> 개인정보 암호화
+
+```bash
+~$ echo -n "원하는 문구" | openssl enc -aes-256-cbc -a -salt -pbkdf2 -pass pass:내비밀번호
+암호 문구
+~$ echo "암호 문구" | \
+openssl enc -aes-256-cbc -a -d -pbkdf2 -pass pass:내비밀번호
+원래 문구
+```
+```
+비밀번호 -> U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)
+공인ip주소 -> U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용)
+비밀번호2 -> U2FsdGVkX1+pMjybe35mgNJBuIV/tF+brc3SX+Rcqvw=(업로드용)
+개인키 -> U2FsdGVkX18oowmiNgvyUfNYrIgmveJ77XIBl8f6/CkWhmNdJTX1DtzJ0Ym5lgoE
+QVcHLcQae5I9hnvEGdpE0wDyYmmhU9ToeUycUPYROGaGhO5PQC9XQQ0kZY7g5JR6
+QmziVX/r4McqHpemsYihgTE3OZb4M9efkUgQDw5wpE5S5xg+YbgTYu/aJEfIpjA/
+39LFLDy1BzcUr9pCjN4WZuzqCSMwquxFU/CNCwfLGy9bhHCNR/jn6H2gnMzZKeSj
+j+hU3avIPgbwwl49TVYGyLVd6c2OglGOdzAK8HSJdJY/0BTan2R8NwILFugBqu5A
+fCq9SCP7KQNydfEkfXKiUd2LGwcfw7j0NCDno8wK2BZse+xvC0Wjc1idIs80RL+n
+sWuHI0zkxc0lEjTENS5AcSkcTtrcOLQOVYd39j8/T0nF1cF2rVCIJxlopV8cv533
+WIGtKORT4nXF5q3qTERqBHvhrpoB5WopAIi33zERYHHHtkodf4cBQJo2fr0/AaiI
+7tp8zAN8OX7pGcYku8v5ng==(업로드용)
+```

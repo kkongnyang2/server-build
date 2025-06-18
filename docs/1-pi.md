@@ -72,7 +72,7 @@ step 3. rpi-imager에서 굽기 전 사용자 커스터마이징
 ```
 hostname: raspberrypi.local
 사용자 이름: kkongnyang2
-비밀번호: 4108
+비밀번호: U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)
 무선 LAN SSID: KT_GiGA_1D39
 무선 LAN 비밀번호: eec0hc4206
 무선 LAN 국가: KR

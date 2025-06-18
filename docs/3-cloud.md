@@ -26,7 +26,7 @@ mysql  Ver 15.1 Distrib 10.6.22-MariaDB, for debian-linux-gnu (aarch64) using  E
 step 2. mariaDB 보안 설정
 ```bash
 ~$ sudo mysql_secure_installation
-Enter password for root 4108                  #비번 설정
+Enter password for root U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)                  #비번 설정
 Switch to unix_socket authentication [Y/n] n  #우분투의 root 권한과 동일시. n하면 디폴트는 비밀번호
 Change the root password? [Y/n] n     #비번 변경
 Remove anonymous users? [Y/n] y       #익명 사용자 제거
@@ -39,7 +39,7 @@ step 3. mariaDB 사용자 생성
 ```bash
 ~$ sudo mysql -u root -p
 MariaDB [(none)]> CREATE DATABASE nextcloud CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-MariaDB [(none)]> CREATE USER 'kkongnyang2'@'localhost' IDENTIFIED BY '4108';
+MariaDB [(none)]> CREATE USER 'kkongnyang2'@'localhost' IDENTIFIED BY 'U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)';
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON nextcloud.* TO 'kkongnyang2'@'localhost';
 MariaDB [(none)]> FLUSH PRIVILEGES;
 MariaDB [(none)]> SELECT User, Host FROM mysql.user;
@@ -162,10 +162,10 @@ nextcloud 설정:
 ```
 https://i-kkongnyang2.myddns.me/nextcloud 페이지에 들어가
 아이디: kkongnyang2
-비밀번호: naciwotfhr@8104
+비밀번호: U2FsdGVkX1+pMjybe35mgNJBuIV/tF+brc3SX+Rcqvw=(업로드용)
 Data folder: /srv/nextcloud-data
 Database account: kkongnyang2
-Database password: 4108
+Database password: U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)
 Database name: nextcloud
 Database host: localhost
 ```
