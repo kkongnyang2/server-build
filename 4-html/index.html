@@ -192,12 +192,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../0-network/" class="md-nav__link">
+      <a href="../0-study/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    이론
+    study
     
   </span>
   
@@ -363,27 +363,27 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-secret" class="md-nav__link">
+  <a href="#4-pi" class="md-nav__link">
     <span class="md-ellipsis">
-      4&gt; secret값 입력
+      4&gt; pi에서
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-pi" class="md-nav__link">
+  <a href="#5-kkongnyang2githubio" class="md-nav__link">
     <span class="md-ellipsis">
-      5&gt; pi에서
+      5&gt; kkongnyang2.github.io 레포 추가
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-portal" class="md-nav__link">
+  <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
-      6&gt; portal 레포 추가
+      6&gt; 마지막 작업
     </span>
   </a>
   
@@ -392,7 +392,7 @@
           <li class="md-nav__item">
   <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
-      7&gt; 마지막 작업
+      7&gt; 개인정보 암호화
     </span>
   </a>
   
@@ -473,27 +473,27 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-secret" class="md-nav__link">
+  <a href="#4-pi" class="md-nav__link">
     <span class="md-ellipsis">
-      4&gt; secret값 입력
+      4&gt; pi에서
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-pi" class="md-nav__link">
+  <a href="#5-kkongnyang2githubio" class="md-nav__link">
     <span class="md-ellipsis">
-      5&gt; pi에서
+      5&gt; kkongnyang2.github.io 레포 추가
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-portal" class="md-nav__link">
+  <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
-      6&gt; portal 레포 추가
+      6&gt; 마지막 작업
     </span>
   </a>
   
@@ -502,7 +502,7 @@
           <li class="md-nav__item">
   <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
-      7&gt; 마지막 작업
+      7&gt; 개인정보 암호화
     </span>
   </a>
   
@@ -531,139 +531,196 @@
 
   <h1>html</h1>
 
-<h2 id="html">html 파일 업로드</h2>
-<h3 id="1">1&gt; 흐름</h3>
-<p>로컬 폴더    -push-&gt;  github 레지스토리  -workflow-&gt;  github action  -mkdocs   -&gt; -deploy-&gt; github.io/server-build
-server-build            server-build                   클라이언트       html로   └─ -ssh-&gt; pi의 /var/www/html -apache2-&gt; i-kkongnyang2.myddns.me/server-build</p>
-<h3 id="2">2&gt; 폴더 구조</h3>
-<p>server-build/
+<h2 id="html">html 파일 업로드<a class="headerlink" href="#html" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="1">1&gt; 흐름<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>   로컬 폴더    -push-&gt;  github 레지스토리  -workflow-&gt;  github action  -mkdocs   -&gt; -deploy-&gt; github.io/server-build
+server-build            server-build                   클라이언트       html로   └─ -ssh-&gt; pi의 /var/www/html -apache2-&gt; i-kkongnyang2.myddns.me/server-build
+</code></pre></div>
+<hr />
+<h3 id="2">2&gt; 폴더 구조<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>step 1. 폴더 구조 만들기<br />
+<div class="highlight"><pre><span></span><code>server-build/
 ├─ docs/
-│   ├─ 1.md
-│   └─ 2.md
+│   ├─ index.md
+│   ├─ 0.md
+│   └─ 1.md
 ├─ mkdocs.yml
-└─ .github/workflows/deploy.yml</p>
-<p>mkdocs.yml</p>
-<div class="codehilite"><pre><span></span><code><span class="n">site_name</span><span class="o">:</span><span class="w"> </span><span class="n">server</span><span class="o">-</span><span class="n">build</span>
-<span class="n">theme</span><span class="o">:</span>
-<span class="w">  </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">material</span>
-<span class="n">nav</span><span class="o">:</span>
-<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="err">이론</span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="o">-</span><span class="n">network</span><span class="o">.</span><span class="na">md</span>
-<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">pi</span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="o">-</span><span class="n">pi</span><span class="o">.</span><span class="na">md</span>
-<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">server</span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="o">-</span><span class="n">server</span><span class="o">.</span><span class="na">md</span>
-<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">cloud</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="o">-</span><span class="n">cloud</span><span class="o">.</span><span class="na">md</span>
-<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">html</span><span class="o">:</span><span class="w"> </span><span class="mi">4</span><span class="o">-</span><span class="n">html</span><span class="o">.</span><span class="na">md</span>
-<span class="n">docs_dir</span><span class="o">:</span><span class="w"> </span><span class="n">docs</span><span class="w">          </span><span class="err">#기본값은</span><span class="w"> </span><span class="n">docs</span><span class="o">.</span><span class="w"> </span><span class="err">따라서</span><span class="w"> </span><span class="err">안써도</span><span class="w"> </span><span class="err">되지만</span><span class="w"> </span><span class="err">그냥</span><span class="w"> </span><span class="err">명시</span>
-<span class="n">site_dir</span><span class="o">:</span><span class="w"> </span><span class="n">site</span><span class="w">          </span><span class="err">#기본값은</span><span class="w"> </span><span class="n">site</span><span class="o">.</span><span class="w"> </span><span class="err">따라서</span><span class="w"> </span><span class="err">안써도</span><span class="w"> </span><span class="err">되지만</span><span class="w"> </span><span class="err">그냥</span><span class="w"> </span><span class="err">명시</span>
-<span class="n">markdown_extensions</span><span class="o">:</span>
-<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">toc</span>
-<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">codehilite</span>
-</code></pre></div>
+└─ .github/workflows/deploy.yml
+</code></pre></div></p>
+<p>step 2. index.md<br />
+<div class="highlight"><pre><span></span><code>## 📚 목차
 
-<p>mkdir -p .github/workflows
-.github/workflows/deploy.yml</p>
-<div class="codehilite"><pre><span></span><code><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Daily</span><span class="w"> </span><span class="n">Deploy</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">GitHub</span><span class="w"> </span><span class="n">Pages</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">Raspberry</span><span class="w"> </span><span class="n">Pi</span><span class="w">       </span><span class="err">#이름</span>
+- [0. study](0-study.md)
+- [1. pi](1-pi.md)
+- [2. server](2-server.md)
+- [3. cloud](3-cloud.md)
+- [4. html](4-html.md)
+</code></pre></div></p>
+<p>step 3. mkdocs.yml<br />
+<div class="highlight"><pre><span></span><code>site_name: server-build
+theme:
+  name: material
+nav:                    #사이드바 목차
+  - 이론: 0-study.md
+  - pi: 1-pi.md
+  - server: 2-server.md
+  - cloud: 3-cloud.md
+  - html: 4-html.md
+docs_dir: docs          #기본값은 docs. 따라서 안써도 되지만 그냥 명시
+site_dir: site          #기본값은 site. 따라서 안써도 되지만 그냥 명시
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.extra
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - nl2br       # ← 줄바꿈 자동 처리
+</code></pre></div></p>
+<p>step 4. .github/workflows/deploy.yml<br />
+<div class="highlight"><pre><span></span><code>~$ mkdir -p .github/workflows
+</code></pre></div><br />
+<div class="highlight"><pre><span></span><code>name: Daily Deploy to GitHub Pages &amp; Raspberry Pi       #이름
 
-<span class="n">on</span><span class="o">:</span>
-<span class="w">  </span><span class="n">push</span><span class="o">:</span><span class="w">                 </span><span class="err">#</span><span class="w"> </span><span class="err">수동</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="err">시</span><span class="w"> </span><span class="err">즉시</span>
-<span class="w">  </span><span class="n">schedule</span><span class="o">:</span><span class="w">             </span><span class="err">#</span><span class="w"> </span><span class="err">매일</span><span class="w"> </span><span class="mi">18</span><span class="o">:</span><span class="mi">00</span><span class="w"> </span><span class="n">UTC</span>
-<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">cron</span><span class="o">:</span><span class="w">  </span><span class="s1">&#39;0 18 * * *&#39;</span>
+on:
+  push:                 # 수동 push 시 즉시
+  schedule:             # 매일 18:00 UTC
+    - cron:  &#39;0 18 * * *&#39;
 
-<span class="n">jobs</span><span class="o">:</span>
-<span class="w">  </span><span class="n">build</span><span class="o">:</span>
-<span class="w">    </span><span class="n">runs</span><span class="o">-</span><span class="n">on</span><span class="o">:</span><span class="w"> </span><span class="n">ubuntu</span><span class="o">-</span><span class="n">latest</span><span class="w">      </span><span class="err">#</span><span class="n">github가</span><span class="w"> </span><span class="err">제공하는</span><span class="w"> </span><span class="err">우분투</span><span class="w"> </span><span class="err">러너</span><span class="w"> </span><span class="err">사용</span>
-<span class="w">    </span><span class="n">steps</span><span class="o">:</span>
-<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">uses</span><span class="o">:</span><span class="w"> </span><span class="n">actions</span><span class="o">/</span><span class="n">checkout</span><span class="err">@</span><span class="n">v4</span>
+jobs:
+  build:
+    runs-on: ubuntu-latest      #github가 제공하는 우분투 러너 사용
+    steps:
+    - uses: actions/checkout@v4
 
-<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">uses</span><span class="o">:</span><span class="w"> </span><span class="n">actions</span><span class="o">/</span><span class="n">setup</span><span class="o">-</span><span class="n">python</span><span class="err">@</span><span class="n">v5</span><span class="w">     </span><span class="err">#</span><span class="n">mkdocs가</span><span class="w"> </span><span class="err">필요로</span><span class="w"> </span><span class="err">하는</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="err">설치</span>
-<span class="w">      </span><span class="k">with</span><span class="o">:</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">python</span><span class="o">-</span><span class="n">version</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;3.11&#39;</span><span class="w"> </span><span class="o">}</span>
+    - uses: actions/setup-python@v5     #mkdocs가 필요로 하는 python 설치
+      with: { python-version: &#39;3.11&#39; }
 
-<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Install</span><span class="w"> </span><span class="n">MkDocs</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">theme</span>
-<span class="w">      </span><span class="n">run</span><span class="o">:</span><span class="w"> </span><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">mkdocs</span><span class="w"> </span><span class="n">mkdocs</span><span class="o">-</span><span class="n">material</span><span class="w">     </span><span class="err">#추가</span><span class="w"> </span><span class="err">플러그인</span><span class="w"> </span><span class="err">있으면</span><span class="w"> </span><span class="err">스페이스로</span><span class="w"> </span><span class="err">이어서</span><span class="w"> </span><span class="err">적을것</span>
+    - name: Install MkDocs &amp; theme
+      run: pip install mkdocs mkdocs-material     #추가 플러그인 있으면 스페이스로 이어서 적을것
 
-<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Build</span><span class="w"> </span><span class="n">MkDocs</span>
-<span class="w">      </span><span class="n">run</span><span class="o">:</span><span class="w"> </span><span class="n">mkdocs</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="o">--</span><span class="n">strict</span><span class="w">             </span><span class="err">#</span><span class="w"> </span><span class="n">mkdocs</span><span class="o">.</span><span class="na">yml을</span><span class="w"> </span><span class="err">읽어</span><span class="w"> </span><span class="n">site</span><span class="o">/</span><span class="w"> </span><span class="err">폴더</span><span class="w"> </span><span class="err">생성</span>
+    - name: Build MkDocs
+      run: mkdocs build --strict             # mkdocs.yml을 읽어 site/ 폴더 생성
 
-<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="o">----------</span><span class="w"> </span><span class="n">GitHub</span><span class="w"> </span><span class="n">Pages</span><span class="w"> </span><span class="err">배포</span><span class="w"> </span><span class="o">----------</span>
-<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Deploy</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">GitHub</span><span class="w"> </span><span class="n">Pages</span>
-<span class="w">      </span><span class="n">uses</span><span class="o">:</span><span class="w"> </span><span class="n">peaceiris</span><span class="o">/</span><span class="n">actions</span><span class="o">-</span><span class="n">gh</span><span class="o">-</span><span class="n">pages</span><span class="err">@</span><span class="n">v4</span>
-<span class="w">      </span><span class="k">with</span><span class="o">:</span>
-<span class="w">        </span><span class="n">github_token</span><span class="o">:</span><span class="w"> </span><span class="n">$</span><span class="o">{{</span><span class="w"> </span><span class="n">secrets</span><span class="o">.</span><span class="na">GITHUB_TOKEN</span><span class="w"> </span><span class="o">}}</span>
-<span class="w">        </span><span class="n">publish_dir</span><span class="o">:</span><span class="w">  </span><span class="n">site</span><span class="w">                   </span><span class="err">#</span><span class="w"> </span><span class="n">site</span><span class="o">/</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">gh</span><span class="o">-</span><span class="n">pages</span><span class="w"> </span><span class="err">브랜치</span><span class="w"> </span><span class="err">푸시</span>
+    # ---------- GitHub Pages 배포 ----------
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir:  site                   # site/ → gh-pages 브랜치 푸시
 
-<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="o">----------</span><span class="w"> </span><span class="n">Raspberry</span><span class="w"> </span><span class="n">Pi</span><span class="w"> </span><span class="err">배포</span><span class="w"> </span><span class="o">----------</span>
-<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Add</span><span class="w"> </span><span class="n">Pi</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">known_hosts</span>
-<span class="w">      </span><span class="n">run</span><span class="o">:</span><span class="w"> </span><span class="o">|</span>
-<span class="w">        </span><span class="n">mkdir</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="o">~/.</span><span class="n">ssh</span>
-<span class="w">        </span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;${{ secrets.PI_KNOWN_HOSTS }}&quot;</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">known_hosts</span><span class="w">      </span><span class="err">#</span><span class="n">pi의</span><span class="w"> </span><span class="err">호스트</span><span class="w"> </span><span class="err">키</span><span class="w"> </span><span class="err">사전</span><span class="w"> </span><span class="err">등록</span>
+    # ---------- Raspberry Pi 배포 ----------
+    - name: Add Pi to known_hosts
+      run: |
+        mkdir -p ~/.ssh
+        echo &quot;${{ secrets.PI_KNOWN_HOSTS }}&quot; &gt;&gt; ~/.ssh/known_hosts      #pi의 호스트 키 사전 등록
 
-<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Copy</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">Raspberry</span><span class="w"> </span><span class="n">Pi</span>
-<span class="w">      </span><span class="n">uses</span><span class="o">:</span><span class="w"> </span><span class="n">appleboy</span><span class="o">/</span><span class="n">scp</span><span class="o">-</span><span class="n">action</span><span class="err">@</span><span class="n">v0</span><span class="o">.</span><span class="mf">1.3</span>
-<span class="w">      </span><span class="k">with</span><span class="o">:</span>
-<span class="w">        </span><span class="n">host</span><span class="o">:</span><span class="w">       </span><span class="n">$</span><span class="o">{{</span><span class="w"> </span><span class="n">secrets</span><span class="o">.</span><span class="na">PI_HOST</span><span class="w"> </span><span class="o">}}</span><span class="w">          </span><span class="err">#</span><span class="n">pi의</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="err">주소</span>
-<span class="w">        </span><span class="n">username</span><span class="o">:</span><span class="w">   </span><span class="n">$</span><span class="o">{{</span><span class="w"> </span><span class="n">secrets</span><span class="o">.</span><span class="na">PI_USER</span><span class="w"> </span><span class="o">}}</span><span class="w">          </span><span class="err">#</span><span class="n">pi의</span><span class="w"> </span><span class="err">사용자</span>
-<span class="w">        </span><span class="n">key</span><span class="o">:</span><span class="w">        </span><span class="n">$</span><span class="o">{{</span><span class="w"> </span><span class="n">secrets</span><span class="o">.</span><span class="na">PI_SSH_KEY</span><span class="w"> </span><span class="o">}}</span><span class="w">       </span><span class="err">#</span><span class="n">ssh로그인을</span><span class="w"> </span><span class="err">위한</span><span class="w"> </span><span class="kd">private</span><span class="w"> </span><span class="n">key</span>
-<span class="w">        </span><span class="n">source</span><span class="o">:</span><span class="w">     </span><span class="s2">&quot;site/*&quot;</span><span class="w">                        </span><span class="err">#보낼것</span>
-<span class="w">        </span><span class="n">target</span><span class="o">:</span><span class="w">     </span><span class="s2">&quot;/var/www/html/${{ github.event.repository.name }}/&quot;</span><span class="w">   </span><span class="err">#붙이는거</span><span class="w"> </span><span class="err">없이</span><span class="w"> </span><span class="err">루트에</span><span class="w"> </span><span class="err">두려면</span><span class="w"> </span><span class="sr">/var/www/</span><span class="n">html로</span><span class="w"> </span><span class="err">바꾸기</span>
-<span class="w">        </span><span class="n">strip_components</span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="w">                         </span><span class="err">#</span><span class="w"> </span><span class="n">site</span><span class="o">/</span><span class="w"> </span><span class="err">디렉터리</span><span class="w"> </span><span class="err">계층</span><span class="w"> </span><span class="err">제거</span>
-</code></pre></div>
-
-<h3 id="3">3&gt; 내 컴퓨터에서</h3>
-<p>ssh-keyscan -p22 172.30.1.222                           #PI_KNOWN_HOSTS 알아내기
-ssh-keygen -t ed25519 -f id_ed25519_pi -N ""            #비밀번호 없는 ssh 키 쌍 생성
-Generating public/private ed25519 key pair.
-Your identification has been saved in id_ed25519_pi
-Your public key has been saved in id_ed25519_pi.pub
-The key fingerprint is:
-SHA256:sDGJubvrofTtJOfdXydN052qkDMxUIGuitUg1SaNJJ8 kkongnyang2@kkongnyang2-930XCJ-931XCJ-930XCR
-The key's randomart image is:
-+--[ED25519 256]--+
-| ...+   .o.      |
-|  o+.<em> o.        |
-|  .E= </em>.         |
-| . . . *.       +|
-|  . + o So     o+|
-|   . +    +   .o.|
-|  + = o  =   .o o|
-| o + O . .+ .. o |
-|  ..=o+ . .o.    |
-+----[SHA256]-----+</p>
-<h3 id="4-secret">4&gt; secret값 입력</h3>
+    - name: Copy to Raspberry Pi
+      uses: appleboy/scp-action@v0.1.3
+      with:
+        host:       ${{ secrets.PI_HOST }}          #pi의 ip 주소
+        username:   ${{ secrets.PI_USER }}          #pi의 사용자
+        key:        ${{ secrets.PI_SSH_KEY }}       #ssh로그인을 위한 private key
+        source:     &quot;site/*&quot;                        #보낼것
+        target:     &quot;/var/www/html/${{ github.event.repository.name }}/&quot;   #붙이는거 없이 루트에 두려면 /var/www/html로 바꾸기
+        strip_components: 1                         # site/ 디렉터리 계층 제거
+</code></pre></div></p>
+<hr />
+<h3 id="3">3&gt; 내 컴퓨터에서<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>step 1. PI_KNOWN_HOSTS 알아내기<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>ssh-keyscan<span class="w"> </span>-p22<span class="w"> </span><span class="m">172</span>.30.1.222
+</code></pre></div></p>
+<p>step 2. 비밀번호 없는 ssh 키 쌍 생성<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-f<span class="w"> </span>id_ed25519_pi<span class="w"> </span>-N<span class="w"> </span><span class="s2">&quot;&quot;</span>
+Generating<span class="w"> </span>public/private<span class="w"> </span>ed25519<span class="w"> </span>key<span class="w"> </span>pair.
+Your<span class="w"> </span>identification<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>saved<span class="w"> </span><span class="k">in</span><span class="w"> </span>id_ed25519_pi<span class="w">       </span><span class="c1">#private key는 id_ed25519_pi에 저장</span>
+Your<span class="w"> </span>public<span class="w"> </span>key<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>saved<span class="w"> </span><span class="k">in</span><span class="w"> </span>id_ed25519_pi.pub<span class="w">       </span><span class="c1">#public kye는 id_ed25519_pi.pub에 저장</span>
+The<span class="w"> </span>key<span class="w"> </span>fingerprint<span class="w"> </span>is:
+SHA256:sDGJubvrofTtJOfdXydN052qkDMxUIGuitUg1SaNJJ8<span class="w"> </span>kkongnyang2@kkongnyang2-930XCJ-931XCJ-930XCR
+The<span class="w"> </span>key<span class="err">&#39;</span>s<span class="w"> </span>randomart<span class="w"> </span>image<span class="w"> </span>is:
++--<span class="o">[</span>ED25519<span class="w"> </span><span class="m">256</span><span class="o">]</span>--+
+<span class="p">|</span><span class="w"> </span>...+<span class="w">   </span>.o.<span class="w">      </span><span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>o+.*<span class="w"> </span>o.<span class="w">        </span><span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>.E<span class="o">=</span><span class="w"> </span>*.<span class="w">         </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>*.<span class="w">       </span>+<span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>.<span class="w"> </span>+<span class="w"> </span>o<span class="w"> </span>So<span class="w">     </span>o+<span class="p">|</span>
+<span class="p">|</span><span class="w">   </span>.<span class="w"> </span>+<span class="w">    </span>+<span class="w">   </span>.o.<span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>+<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">o</span><span class="w">  </span><span class="o">=</span><span class="w">   </span>.o<span class="w"> </span>o<span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>o<span class="w"> </span>+<span class="w"> </span>O<span class="w"> </span>.<span class="w"> </span>.+<span class="w"> </span>..<span class="w"> </span>o<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>..<span class="o">=</span>o+<span class="w"> </span>.<span class="w"> </span>.o.<span class="w">    </span><span class="p">|</span>
++----<span class="o">[</span>SHA256<span class="o">]</span>-----+
+</code></pre></div></p>
+<p>step 3. secret 입력</p>
 <p>github - repo - settings - secrets and varables - actions 에 들어가 입력</p>
-<p>PI_HOST : 125.154.102.145      #pi의 ip주소
+<p><div class="highlight"><pre><span></span><code>PI_HOST : U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용)      #pi의 공인ip주소
 PI_USER : deployer       #pi의 사용자 이름
-PI_SSH_KEY : #내 컴퓨터에서 keygen하고 private key 입력
+PI_SSH_KEY : #아까 keygen한 private key
 -----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
 QyNTUxOQAAACBC4ALhGcfEwRoT0Twq9YNL3XyE6PDY6qmK74qyZvatuAAAALCs5NegrOTX
 oAAAAAtzc2gtZWQyNTUxOQAAACBC4ALhGcfEwRoT0Twq9YNL3XyE6PDY6qmK74qyZvatuA
 AAAEDTndvXduj9G0yedw1h6LTUrKLFIOKEXbEGm/yE6ydTD0LgAuEZx8TBGhPRPCr1g0vd
 fITo8NjqqYrvirJm9q24AAAALGtrb25nbnlhbmcyQGtrb25nbnlhbmcyLTkzMFhDSi05Mz
-FYQ0otOTMwWENSAQ==
+FYQ0otOTMwWENSAQ==(업로드용)
 -----END OPENSSH PRIVATE KEY-----
-PI_KNOWN_HOSTS : 172.30.1.222 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKsC8q8JdGM+d6RIkWQLKM2kG2PnUdiNrnM4swlYYbnh  #내 컴퓨터에서 172.30.1.222 known_hosts 베끼기</p>
-<h3 id="5-pi">5&gt; pi에서</h3>
-<p>pi에서 업로드용 사용자 생성
-sudo adduser --disabled-password --gecos "" deployer    #비밀번호도 설명란도 없는 사용자 'deployer' 생성
-sudo usermod -aG www-data deployer         # www-data 그룹에 추가
-sudo chown -R deployer:www-data /var/www/html       #/var/www/html의 소유자와 그룹 변경(퍼미션은 755니까 이러면 deployer만 쓸수 있음)
-sudo chown -R www-data:www-data /var/www/html/nextcloud     #내부에 nextcloud의 소유자와 그룹도 바꼈을테니 다시 올바르게(퍼미션은 바꾼적 없으니 750 잘되어있음)
-sudo -u deployer mkdir -p /home/deployer/.ssh       #해당 계정 home에서 .ssh 디렉토리 생성
-sudo -u deployer chmod 700 /home/deployer/.ssh      #디렉토리 퍼미션을 700으로 해두기
-sudo -u deployer nano /home/deployer/.ssh/authorized_keys   #아까 내 컴퓨터에서 생성한 ssh 키 중 public key 입력
-sudo chmod 600 /home/deployer/.ssh/authorized_keys  #파일 퍼미션을 600으로 해두기</p>
-<h3 id="6-portal">6&gt; portal 레포 추가</h3>
-<p>제일 첫 페이지</p>
-<p>portal/
+PI_KNOWN_HOSTS : #아까 찾아놓은 known_hosts
+172.30.1.222 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKsC8q8JdGM+d6RIkWQLKM2kG2PnUdiNrnM4swlYYbnh
+</code></pre></div><br />
+* 입력하는 이유? github action이 클라이언트가 되어 내 pi 서버에 로그인해야함</p>
+<hr />
+<h3 id="4-pi">4&gt; pi에서<a class="headerlink" href="#4-pi" title="Permanent link">&para;</a></h3>
+<p>step 1. 업로드용 사용자 생성<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>adduser<span class="w"> </span>--disabled-password<span class="w"> </span>--gecos<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>deployer<span class="w">    </span><span class="c1">#비밀번호도 설명란도 없는 사용자 &#39;deployer&#39; 생성</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>www-data<span class="w"> </span>deployer<span class="w">         </span><span class="c1"># www-data를 그룹에 추가</span>
+</code></pre></div></p>
+<p>step 2. 업로드할 곳 퍼미션 설정<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>deployer:www-data<span class="w"> </span>/var/www/html<span class="w">       </span><span class="c1">#/var/www/html의 소유자와 그룹 변경(퍼미션은 755니까 이러면 deployer만 write할수 있음)</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/www/html/nextcloud<span class="w">     </span><span class="c1">#내부에 nextcloud의 소유자와 그룹도 바꼈을테니 다시 올바르게(퍼미션은 바꾼적 없으니 750 잘되어있음)</span>
+</code></pre></div></p>
+<p>step 3. public key 등록<br />
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>deployer<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/home/deployer/.ssh<span class="w">       </span><span class="c1">#해당 계정 home에서 .ssh 디렉토리 생성</span>
+sudo<span class="w"> </span>-u<span class="w"> </span>deployer<span class="w"> </span>chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>/home/deployer/.ssh<span class="w">      </span><span class="c1">#디렉토리 퍼미션을 700으로 해두기</span>
+sudo<span class="w"> </span>-u<span class="w"> </span>deployer<span class="w"> </span>nano<span class="w"> </span>/home/deployer/.ssh/authorized_keys<span class="w">   </span><span class="c1">#아까 내 컴퓨터에서 생성한 ssh 키 중 public key 입력</span>
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/home/deployer/.ssh/authorized_keys<span class="w">  </span><span class="c1">#파일 퍼미션을 600으로 해두기</span>
+</code></pre></div></p>
+<hr />
+<h3 id="5-kkongnyang2githubio">5&gt; kkongnyang2.github.io 레포 추가<a class="headerlink" href="#5-kkongnyang2githubio" title="Permanent link">&para;</a></h3>
+<p>웹페이지 제일 첫 페이지가 될 거</p>
+<div class="highlight"><pre><span></span><code>kkongnyang2.github.io/
 ├─ index.html
-└─ .github/workflows/deploy.yml</p>
-<p>deploy.yml 수정
-mkdocs 부분만 빼고 target:     "/var/www/html/"으로만 수정하면 됨</p>
-<h3 id="7">7&gt; 마지막 작업</h3>
+└─ .github/workflows/deploy.yml
+</code></pre></div>
+<p>얘는 이미 html파일이라 docs.yml를 넣어줄 필요가 없다.<br />
+deploy.yml에서 mkdocs 부분만 빼고 target:     "/var/www/html/"으로만 수정하면 됨</p>
+<hr />
+<h3 id="6">6&gt; 마지막 작업<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
 <p>step 1. 레포 공개 public 으로 당연히 바꿔주기</p>
-<p>step 2. repo - settings - actions - general 들어가서
+<p>step 2. repo - settings - actions - general 들어가서<br />
 workflow permissions 섹션에서 read and write permissions 로 변경</p>
 <p>step 3. 공유기 페이지 들어가서 22번 포트 포트포워딩 해주기</p>
 <p>step 4. 첫 업로드 이후 repo - settings → Pages 에서 Deploy from branch → gh-pages / (root) 설정     #얘는 github pages에 업로드하는 브랜치</p>
+<hr />
+<h3 id="7">7&gt; 개인정보 암호화<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;원하는 문구&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>enc<span class="w"> </span>-aes-256-cbc<span class="w"> </span>-a<span class="w"> </span>-salt<span class="w"> </span>-pbkdf2<span class="w"> </span>-pass<span class="w"> </span>pass:내비밀번호
+암호<span class="w"> </span>문구
+~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;암호 문구&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+openssl<span class="w"> </span>enc<span class="w"> </span>-aes-256-cbc<span class="w"> </span>-a<span class="w"> </span>-d<span class="w"> </span>-pbkdf2<span class="w"> </span>-pass<span class="w"> </span>pass:내비밀번호
+원래<span class="w"> </span>문구
+</code></pre></div><br />
+<div class="highlight"><pre><span></span><code>비밀번호 -&gt; U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)
+공인ip주소 -&gt; U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용)
+비밀번호2 -&gt; U2FsdGVkX1+pMjybe35mgNJBuIV/tF+brc3SX+Rcqvw=(업로드용)
+개인키 -&gt; U2FsdGVkX18oowmiNgvyUfNYrIgmveJ77XIBl8f6/CkWhmNdJTX1DtzJ0Ym5lgoE
+QVcHLcQae5I9hnvEGdpE0wDyYmmhU9ToeUycUPYROGaGhO5PQC9XQQ0kZY7g5JR6
+QmziVX/r4McqHpemsYihgTE3OZb4M9efkUgQDw5wpE5S5xg+YbgTYu/aJEfIpjA/
+39LFLDy1BzcUr9pCjN4WZuzqCSMwquxFU/CNCwfLGy9bhHCNR/jn6H2gnMzZKeSj
+j+hU3avIPgbwwl49TVYGyLVd6c2OglGOdzAK8HSJdJY/0BTan2R8NwILFugBqu5A
+fCq9SCP7KQNydfEkfXKiUd2LGwcfw7j0NCDno8wK2BZse+xvC0Wjc1idIs80RL+n
+sWuHI0zkxc0lEjTENS5AcSkcTtrcOLQOVYd39j8/T0nF1cF2rVCIJxlopV8cv533
+WIGtKORT4nXF5q3qTERqBHvhrpoB5WopAIi33zERYHHHtkodf4cBQJo2fr0/AaiI
+7tp8zAN8OX7pGcYku8v5ng==(업로드용)
+</code></pre></div></p>
 
 
 

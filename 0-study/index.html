@@ -18,7 +18,7 @@
     
     
       
-        <title>이론 - server-build</title>
+        <title>study - server-build</title>
       
     
     
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              이론
+              study
             
           </span>
         </div>
@@ -204,7 +204,7 @@
   
   
   <span class="md-ellipsis">
-    이론
+    study
     
   </span>
   
@@ -217,7 +217,7 @@
   
   
   <span class="md-ellipsis">
-    이론
+    study
     
   </span>
   
@@ -268,6 +268,15 @@
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       4&gt; 퍼미션
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5&gt; 암호화
     </span>
   </a>
   
@@ -429,6 +438,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5&gt; 암호화
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -445,70 +463,68 @@
 
 
 
-  <h1>이론</h1>
+  <h1>study</h1>
 
-<h3 id="1">1&gt; 서버란?</h3>
-<p>"내 컴퓨터가 다른 기기의 요청을 받아 응답할 수 있게 만든다"
+<h3 id="1">1&gt; 서버란?<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>"내 컴퓨터가 다른 기기의 요청을 받아 응답할 수 있게 만든다"<br />
 <code>http://컴퓨터주소</code>를 입력하면 내 컴퓨터가 웹사이트, 파일, 사진을 보내주는 역할.</p>
 <p>그럼 컴퓨터 주소가 뭔지를 설명해야한다.</p>
-<p>네트워크는 크게 로컬 네트워크와 외부 네트워크로 나뉜다.
-로컬 네트워크는 한 공유기 내에 기기들이 wi-fi(무선 랜선)로 서로 연결되어 로컬 ip주소로 서로를 찾는 것이다.
-이때 공유기는 라우터 기능을 겸용하여 외부에 집 안내원 역할도 해준다. 외부 공인 ip주소(집주소)를 바깥에 내세우는 것이다.
+<p>네트워크는 크게 로컬 네트워크와 외부 네트워크로 나뉜다.<br />
+로컬 네트워크는 한 공유기 내에 기기들이 wi-fi(무선 랜선)로 서로 연결되어 로컬 ip주소로 서로를 찾는 것이다.<br />
+이때 공유기는 라우터 기능을 겸용하여 외부에 집 안내원 역할도 해준다. 외부 공인 ip주소(집주소)를 바깥에 내세우는 것이다.<br />
 쉽게 말해 외부 공인 ip주소 = 집주소, 로컬 ip주소 = 안방, mac 주소 = 김철수</p>
-<p>내 컴퓨터로 만든 서버 주소 = 내 컴퓨터 로컬 ip주소지만, 외부에서는 우리들 방까지 알 수는 없다.
+<p>내 컴퓨터로 만든 서버 주소 = 내 컴퓨터 로컬 ip주소지만, 외부에서는 우리들 방까지 알 수는 없다.<br />
 따라서 외부에서 <code>http://공유기 외부 공인 ip</code> 를 치고 들어오면 내 로컬 주소로 들어올 수 있도록 누가 안내해줘야 한다. 그게 포트포워딩이다. </p>
-<p>접속 과정
-1. 누군가 공유기 주소를 입력
-2. 라우터(공유기)가 포트포워딩으로 해당 요청을 내 컴퓨터로 전달
+<p>접속 과정<br />
+1. 누군가 공유기 주소를 입력<br />
+2. 라우터(공유기)가 포트포워딩으로 해당 요청을 내 컴퓨터로 전달<br />
 3. 내 컴퓨터가 응답하여 파일 등을 반환 </p>
-<h3 id="2">2&gt; 프로토콜</h3>
+<h3 id="2">2&gt; 프로토콜<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>“TCP 소켓(IP:Port) 위에서 SSH/HTTP/HTTPS 같은 응용 프로토콜이 자기 규칙대로 대화한다.”</p>
-<p>[응용 계층]  SSH   HTTP   HTTPS   …
-──────────────────────────────────
-[전송 계층]  TCP (or UDP)
-──────────────────────────────────
-[인터넷 계층]  IP
-──────────────────────────────────
+<p>[응용 계층]  SSH   HTTP   HTTPS   …<br />
+──────────────────────────────────<br />
+[전송 계층]  TCP (or UDP)<br />
+──────────────────────────────────<br />
+[인터넷 계층]  IP<br />
+──────────────────────────────────<br />
 [링크 계층]   이더넷, Wi-Fi …</p>
-<p>응용 계층 프로토콜
-ssh(22) : 원격 터미널, 파일 전송을 암호화해서 제공
-http(80) : 웹 페이지 요청 및 응답
-https(443) : http에 tls 암호화
+<p>응용 계층 프로토콜<br />
+ssh(22) : 원격 터미널, 파일 전송을 암호화해서 제공<br />
+http(80) : 웹 페이지 요청 및 응답<br />
+https(443) : http에 tls 암호화<br />
 같은 tcp 위에서 여러 응용 프로토콜이 포트를 나눠씀</p>
-<p>전송 계층 프로토콜
-tcp : 데이터가 순서, 무결성을 잃지 않도록 전달
+<p>전송 계층 프로토콜<br />
+tcp : 데이터가 순서, 무결성을 잃지 않도록 전달<br />
 끝점을 (IP, Port) ↔ (IP, Port) 쌍으로 구분</p>
-<p>ip 주소 : 어느 컴퓨터냐
+<p>ip 주소 : 어느 컴퓨터냐<br />
 포트 번호 : 그 컴퓨터 안의 어느 서비스냐(창구번호)</p>
-<p>[클라이언트]           [서버]
-     49152              22       ← SSH용 소켓
-     50432              80       ← HTTP용 소켓
-     49500              443      ← HTTPS용 소켓
+<p>[클라이언트]           [서버]<br />
+     49152              22       ← SSH용 소켓<br />
+     50432              80       ← HTTP용 소켓<br />
+     49500              443      ← HTTPS용 소켓<br />
    (임의)</p>
 <p>8080같은 임의 포트로 웹서버를 띄우려면 http://example.com:8080</p>
-<h3 id="3-ssh">3&gt; ssh?</h3>
-<p>네트워크를 통한 다른 컴퓨터 원격 접속 프로토콜.
+<h3 id="3-ssh">3&gt; ssh?<a class="headerlink" href="#3-ssh" title="Permanent link">&para;</a></h3>
+<p>네트워크를 통한 다른 컴퓨터 원격 접속 프로토콜.<br />
 주로 원격 로그인(라즈베리파이 터미널 연결), 파일 전송(git), 포트 포워딩용.</p>
 <p>sshd : 서버 측 데몬으로, ssh 연결을 대기함</p>
-<p>step 1. 서버 신뢰성</p>
-<div class="codehilite"><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="n">서버는</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">ssh_host_ed25519_key와</span><span class="w"> </span><span class="n">그</span><span class="mf">.</span><span class="n">pub에</span><span class="w"> </span><span class="n">ssh</span><span class="o">-</span><span class="n">ed25519</span><span class="p">,</span><span class="w"> </span><span class="n">ssh</span><span class="o">-</span><span class="n">rsa</span><span class="p">,</span><span class="w"> </span><span class="n">ecdsa</span><span class="o">-</span><span class="n">sha2</span><span class="o">-</span><span class="n">nistp256</span><span class="w"> </span><span class="n">세</span><span class="w"> </span><span class="n">개의</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">key의</span><span class="w"> </span><span class="n">공개키</span><span class="o">-</span><span class="n">개인키를</span><span class="w"> </span><span class="n">준비해</span><span class="w"> </span><span class="n">둠</span><span class="mf">.</span>
-<span class="mf">2.</span><span class="w"> </span><span class="n">클라이언트가</span><span class="w"> </span><span class="n">접속하면</span><span class="p">,</span><span class="w"> </span><span class="n">서버는</span><span class="w"> </span><span class="n">자신의</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">key의</span><span class="w"> </span><span class="n">공개키를</span><span class="w"> </span><span class="n">제시하고</span><span class="w"> </span><span class="n">개인키로</span><span class="w"> </span><span class="n">서명하여</span><span class="w"> </span><span class="n">본인</span><span class="w"> </span><span class="n">인증도</span><span class="w"> </span><span class="n">함께</span><span class="w"> </span><span class="n">보냄</span>
-<span class="mf">3.</span><span class="w"> </span><span class="n">클라이언트는</span><span class="w"> </span><span class="err">~</span><span class="o">/</span><span class="mf">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">known_hosts를</span><span class="w"> </span><span class="n">참고하여</span><span class="w"> </span><span class="n">예전과</span><span class="w"> </span><span class="n">동일한</span><span class="w"> </span><span class="n">키인지</span><span class="w"> </span><span class="n">확인함</span>
-<span class="mf">4.</span><span class="w"> </span><span class="n">없으면</span><span class="w"> </span><span class="n">새로</span><span class="w"> </span><span class="n">추가하고</span><span class="p">,</span><span class="w"> </span><span class="n">동일하면</span><span class="w"> </span><span class="s">&quot;이 서버는 내가 알던 서버다&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MITM</span><span class="p">(</span><span class="n">중간자</span><span class="w"> </span><span class="n">공격</span><span class="p">)</span><span class="w"> </span><span class="n">방지</span>
-</code></pre></div>
-
-<p>step 2. 로그인 (비밀번호 로그인으로 대체 가능)</p>
-<div class="codehilite"><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="n">클라이언트는</span><span class="w"> </span><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">ed25519로</span><span class="w"> </span><span class="n">개인키</span><span class="p">(</span><span class="n">열쇠</span><span class="p">),</span><span class="w"> </span><span class="n">공개키</span><span class="p">(</span><span class="n">자물쇠</span><span class="p">)</span><span class="n">를</span><span class="w"> </span><span class="n">쌍으로</span><span class="w"> </span><span class="n">생성</span>
-<span class="mf">2.</span><span class="w"> </span><span class="n">공개키는</span><span class="w"> </span><span class="err">~</span><span class="o">/</span><span class="mf">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_ed25519</span><span class="mf">.</span><span class="n">pub에</span><span class="w"> </span><span class="n">ssh</span><span class="o">-</span><span class="n">ed25519</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="n">base64로</span><span class="w"> </span><span class="n">인코딩된</span><span class="w"> </span><span class="n">키</span><span class="w"> </span><span class="mf">100</span><span class="n">자</span><span class="w"> </span><span class="n">정도</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="n">주석</span><span class="w"> </span><span class="n">형식으로</span><span class="w"> </span><span class="n">저장</span><span class="mf">.</span>
-<span class="mf">3.</span><span class="w"> </span><span class="n">개인키는</span><span class="w"> </span><span class="err">~</span><span class="o">/</span><span class="mf">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_ed25519에</span><span class="w"> </span><span class="o">-----</span><span class="n">BEGIN</span><span class="w"> </span><span class="kr">OPEN</span><span class="n">SSH</span><span class="w"> </span><span class="n">PRIVATE</span><span class="w"> </span><span class="n">KEY</span><span class="o">-----</span><span class="n">base64로</span><span class="w"> </span><span class="n">인코딩된</span><span class="w"> </span><span class="n">키</span><span class="w"> </span><span class="mf">400</span><span class="err">~</span><span class="mf">800</span><span class="n">자</span><span class="o">-----</span><span class="kr">END</span><span class="w"> </span><span class="kr">OPEN</span><span class="n">SSH</span><span class="w"> </span><span class="n">PRIVATE</span><span class="w"> </span><span class="n">KEY</span><span class="o">-----</span><span class="w"> </span><span class="n">형식으로</span><span class="w"> </span><span class="n">저장</span><span class="mf">.</span>
-<span class="mf">4.</span><span class="w"> </span><span class="n">공개키를</span><span class="w"> </span><span class="n">서버에</span><span class="w"> </span><span class="n">직접</span><span class="w"> </span><span class="n">적어놔</span><span class="w"> </span><span class="n">이를</span><span class="w"> </span><span class="n">로그인용</span><span class="w"> </span><span class="n">authorized_key로</span><span class="w"> </span><span class="n">만듦</span><span class="mf">.</span><span class="w"> </span><span class="n">이때</span><span class="w"> </span><span class="n">보통</span><span class="w"> </span><span class="n">SHA256</span><span class="p">(</span><span class="n">공개키를</span><span class="w"> </span><span class="n">요약한</span><span class="w"> </span><span class="n">fingerprint</span><span class="p">)</span><span class="n">로</span><span class="w"> </span><span class="n">간단히</span><span class="w"> </span><span class="n">표기됨</span><span class="mf">.</span>
-<span class="mf">5.</span><span class="w"> </span><span class="n">서버에</span><span class="w"> </span><span class="n">로그인할때마다</span><span class="w"> </span><span class="n">공개키를</span><span class="w"> </span><span class="n">제시하고</span><span class="w"> </span><span class="n">개인키로</span><span class="w"> </span><span class="n">서명하여</span><span class="w"> </span><span class="n">본인</span><span class="w"> </span><span class="n">인증도</span><span class="w"> </span><span class="n">함께</span><span class="w"> </span><span class="n">보냄</span><span class="mf">.</span>
-<span class="mf">6.</span><span class="w"> </span><span class="n">서버는</span><span class="w"> </span><span class="n">공개키</span><span class="w"> </span><span class="n">목록을</span><span class="w"> </span><span class="n">보고</span><span class="w"> </span><span class="n">있는지</span><span class="w"> </span><span class="n">확인함</span><span class="mf">.</span>
-</code></pre></div>
-
-<h3 id="4">4&gt; 퍼미션</h3>
-<p>755
-소유자/그룹/기타 순
+<p>step 1. 서버 신뢰성<br />
+<div class="highlight"><pre><span></span><code>1. 서버는 /etc/ssh/ssh_host_ed25519_key와 그.pub에 ssh-ed25519, ssh-rsa, ecdsa-sha2-nistp256 세 개의 host key의 공개키-개인키를 준비해 둠.
+2. 클라이언트가 접속하면, 서버는 자신의 host key의 공개키를 제시하고 개인키로 서명하여 본인 인증도 함께 보냄
+3. 클라이언트는 ~/.ssh/known_hosts를 참고하여 예전과 동일한 키인지 확인함
+4. 없으면 새로 추가하고, 동일하면 &quot;이 서버는 내가 알던 서버다&quot; = MITM(중간자 공격) 방지
+</code></pre></div></p>
+<p>step 2. 로그인 (비밀번호 로그인으로 대체 가능)<br />
+<div class="highlight"><pre><span></span><code>1. 클라이언트는 ssh-keygen -t ed25519로 개인키(열쇠), 공개키(자물쇠)를 쌍으로 생성
+2. 공개키는 ~/.ssh/id_ed25519.pub에 ssh-ed25519 | base64로 인코딩된 키 100자 정도 | 주석 형식으로 저장.
+3. 개인키는 ~/.ssh/id_ed25519에 -----BEGIN OPENSSH PRIVATE KEY-----base64로 인코딩된 키 400~800자-----END OPENSSH PRIVATE KEY----- 형식으로 저장.
+4. 공개키를 서버에 직접 적어놔 이를 로그인용 authorized_key로 만듦. 이때 보통 SHA256(공개키를 요약한 fingerprint)로 간단히 표기됨.
+5. 서버에 로그인할때마다 공개키를 제시하고 개인키로 서명하여 본인 인증도 함께 보냄.
+6. 서버는 공개키 목록을 보고 있는지 확인함.
+</code></pre></div></p>
+<h3 id="4">4&gt; 퍼미션<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>755<br />
+소유자/그룹/기타 순<br />
 읽기=4 쓰기=2 실행=1 rwx</p>
 <table>
 <thead>
@@ -544,6 +560,18 @@ tcp : 데이터가 순서, 무결성을 잃지 않도록 전달
 </tr>
 </tbody>
 </table>
+<h3 id="5">5&gt; 암호화<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p>암호 알고리즘 AES, RSA<br />
+실제 계산을 담당하는 수학적 방법</p>
+<ul>
+<li>대칭키 암호화 (암호화 복호화에 키 사용) AES</li>
+<li>공개키 암호화 (공개키/개인키 쌍) RSA</li>
+<li>해시 알고리즘 (사실 암호화는 아님) SHA256</li>
+</ul>
+<p>도구/라이브러리 openssl, gpg, age, bcrypt<br />
+암호 알고리즘을 실행하는 프로그램</p>
+<p>포맷/규약/표준 PGP, PEM<br />
+암호화 데이터를 저장하고 교환하는 방식을 정의한 문서 형식</p>
 
 
 
