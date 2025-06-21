@@ -209,11 +209,11 @@ step 4. html 파일 업로드
 ```
 ~$ sudo nano /var/www/html/index.html           #index 파일 수정
 ~$ sudo mkdir /var/www/html/dev-environment     #새 디렉토리 생성
-~$ sudo touch /var/www/html/dev-environment/1-os-f.html   #파일 생성
-~$ sudo nano /var/www/html/dev-environment/1-os-f.html    #파일 수정
-~$ ls -ld /var/www/html/dev-environment/1-os-f.html       #권한 정상인지 확인
--rw-r--r-- 1 root root 7962 Jun 14 05:28 /var/www/html/dev-environment/1-os-f.html
-~$ sudo rm -rf /var/www/html/test      # 콘텐츠·폴더 모두 완전 삭제
+~$ sudo touch /var/www/html/dev-environment/1-os.html   #파일 생성
+~$ sudo nano /var/www/html/dev-environment/1-os.html    #파일 수정
+~$ ls -ld /var/www/html/dev-environment/1-os.html       #권한 정상인지 확인
+-rw-r--r-- 1 root root 7962 Jun 14 05:28 /var/www/html/dev-environment/1-os.html
+~$ sudo rm -rf /var/www/html/dev-environment      # 콘텐츠·폴더 모두 완전 삭제
 ```
 
 ---

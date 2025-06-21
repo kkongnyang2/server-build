@@ -65,8 +65,8 @@ name: Daily Deploy to GitHub Pages & Raspberry Pi       #이름
 
 on:
   push:                 # 수동 push 시 즉시
-  schedule:             # 매일 18:00 UTC
-    - cron:  '0 18 * * *'
+#  schedule:             # 매일 18:00 UTC
+#    - cron:  '0 18 * * *'
 
 jobs:
   build:
