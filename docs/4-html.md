@@ -1,7 +1,10 @@
-## html 파일 업로드
+## 서버에 html파일 자동 업로드툴을 만들자
+
+### 목표: workflows 이해
+작성자: kkongnyang2 작성일: 2025-06-17
 
 ---
-### 1> 흐름
+### 0> 흐름
 
 ```
    로컬 폴더    -push->  github 레지스토리  -workflow->  github action  -mkdocs   -> -deploy-> github.io/server-build
@@ -9,7 +12,7 @@ server-build            server-build                   클라이언트       htm
 ```
 
 ---
-### 2> 폴더 구조
+### 1> 폴더 구조
 
 step 1. 폴더 구조 만들기
 ```
@@ -108,7 +111,7 @@ jobs:
 ```
 
 ---
-### 3> 내 컴퓨터에서
+### 2> 내 컴퓨터에서
 
 step 1. PI_KNOWN_HOSTS 알아내기
 ```bash
@@ -159,7 +162,7 @@ PI_KNOWN_HOSTS : #아까 찾아놓은 known_hosts
 * 입력하는 이유? github action이 클라이언트가 되어 내 pi 서버에 로그인해야함
 
 ---
-### 4> pi에서
+### 3> pi에서
 
 step 1. 업로드용 사용자 생성
 ```bash
@@ -182,7 +185,7 @@ sudo chmod 600 /home/deployer/.ssh/authorized_keys  #파일 퍼미션을 600으�
 ```
 
 ---
-### 5> kkongnyang2.github.io 레포 추가
+### 4> kkongnyang2.github.io 레포 추가
 
 웹페이지 제일 첫 페이지가 될 거
 
@@ -196,9 +199,9 @@ kkongnyang2.github.io/
 deploy.yml에서 mkdocs 부분만 빼고 target:     "/var/www/html/"으로만 수정하면 됨
 
 ---
-### 6> 마지막 작업
+### 5> 마지막 작업
 
-step 1. 레포 공개 public 으로 당연히 바꿔주기
+step 1. 모든 레포 공개 public 으로 당연히 바꿔주기
 
 step 2. repo - settings - actions - general 들어가서
 workflow permissions 섹션에서 read and write permissions 로 변경
@@ -208,7 +211,7 @@ step 3. 공유기 페이지 들어가서 22번 포트 포트포워딩 해주기
 step 4. 첫 업로드 이후 repo - settings → Pages 에서 Deploy from branch → gh-pages / (root) 설정     #얘는 github pages에 업로드하는 브랜치
 
 ---
-### 7> 개인정보 암호화
+### 6> 개인정보 암호화
 
 ```bash
 ~$ echo -n "원하는 문구" | openssl enc -aes-256-cbc -a -salt -pbkdf2 -pass pass:내비밀번호
