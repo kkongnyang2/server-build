@@ -52,7 +52,4 @@ markdown_extensions:
   - nl2br                       # ← 줄바꿈 자동 처리
 
 plugins:
-  - search
-  - minify:
-      minify_html: true
   - git-revision-date-localized
