@@ -50,6 +50,3 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets           # 외부 코드 include
   - nl2br                       # ← 줄바꿈 자동 처리
-
-plugins:
-  - git-revision-date-localized
