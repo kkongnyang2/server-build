@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#home" class="md-skip">
           Skip to content
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              개요
+              Home
             
           </span>
         </div>
@@ -212,7 +212,7 @@
   
     
   
-  개요
+  Home
 
       </a>
     </li>
@@ -367,7 +367,7 @@
   
   
   <span class="md-ellipsis">
-    개요
+    Home
     
   </span>
   
@@ -380,7 +380,7 @@
   
   
   <span class="md-ellipsis">
-    개요
+    Home
     
   </span>
   
@@ -412,13 +412,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      참고 지식
+      서버 이론
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="참고 지식">
+    <nav class="md-nav" aria-label="서버 이론">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -625,13 +625,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      참고 지식
+      서버 이론
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="참고 지식">
+    <nav class="md-nav" aria-label="서버 이론">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -700,9 +700,12 @@
 
 
 
-<h1 id="_1">개요</h1>
+<h1 id="home">Home</h1>
 <h2 id="-html-">라즈베리파이 구동 -&gt; 서버 구축 -&gt; 클라우드 서버 연결 -&gt; html 업로드툴 -&gt; 웹 디자인</h2>
-<h2 id="_2">참고 지식</h2>
+<hr />
+<h2 id="_1">서버 이론</h2>
+<p>작성자: kkongnyang2 작성일: 2025-06-09</p>
+<hr />
 <h3 id="1">1&gt; 서버란?</h3>
 <p>"내 컴퓨터가 다른 기기의 요청을 받아 응답할 수 있게 만든다"<br />
 <code>http://컴퓨터주소</code>를 입력하면 내 컴퓨터가 웹사이트, 파일, 사진을 보내주는 역할.</p>
@@ -717,6 +720,7 @@
 1. 누군가 공유기 주소를 입력<br />
 2. 라우터(공유기)가 포트포워딩으로 해당 요청을 내 컴퓨터로 전달<br />
 3. 내 컴퓨터가 응답하여 파일 등을 반환 </p>
+<hr />
 <h3 id="2">2&gt; 프로토콜</h3>
 <p>“TCP 소켓(IP:Port) 위에서 SSH/HTTP/HTTPS 같은 응용 프로토콜이 자기 규칙대로 대화한다.”</p>
 <p>[응용 계층]  SSH   HTTP   HTTPS   …<br />
@@ -742,6 +746,7 @@ tcp : 데이터가 순서, 무결성을 잃지 않도록 전달<br />
      49500              443      ← HTTPS용 소켓<br />
    (임의)</p>
 <p>8080같은 임의 포트로 웹서버를 띄우려면 http://example.com:8080</p>
+<hr />
 <h3 id="3-ssh">3&gt; ssh?</h3>
 <p>네트워크를 통한 다른 컴퓨터 원격 접속 프로토콜.<br />
 주로 원격 로그인(라즈베리파이 터미널 연결), 파일 전송(git), 포트 포워딩용.</p>
@@ -760,6 +765,7 @@ tcp : 데이터가 순서, 무결성을 잃지 않도록 전달<br />
 5. 서버에 로그인할때마다 공개키를 제시하고 개인키로 서명하여 본인 인증도 함께 보냄.
 6. 서버는 공개키 목록을 보고 있는지 확인함.
 </code></pre></div></p>
+<hr />
 <h3 id="4">4&gt; 퍼미션</h3>
 <p>755<br />
 소유자/그룹/기타 순<br />
@@ -798,6 +804,7 @@ tcp : 데이터가 순서, 무결성을 잃지 않도록 전달<br />
 </tr>
 </tbody>
 </table>
+<hr />
 <h3 id="5">5&gt; 암호화</h3>
 <p>암호 알고리즘 AES, RSA<br />
 실제 계산을 담당하는 수학적 방법</p>

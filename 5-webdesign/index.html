@@ -210,7 +210,7 @@
   
     
   
-  개요
+  Home
 
       </a>
     </li>
@@ -358,7 +358,7 @@
   
   
   <span class="md-ellipsis">
-    개요
+    Home
     
   </span>
   
@@ -658,6 +658,8 @@
 ├─ myphoto.jpg
 └─ .github/workflows/deploy.yml
 </code></pre></div>
+<p>각 html 파일들을 만들어주면 된다.</p>
+<hr />
 <h3 id="_4">&gt; 카테고리 페이지</h3>
 <p>우선 실시간으로 편하게 볼 수 있도록</p>
 <div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mkdocs
@@ -674,20 +676,24 @@
 │   ├─ 3.md
 │   ├─ 4.md
 │   ├─ 5.md
+│   ├─ logo.svg
 │   └─ soft-era.css
 ├─ mkdocs.yml
 └─ .github/workflows/deploy.yml
 </code></pre></div>
-<p>index 파일에는 맨 처음에 # 개요를 넣어준다.</p>
+<p>index 파일에는 맨 처음에 # Home를 적어준다.</p>
 <p>mkdocs.yml은<br />
 <div class="highlight"><pre><span></span><code>site_name: Server-Build
 
 theme:
   name: material
-  logo: assets/logo.svg
+  logo: logo.svg
+  favicon: logo.svg
+
   font:
     text: Inter
     code: &quot;JetBrains Mono&quot;
+
   palette:
     - scheme: apple          # 기본(라이트)
       primary: white
@@ -701,10 +707,14 @@ theme:
       toggle:
         icon: material/brush
         name: Apple Classic
+
   features:
     - navigation.tabs           # 상단 탭 내비게이션
     - content.code.copy         # 코드 블록 Copy 버튼
     - header.autohide           # 스크롤 시 헤더 숨김
+
+extra:
+  homepage: .. 
 
 extra_css:
   - soft-era.css
