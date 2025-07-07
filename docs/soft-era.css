@@ -1,36 +1,31 @@
-/*  Soft Era theme for MkDocs Material (scheme: soft)  */
-/*  Generated from VS Code Soft Era color theme JSON   */
-
 [data-md-color-scheme="soft"] {
-  /* Core palette */
-  --md-primary-fg-color: #f7dfe8;
-  --md-accent-fg-color:  #ff83a6;
+  /* 기본 배경 & 텍스트 */
+  --md-default-bg-color:     #f9f5f5;   /* 에디터 배경, 전체 tone */
+  --md-default-fg-color:     #c29ba3;   /* 메인 텍스트 색 (editor.foreground) */
+  --md-typeset-color:        var(--md-default-fg-color);
 
-  --md-primary-bg-color: #f7dfe822;
-  --md-accent-bg-color:  #ff83a622;
+  /* 강조 요소 (링크, 강조 텍스트) */
+  --md-accent-fg-color:      #dd698c;   /* 링크 등 강조 색 */
+  --md-primary-fg-color:     #f7dfe8;   /* 메인 강조 색상 계열 */
 
-  /* Surfaces & text */
-  --md-default-bg-color: #f9f5f5;
-  --md-default-fg-color: #c29ba3;
-  --md-typeset-color:    var(--md-default-fg-color);
+  /* 코드 블럭 */
+  --md-code-bg-color:        #fff7fa;   /* 코드 영역 배경 (선택적) */
+  --md-code-fg-color:        #4a4543;   /* 코드 기본 텍스트 */
 
-  /* Code block base */
-  --md-code-bg-color: #fff7fa;
-  --md-code-fg-color: #4a4543;
+  /* 코드 하이라이트 */
+  --md-code-hl-keyword-color:   #c678dd; /* 키워드 색상 */
+  --md-code-hl-function-color:  #61afef; /* 함수 이름 */
+  --md-code-hl-string-color:    #98c4ba; /* 문자열 */
 
-  /* Links */
-  --md-typeset-a-color: #dd698c;
+  /* 링크 색상 */
+  --md-typeset-a-color:      #dd698c;
 
-  /* Code token highlight variables (Material names) */
-  --md-code-hl-keyword-color:   #c678dd;
-  --md-code-hl-function-color:  #61afef;
-  --md-code-hl-string-color:    #98c379;
-  --md-code-hl-constant-color:  #e06c75;
-  --md-code-hl-number-color:    #d19a66;
-  --md-code-hl-operator-color:  var(--md-code-hl-keyword-color);
-  --md-code-hl-builtin-color:   #be88d9;
-  --md-code-hl-property-color:  #25b7b8;
-  --md-code-hl-punctuation-color: #4a4543;
-  --md-code-hl-comment-color:   #948484;
-  --md-code-hl-variable-color:  #e4846f;
+  /* 강조 배경 */
+  --md-admonition-bg-color:  #e4bcbf33; /* 블록 강조 배경 (주의, 경고 등) */
+
+  /* 테두리 또는 라인 구분 */
+  --md-border-color:         #e3e6ed;
+
+  /* 선택 영역 강조 */
+  --md-selection-bg-color:   #c8bfff34;
 }
