@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="ko" class="no-js">
+<html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -15,12 +15,12 @@
         <link rel="next" href="../4-html/">
       
       
-      <link rel="icon" href="../assets/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
-        <title>cloud - Server Build</title>
+        <title>3 cloud - Server-Build</title>
       
     
     
@@ -46,6 +46,8 @@
       
     
     
+      <link rel="stylesheet" href="../soft-era.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -63,7 +65,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="deep-purple">
+    <body dir="ltr" data-md-color-scheme="apple" data-md-color-primary="white" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -73,7 +75,7 @@
       
         
         <a href="#ubuntu-2204-server-arm64" class="md-skip">
-          콘텐츠로 이동
+          Skip to content
         </a>
       
     </div>
@@ -84,9 +86,11 @@
     
       
 
-<header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
-    <a href=".." title="Server Build" class="md-header__button md-logo" aria-label="Server Build" data-md-component="logo">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Server-Build" class="md-header__button md-logo" aria-label="Server-Build" data-md-component="logo">
       
   <img src="../assets/logo.svg" alt="logo">
 
@@ -99,13 +103,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Server Build
+            Server-Build
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              cloud
+              3 cloud
             
           </span>
         </div>
@@ -118,16 +122,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="deep-purple"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="apple" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Soft Era"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Soft Era" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.38 20.9a2 2 0 0 1-1.28-1.27L19.63 3.1a2 2 0 0 1 1.27 1.28zM20 16v2h-7v-2zM3 6h3V3h2v3h3v2H8v3H6V8H3z"/></svg>
+      </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="deep-purple"  aria-label="다크 모드"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="soft" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Apple Classic"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="다크 모드" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      <label class="md-header__button md-icon" title="Apple Classic" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20.71 4.63-1.34-1.34c-.37-.39-1.02-.39-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.04 0-1.41M7 14a3 3 0 0 0-3 3c0 1.31-1.16 2-2 2 .92 1.22 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3"/></svg>
       </label>
     
   
@@ -149,29 +157,27 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="검색">
+      <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            검색 초기화
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -191,131 +197,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  개요
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../0-study/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  study
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../1-pi/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  pi
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../2-server/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  server
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
-        
-  
-  
-    
-  
-  cloud
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../4-html/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  html
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -329,19 +210,15 @@
                     
 
 
-  
 
-
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="네비게이션" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Server Build" class="md-nav__button md-logo" aria-label="Server Build" data-md-component="logo">
+    <a href=".." title="Server-Build" class="md-nav__button md-logo" aria-label="Server-Build" data-md-component="logo">
       
   <img src="../assets/logo.svg" alt="logo">
 
     </a>
-    Server Build
+    Server-Build
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -358,7 +235,7 @@
   
   
   <span class="md-ellipsis">
-    개요
+    Home
     
   </span>
   
@@ -380,7 +257,7 @@
   
   
   <span class="md-ellipsis">
-    study
+    0 study
     
   </span>
   
@@ -402,7 +279,7 @@
   
   
   <span class="md-ellipsis">
-    pi
+    1 pi
     
   </span>
   
@@ -424,7 +301,7 @@
   
   
   <span class="md-ellipsis">
-    server
+    2 server
     
   </span>
   
@@ -453,7 +330,7 @@
   
   
   <span class="md-ellipsis">
-    cloud
+    3 cloud
     
   </span>
   
@@ -466,7 +343,7 @@
   
   
   <span class="md-ellipsis">
-    cloud
+    3 cloud
     
   </span>
   
@@ -475,14 +352,14 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="목차">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      목차
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -593,7 +470,29 @@
   
   
   <span class="md-ellipsis">
-    html
+    4 html
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5-webdesign/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5 webdesign
     
   </span>
   
@@ -610,6 +509,117 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ubuntu-2204-server-arm64" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ubuntu-22.04-server-arm64에서 클라우드 서버를 구축해보자
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ubuntu-22.04-server-arm64에서 클라우드 서버를 구축해보자">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      목표: 클라우드 사용
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      0&gt; 환경 점검
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-mariadb" class="md-nav__link">
+    <span class="md-ellipsis">
+      1&gt; mariaDB 설치
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      2&gt; php 설치
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-nextcloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      3&gt; Nextcloud 설치
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4&gt; 외장 저장장치 세팅
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-nextcloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      5&gt; Nextcloud 설정
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6&gt; 추가 백업 안정장치(선택)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
@@ -619,13 +629,13 @@
 
 
 
-  <h1>cloud</h1>
+  <h1>3 cloud</h1>
 
-<h2 id="ubuntu-2204-server-arm64">Ubuntu-22.04-server-arm64에서 클라우드 서버를 구축해보자<a class="headerlink" href="#ubuntu-2204-server-arm64" title="Permanent link">🔗</a></h2>
-<h3 id="_1">목표: 클라우드 사용<a class="headerlink" href="#_1" title="Permanent link">🔗</a></h3>
+<h2 id="ubuntu-2204-server-arm64">Ubuntu-22.04-server-arm64에서 클라우드 서버를 구축해보자<a class="headerlink" href="#ubuntu-2204-server-arm64" title="Permanent link">&para;</a></h2>
+<h3 id="_1">목표: 클라우드 사용<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>작성자: kkongnyang2 작성일: 2025-06-10</p>
 <hr />
-<h3 id="0">0&gt; 환경 점검<a class="headerlink" href="#0" title="Permanent link">🔗</a></h3>
+<h3 id="0">0&gt; 환경 점검<a class="headerlink" href="#0" title="Permanent link">&para;</a></h3>
 <p>하드웨어: raspberrypi4 model B<br />
 ├─cpu: arm cortex A72<br />
 ├─ram: 4GB<br />
@@ -633,140 +643,140 @@
 운영체제: ubuntu-22.04-server-arm64<br />
 외부 저장장치: 256GB usb</p>
 <hr />
-<h3 id="1-mariadb">1&gt; mariaDB 설치<a class="headerlink" href="#1-mariadb" title="Permanent link">🔗</a></h3>
+<h3 id="1-mariadb">1&gt; mariaDB 설치<a class="headerlink" href="#1-mariadb" title="Permanent link">&para;</a></h3>
 <p>step 1. mariaDB 설치<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>~$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mariadb-server
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>~$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>mariadb
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>~$<span class="w"> </span>sudo<span class="w"> </span>mysql<span class="w"> </span>--version
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>mysql<span class="w">  </span>Ver<span class="w"> </span><span class="m">15</span>.1<span class="w"> </span>Distrib<span class="w"> </span><span class="m">10</span>.6.22-MariaDB,<span class="w"> </span><span class="k">for</span><span class="w"> </span>debian-linux-gnu<span class="w"> </span><span class="o">(</span>aarch64<span class="o">)</span><span class="w"> </span>using<span class="w">  </span>EditLine<span class="w"> </span>wrapper
-</span></code></pre></div><br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mariadb-server
+~$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>mariadb
+~$<span class="w"> </span>sudo<span class="w"> </span>mysql<span class="w"> </span>--version
+mysql<span class="w">  </span>Ver<span class="w"> </span><span class="m">15</span>.1<span class="w"> </span>Distrib<span class="w"> </span><span class="m">10</span>.6.22-MariaDB,<span class="w"> </span><span class="k">for</span><span class="w"> </span>debian-linux-gnu<span class="w"> </span><span class="o">(</span>aarch64<span class="o">)</span><span class="w"> </span>using<span class="w">  </span>EditLine<span class="w"> </span>wrapper
+</code></pre></div><br />
 step 2. mariaDB 보안 설정<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>~$<span class="w"> </span>sudo<span class="w"> </span>mysql_secure_installation
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Enter<span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>root<span class="w"> </span>U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs<span class="o">=(</span>업로드용<span class="o">)</span><span class="w">                  </span><span class="c1">#비번 설정</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Switch<span class="w"> </span>to<span class="w"> </span>unix_socket<span class="w"> </span>authentication<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span><span class="w"> </span>n<span class="w">  </span><span class="c1">#우분투의 root 권한과 동일시. n하면 디폴트는 비밀번호</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Change<span class="w"> </span>the<span class="w"> </span>root<span class="w"> </span>password?<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span><span class="w"> </span>n<span class="w">     </span><span class="c1">#비번 변경</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Remove<span class="w"> </span>anonymous<span class="w"> </span>users?<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span><span class="w"> </span>y<span class="w">       </span><span class="c1">#익명 사용자 제거</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Disallow<span class="w"> </span>root<span class="w"> </span>login<span class="w"> </span>remotely?<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span><span class="w"> </span>y<span class="w"> </span><span class="c1">#원격 루트 계정 로그인 금지</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Remove<span class="w"> </span><span class="nb">test</span><span class="w"> </span>database<span class="w"> </span>and<span class="w"> </span>access<span class="w"> </span>to<span class="w"> </span>it?<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span><span class="w"> </span>y<span class="w">  </span><span class="c1">#테스트 데베 삭제</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>Reload<span class="w"> </span>privilege<span class="w"> </span>tables<span class="w"> </span>now?<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span><span class="w"> </span>y<span class="w">    </span><span class="c1">#권한 테이블 재로딩</span>
-</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>mysql_secure_installation
+Enter<span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>root<span class="w"> </span>U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs<span class="o">=(</span>업로드용<span class="o">)</span><span class="w">                  </span><span class="c1">#비번 설정</span>
+Switch<span class="w"> </span>to<span class="w"> </span>unix_socket<span class="w"> </span>authentication<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span><span class="w"> </span>n<span class="w">  </span><span class="c1">#우분투의 root 권한과 동일시. n하면 디폴트는 비밀번호</span>
+Change<span class="w"> </span>the<span class="w"> </span>root<span class="w"> </span>password?<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span><span class="w"> </span>n<span class="w">     </span><span class="c1">#비번 변경</span>
+Remove<span class="w"> </span>anonymous<span class="w"> </span>users?<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span><span class="w"> </span>y<span class="w">       </span><span class="c1">#익명 사용자 제거</span>
+Disallow<span class="w"> </span>root<span class="w"> </span>login<span class="w"> </span>remotely?<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span><span class="w"> </span>y<span class="w"> </span><span class="c1">#원격 루트 계정 로그인 금지</span>
+Remove<span class="w"> </span><span class="nb">test</span><span class="w"> </span>database<span class="w"> </span>and<span class="w"> </span>access<span class="w"> </span>to<span class="w"> </span>it?<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span><span class="w"> </span>y<span class="w">  </span><span class="c1">#테스트 데베 삭제</span>
+Reload<span class="w"> </span>privilege<span class="w"> </span>tables<span class="w"> </span>now?<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span><span class="w"> </span>y<span class="w">    </span><span class="c1">#권한 테이블 재로딩</span>
+</code></pre></div></p>
 <p>step 3. mariaDB 사용자 생성<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>~$<span class="w"> </span>sudo<span class="w"> </span>mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>CREATE<span class="w"> </span>DATABASE<span class="w"> </span>nextcloud<span class="w"> </span>CHARACTER<span class="w"> </span>SET<span class="w"> </span>utf8mb4<span class="w"> </span>COLLATE<span class="w"> </span>utf8mb4_general_ci<span class="p">;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>CREATE<span class="w"> </span>USER<span class="w"> </span><span class="s1">&#39;kkongnyang2&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="w"> </span>IDENTIFIED<span class="w"> </span>BY<span class="w"> </span><span class="s1">&#39;U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)&#39;</span><span class="p">;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>GRANT<span class="w"> </span>ALL<span class="w"> </span>PRIVILEGES<span class="w"> </span>ON<span class="w"> </span>nextcloud.*<span class="w"> </span>TO<span class="w"> </span><span class="s1">&#39;kkongnyang2&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>FLUSH<span class="w"> </span>PRIVILEGES<span class="p">;</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>SELECT<span class="w"> </span>User,<span class="w"> </span>Host<span class="w"> </span>FROM<span class="w"> </span>mysql.user<span class="p">;</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>+-------------+-----------+
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">|</span><span class="w"> </span>User<span class="w">        </span><span class="p">|</span><span class="w"> </span>Host<span class="w">      </span><span class="p">|</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>+-------------+-----------+
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">|</span><span class="w"> </span>kkongnyang2<span class="w"> </span><span class="p">|</span><span class="w"> </span>localhost<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">|</span><span class="w"> </span>mariadb.sys<span class="w"> </span><span class="p">|</span><span class="w"> </span>localhost<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">|</span><span class="w"> </span>mysql<span class="w">       </span><span class="p">|</span><span class="w"> </span>localhost<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">|</span><span class="w"> </span>root<span class="w">        </span><span class="p">|</span><span class="w"> </span>localhost<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>+-------------+-----------+
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>EXIT<span class="p">;</span>
-</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p
+MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>CREATE<span class="w"> </span>DATABASE<span class="w"> </span>nextcloud<span class="w"> </span>CHARACTER<span class="w"> </span>SET<span class="w"> </span>utf8mb4<span class="w"> </span>COLLATE<span class="w"> </span>utf8mb4_general_ci<span class="p">;</span>
+MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>CREATE<span class="w"> </span>USER<span class="w"> </span><span class="s1">&#39;kkongnyang2&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="w"> </span>IDENTIFIED<span class="w"> </span>BY<span class="w"> </span><span class="s1">&#39;U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)&#39;</span><span class="p">;</span>
+MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>GRANT<span class="w"> </span>ALL<span class="w"> </span>PRIVILEGES<span class="w"> </span>ON<span class="w"> </span>nextcloud.*<span class="w"> </span>TO<span class="w"> </span><span class="s1">&#39;kkongnyang2&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>FLUSH<span class="w"> </span>PRIVILEGES<span class="p">;</span>
+MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>SELECT<span class="w"> </span>User,<span class="w"> </span>Host<span class="w"> </span>FROM<span class="w"> </span>mysql.user<span class="p">;</span>
++-------------+-----------+
+<span class="p">|</span><span class="w"> </span>User<span class="w">        </span><span class="p">|</span><span class="w"> </span>Host<span class="w">      </span><span class="p">|</span>
++-------------+-----------+
+<span class="p">|</span><span class="w"> </span>kkongnyang2<span class="w"> </span><span class="p">|</span><span class="w"> </span>localhost<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>mariadb.sys<span class="w"> </span><span class="p">|</span><span class="w"> </span>localhost<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>mysql<span class="w">       </span><span class="p">|</span><span class="w"> </span>localhost<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>root<span class="w">        </span><span class="p">|</span><span class="w"> </span>localhost<span class="w"> </span><span class="p">|</span>
++-------------+-----------+
+MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>EXIT<span class="p">;</span>
+</code></pre></div></p>
 <hr />
-<h3 id="2-php">2&gt; php 설치<a class="headerlink" href="#2-php" title="Permanent link">🔗</a></h3>
+<h3 id="2-php">2&gt; php 설치<a class="headerlink" href="#2-php" title="Permanent link">&para;</a></h3>
 <p>php란 동적 웹페이지를 만드는 스크립트 언어. php 코드를 해석하여 html로 변환하는 모듈</p>
-<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>~$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>php<span class="w"> </span>libapache2-mod-php<span class="w"> </span>php-mysql<span class="w"> </span>php-xml<span class="w"> </span>php-mbstring<span class="w"> </span>php-curl<span class="w"> </span>php-zip<span class="w"> </span>php-gd<span class="w"> </span>php-intl<span class="w"> </span>php-bcmath<span class="w"> </span>php-imagick<span class="w"> </span>php-cli<span class="w"> </span>unzip
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>~$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2<span class="w">        </span><span class="c1"># 새 모듈 로드</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>~$<span class="w"> </span>php<span class="w"> </span>-v<span class="w">                                </span><span class="c1"># 버전 확인</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>PHP<span class="w"> </span><span class="m">8</span>.1.2-1ubuntu2.21<span class="w"> </span><span class="o">(</span>cli<span class="o">)</span><span class="w"> </span><span class="o">(</span>built:<span class="w"> </span>Mar<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">2025</span><span class="w"> </span><span class="m">19</span>:04:23<span class="o">)</span><span class="w"> </span><span class="o">(</span>NTS<span class="o">)</span>
-</span></code></pre></div><br />
+<p><div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>php<span class="w"> </span>libapache2-mod-php<span class="w"> </span>php-mysql<span class="w"> </span>php-xml<span class="w"> </span>php-mbstring<span class="w"> </span>php-curl<span class="w"> </span>php-zip<span class="w"> </span>php-gd<span class="w"> </span>php-intl<span class="w"> </span>php-bcmath<span class="w"> </span>php-imagick<span class="w"> </span>php-cli<span class="w"> </span>unzip
+~$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2<span class="w">        </span><span class="c1"># 새 모듈 로드</span>
+~$<span class="w"> </span>php<span class="w"> </span>-v<span class="w">                                </span><span class="c1"># 버전 확인</span>
+PHP<span class="w"> </span><span class="m">8</span>.1.2-1ubuntu2.21<span class="w"> </span><span class="o">(</span>cli<span class="o">)</span><span class="w"> </span><span class="o">(</span>built:<span class="w"> </span>Mar<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">2025</span><span class="w"> </span><span class="m">19</span>:04:23<span class="o">)</span><span class="w"> </span><span class="o">(</span>NTS<span class="o">)</span>
+</code></pre></div><br />
 * libapache2-mod-php: apache2와 php를 직접 연동<br />
 * php-mysql: mariaDB와 연결<br />
 * php-xml/mbstring/curl/zip/gd: 이미지 날짜 압축 등 nextcloud 같은 php앱이 요구하는 표준 기능<br />
 * php-cli: 터미널에서 php script.php 실행<br />
 * unzip: 플러그인 압축 해제용</p>
 <hr />
-<h3 id="3-nextcloud">3&gt; Nextcloud 설치<a class="headerlink" href="#3-nextcloud" title="Permanent link">🔗</a></h3>
+<h3 id="3-nextcloud">3&gt; Nextcloud 설치<a class="headerlink" href="#3-nextcloud" title="Permanent link">&para;</a></h3>
 <p>Nextcloud는 웹 기반의 파일 서버로, 아까 Apache 환경 위에 설치되는 핵심 애플리케이션.</p>
 <p>step 1. nextcloud 설치<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>~$<span class="w"> </span>wget<span class="w"> </span>https://download.nextcloud.com/server/releases/latest.zip
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>~$<span class="w"> </span>unzip<span class="w"> </span>latest.zip
-</span></code></pre></div><br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>wget<span class="w"> </span>https://download.nextcloud.com/server/releases/latest.zip
+~$<span class="w"> </span>unzip<span class="w"> </span>latest.zip
+</code></pre></div><br />
 step 2. apache 경로에 넣기<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>~$<span class="w"> </span>sudo<span class="w"> </span>mv<span class="w"> </span>nextcloud<span class="w"> </span>/var/www/html/
-</span></code></pre></div><br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>mv<span class="w"> </span>nextcloud<span class="w"> </span>/var/www/html/
+</code></pre></div><br />
 * 이러면 폴더대로 http://ip주소를 입력했을 때는 apache 화면을, http://ip주소/nextcloud를 입력햇을 때는 nextcloud화면을 띄어준다.</p>
 <blockquote>
 <p>⚠️ 만약 기본 경로를 nextcloud로 설정하고 싶다면:<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>~$<span class="w"> </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/apache2/sites-available/nextcloud.conf
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>&lt;VirtualHost<span class="w"> </span>*:80&gt;
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span>ServerAdmin<span class="w"> </span>i.kkongnyang2@gmail.com
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span>DocumentRoot<span class="w"> </span>/var/www/nextcloud
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span>ServerName<span class="w"> </span><span class="m">172</span>.30.1.220
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span>&lt;Directory<span class="w"> </span>/var/www/nextcloud/&gt;
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">        </span>Options<span class="w"> </span>+FollowSymlinks
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">        </span>AllowOverride<span class="w"> </span>All
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">        </span>Require<span class="w"> </span>all<span class="w"> </span>granted
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span>&lt;/Directory&gt;
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span>ErrorLog<span class="w"> </span><span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/nextcloud_error.log
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span>CustomLog<span class="w"> </span><span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/nextcloud_access.log<span class="w"> </span>combined
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>&lt;/VirtualHost&gt;
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>~$<span class="w"> </span>sudo<span class="w"> </span>a2dissite<span class="w"> </span><span class="m">000</span>-default.conf<span class="w">      </span><span class="c1">#원래 default 파일 비활성화</span>
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>~$<span class="w"> </span>sudo<span class="w"> </span>a2ensite<span class="w"> </span>nextcloud.conf<span class="w">         </span><span class="c1">#새 설정파일 활성화</span>
-</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>~$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>apache2
-</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/apache2/sites-available/nextcloud.conf
+&lt;VirtualHost<span class="w"> </span>*:80&gt;
+<span class="w">    </span>ServerAdmin<span class="w"> </span>i.kkongnyang2@gmail.com
+<span class="w">    </span>DocumentRoot<span class="w"> </span>/var/www/nextcloud
+<span class="w">    </span>ServerName<span class="w"> </span><span class="m">172</span>.30.1.220
+
+<span class="w">    </span>&lt;Directory<span class="w"> </span>/var/www/nextcloud/&gt;
+<span class="w">        </span>Options<span class="w"> </span>+FollowSymlinks
+<span class="w">        </span>AllowOverride<span class="w"> </span>All
+<span class="w">        </span>Require<span class="w"> </span>all<span class="w"> </span>granted
+<span class="w">    </span>&lt;/Directory&gt;
+
+<span class="w">    </span>ErrorLog<span class="w"> </span><span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/nextcloud_error.log
+<span class="w">    </span>CustomLog<span class="w"> </span><span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/nextcloud_access.log<span class="w"> </span>combined
+
+&lt;/VirtualHost&gt;
+~$<span class="w"> </span>sudo<span class="w"> </span>a2dissite<span class="w"> </span><span class="m">000</span>-default.conf<span class="w">      </span><span class="c1">#원래 default 파일 비활성화</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>a2ensite<span class="w"> </span>nextcloud.conf<span class="w">         </span><span class="c1">#새 설정파일 활성화</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>apache2
+</code></pre></div></p>
 </blockquote>
 <p>step 3. 퍼미션 설정<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>~$<span class="w"> </span>ls<span class="w"> </span>-ld<span class="w"> </span>/var/www/html/nextcloud<span class="w">       </span><span class="c1">#기본 퍼미션 확인 </span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>drwxr-xr-x<span class="w"> </span><span class="m">15</span><span class="w"> </span>kkongnyang2<span class="w"> </span>kkongnyang2<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">16</span>:25<span class="w"> </span>/var/www/html/nextcloud
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>~$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/www/html/nextcloud
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>~$<span class="w"> </span>sudo<span class="w"> </span>find<span class="w"> </span>/var/www/html/nextcloud<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-exec<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>~$<span class="w"> </span>sudo<span class="w"> </span>find<span class="w"> </span>/var/www/html/nextcloud<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-exec<span class="w"> </span>chmod<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>~$<span class="w"> </span>ls<span class="w"> </span>-ld<span class="w"> </span>/var/www/html/nextcloud<span class="w">      </span><span class="c1">#다시 확인</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>drwxr-x---<span class="w"> </span><span class="m">15</span><span class="w"> </span>www-data<span class="w"> </span>www-data<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">16</span>:25<span class="w"> </span>/var/www/html/nextcloud
-</span></code></pre></div><br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>ls<span class="w"> </span>-ld<span class="w"> </span>/var/www/html/nextcloud<span class="w">       </span><span class="c1">#기본 퍼미션 확인 </span>
+drwxr-xr-x<span class="w"> </span><span class="m">15</span><span class="w"> </span>kkongnyang2<span class="w"> </span>kkongnyang2<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">16</span>:25<span class="w"> </span>/var/www/html/nextcloud
+~$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/www/html/nextcloud
+~$<span class="w"> </span>sudo<span class="w"> </span>find<span class="w"> </span>/var/www/html/nextcloud<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-exec<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>find<span class="w"> </span>/var/www/html/nextcloud<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-exec<span class="w"> </span>chmod<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+~$<span class="w"> </span>ls<span class="w"> </span>-ld<span class="w"> </span>/var/www/html/nextcloud<span class="w">      </span><span class="c1">#다시 확인</span>
+drwxr-x---<span class="w"> </span><span class="m">15</span><span class="w"> </span>www-data<span class="w"> </span>www-data<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">16</span>:25<span class="w"> </span>/var/www/html/nextcloud
+</code></pre></div><br />
 * <code>chown</code>: 소유자 변경<br />
 * <code>chowd</code>: 폴더 접근 권한</p>
 <hr />
-<h3 id="4">4&gt; 외장 저장장치 세팅<a class="headerlink" href="#4" title="Permanent link">🔗</a></h3>
+<h3 id="4">4&gt; 외장 저장장치 세팅<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>step 1. usb ext4으로 포맷<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>GUI환경에서<span class="w"> </span>disks<span class="w"> </span>들어가기
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>format<span class="w"> </span>disk<span class="w"> </span>에서<span class="w"> </span>erase는<span class="w"> </span>overwirte<span class="w"> </span>with<span class="w"> </span>zeros<span class="w"> </span>선택,<span class="w"> </span>partitioning은<span class="w"> </span>gpt<span class="w"> </span>선택하여<span class="w"> </span>포맷
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>create<span class="w"> </span>partition<span class="w"> </span>에서<span class="w"> </span>파티션<span class="w"> </span>사이즈<span class="w"> </span>풀로,<span class="w"> </span>free<span class="w"> </span>space는<span class="w"> </span>0으로,<span class="w"> </span>volume<span class="w"> </span>name은<span class="w"> </span>NC_DATA로,<span class="w"> </span>ext4로<span class="w"> </span>생성
-</span></code></pre></div><br />
+<div class="highlight"><pre><span></span><code>GUI환경에서<span class="w"> </span>disks<span class="w"> </span>들어가기
+format<span class="w"> </span>disk<span class="w"> </span>에서<span class="w"> </span>erase는<span class="w"> </span>overwirte<span class="w"> </span>with<span class="w"> </span>zeros<span class="w"> </span>선택,<span class="w"> </span>partitioning은<span class="w"> </span>gpt<span class="w"> </span>선택하여<span class="w"> </span>포맷
+create<span class="w"> </span>partition<span class="w"> </span>에서<span class="w"> </span>파티션<span class="w"> </span>사이즈<span class="w"> </span>풀로,<span class="w"> </span>free<span class="w"> </span>space는<span class="w"> </span>0으로,<span class="w"> </span>volume<span class="w"> </span>name은<span class="w"> </span>NC_DATA로,<span class="w"> </span>ext4로<span class="w"> </span>생성
+</code></pre></div><br />
 * MBR은 예전에 많이 썼던 파티션 테이블 구조, 요즘은 GPT 많이 씀<br />
 * exFAT은 가장 무난한 파일시스템, ext4는 리눅스에서 서버용으로 많이 쓰는 파일시스템</p>
 <p>step 2. 파일 수동 마운트<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>~$<span class="w"> </span>lsblk<span class="w"> </span>-o<span class="w"> </span>NAME,UUID,SIZE,MOUNTPOINT<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>sd<span class="w">     </span><span class="c1">#이름 확인</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>sda<span class="w">                                               </span>233G<span class="w"> </span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>└─sda1<span class="w">      </span>82fa760d-f62e-4e16-b428-e78040b3980a<span class="w">  </span>233G
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>~$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/srv/nextcloud-data<span class="w">                </span><span class="c1">#마운트 포인트 생성</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;UUID=82fa760d-f62e-4e16-b428-e78040b3980a  /srv/nextcloud-data  ext4  defaults,noatime,nofail,x-systemd.automount  0  2&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/fstab<span class="w">       </span><span class="c1">#fstab 등록</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>~$<span class="w"> </span>sudo<span class="w"> </span>mount<span class="w"> </span>-a<span class="w">                </span><span class="c1">#마운트 적용</span>
-</span></code></pre></div><br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>lsblk<span class="w"> </span>-o<span class="w"> </span>NAME,UUID,SIZE,MOUNTPOINT<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>sd<span class="w">     </span><span class="c1">#이름 확인</span>
+sda<span class="w">                                               </span>233G<span class="w"> </span>
+└─sda1<span class="w">      </span>82fa760d-f62e-4e16-b428-e78040b3980a<span class="w">  </span>233G
+~$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/srv/nextcloud-data<span class="w">                </span><span class="c1">#마운트 포인트 생성</span>
+~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;UUID=82fa760d-f62e-4e16-b428-e78040b3980a  /srv/nextcloud-data  ext4  defaults,noatime,nofail,x-systemd.automount  0  2&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/fstab<span class="w">       </span><span class="c1">#fstab 등록</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>mount<span class="w"> </span>-a<span class="w">                </span><span class="c1">#마운트 적용</span>
+</code></pre></div><br />
 * nofail은 이거 없이 부팅해도 켜지긴 한다는 뜻<br />
 * x-systemd.automount 필요해질 때 마운트<br />
 * umount는 sudo poweroff시 자동으로</p>
 <p>step 3. 퍼미션 설정<br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>~$ sudo chown -R www-data:www-data /srv/nextcloud-data
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>~$ sudo chmod 750 /srv/nextcloud-data
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>~$ ls -ld /srv/nextcloud-data
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>drwxr-x--- 3 www-data www-data 4096 Jun 16 03:48 /srv/nextcloud-data
-</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code>~$ sudo chown -R www-data:www-data /srv/nextcloud-data
+~$ sudo chmod 750 /srv/nextcloud-data
+~$ ls -ld /srv/nextcloud-data
+drwxr-x--- 3 www-data www-data 4096 Jun 16 03:48 /srv/nextcloud-data
+</code></pre></div></p>
 <hr />
-<h3 id="5-nextcloud">5&gt; Nextcloud 설정<a class="headerlink" href="#5-nextcloud" title="Permanent link">🔗</a></h3>
+<h3 id="5-nextcloud">5&gt; Nextcloud 설정<a class="headerlink" href="#5-nextcloud" title="Permanent link">&para;</a></h3>
 <p>nextcloud 설정:<br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>https://i-kkongnyang2.myddns.me/nextcloud 페이지에 들어가
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>아이디: kkongnyang2
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>비밀번호: U2FsdGVkX1+pMjybe35mgNJBuIV/tF+brc3SX+Rcqvw=(업로드용)
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>Data folder: /srv/nextcloud-data
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>Database account: kkongnyang2
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>Database password: U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>Database name: nextcloud
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>Database host: localhost
-</span></code></pre></div><br />
+<div class="highlight"><pre><span></span><code>https://i-kkongnyang2.myddns.me/nextcloud 페이지에 들어가
+아이디: kkongnyang2
+비밀번호: U2FsdGVkX1+pMjybe35mgNJBuIV/tF+brc3SX+Rcqvw=(업로드용)
+Data folder: /srv/nextcloud-data
+Database account: kkongnyang2
+Database password: U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)
+Database name: nextcloud
+Database host: localhost
+</code></pre></div><br />
 * 기본 파일은 데이터 폴더 경로와 연동, database는 그 데이터들의 메타데이터용.</p>
 <hr />
-<h3 id="6">6&gt; 추가 백업 안정장치(선택)<a class="headerlink" href="#6" title="Permanent link">🔗</a></h3>
+<h3 id="6">6&gt; 추가 백업 안정장치(선택)<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
 <p>서버 날라갈거 대비해 2차 외장 저장장치에 백업 rsync+cron</p>
 
 
@@ -816,7 +826,7 @@ step 2. apache 경로에 넣기<br />
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.instant", "content.code.copy", "toc.integrate", "header.autohide", "search.suggest"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>

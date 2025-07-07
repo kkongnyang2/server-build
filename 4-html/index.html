@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="ko" class="no-js">
+<html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -12,13 +12,15 @@
         <link rel="prev" href="../3-cloud/">
       
       
+        <link rel="next" href="../5-webdesign/">
       
-      <link rel="icon" href="../assets/favicon.png">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
-        <title>html - Server Build</title>
+        <title>4 html - Server-Build</title>
       
     
     
@@ -44,6 +46,8 @@
       
     
     
+      <link rel="stylesheet" href="../soft-era.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -61,7 +65,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="deep-purple">
+    <body dir="ltr" data-md-color-scheme="apple" data-md-color-primary="white" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -71,7 +75,7 @@
       
         
         <a href="#html" class="md-skip">
-          콘텐츠로 이동
+          Skip to content
         </a>
       
     </div>
@@ -82,9 +86,11 @@
     
       
 
-<header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
-    <a href=".." title="Server Build" class="md-header__button md-logo" aria-label="Server Build" data-md-component="logo">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Server-Build" class="md-header__button md-logo" aria-label="Server-Build" data-md-component="logo">
       
   <img src="../assets/logo.svg" alt="logo">
 
@@ -97,13 +103,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Server Build
+            Server-Build
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              html
+              4 html
             
           </span>
         </div>
@@ -116,16 +122,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="deep-purple"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="apple" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Soft Era"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Soft Era" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.38 20.9a2 2 0 0 1-1.28-1.27L19.63 3.1a2 2 0 0 1 1.27 1.28zM20 16v2h-7v-2zM3 6h3V3h2v3h3v2H8v3H6V8H3z"/></svg>
+      </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="deep-purple"  aria-label="다크 모드"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="soft" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Apple Classic"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="다크 모드" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      <label class="md-header__button md-icon" title="Apple Classic" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20.71 4.63-1.34-1.34c-.37-.39-1.02-.39-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.04 0-1.41M7 14a3 3 0 0 0-3 3c0 1.31-1.16 2-2 2 .92 1.22 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3"/></svg>
       </label>
     
   
@@ -147,29 +157,27 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="검색">
+      <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            검색 초기화
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -189,131 +197,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  개요
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../0-study/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  study
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../1-pi/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  pi
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../2-server/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  server
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../3-cloud/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  cloud
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
-        
-  
-  
-    
-  
-  html
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -327,19 +210,15 @@
                     
 
 
-  
 
-
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="네비게이션" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Server Build" class="md-nav__button md-logo" aria-label="Server Build" data-md-component="logo">
+    <a href=".." title="Server-Build" class="md-nav__button md-logo" aria-label="Server-Build" data-md-component="logo">
       
   <img src="../assets/logo.svg" alt="logo">
 
     </a>
-    Server Build
+    Server-Build
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -356,7 +235,7 @@
   
   
   <span class="md-ellipsis">
-    개요
+    Home
     
   </span>
   
@@ -378,7 +257,7 @@
   
   
   <span class="md-ellipsis">
-    study
+    0 study
     
   </span>
   
@@ -400,7 +279,7 @@
   
   
   <span class="md-ellipsis">
-    pi
+    1 pi
     
   </span>
   
@@ -422,7 +301,7 @@
   
   
   <span class="md-ellipsis">
-    server
+    2 server
     
   </span>
   
@@ -444,7 +323,7 @@
   
   
   <span class="md-ellipsis">
-    cloud
+    3 cloud
     
   </span>
   
@@ -473,7 +352,7 @@
   
   
   <span class="md-ellipsis">
-    html
+    4 html
     
   </span>
   
@@ -486,7 +365,7 @@
   
   
   <span class="md-ellipsis">
-    html
+    4 html
     
   </span>
   
@@ -495,14 +374,14 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="목차">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      목차
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -601,12 +480,145 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5-webdesign/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5 webdesign
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
                 </div>
               </div>
             
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#html" class="md-nav__link">
+    <span class="md-ellipsis">
+      서버에 html파일 자동 업로드툴을 만들자
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="서버에 html파일 자동 업로드툴을 만들자">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      목표: workflows 이해
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      0&gt; 흐름
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1&gt; 폴더 구조
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2&gt; 내 컴퓨터에서
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pi" class="md-nav__link">
+    <span class="md-ellipsis">
+      3&gt; pi에서
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-kkongnyang2githubio" class="md-nav__link">
+    <span class="md-ellipsis">
+      4&gt; kkongnyang2.github.io 레포 추가
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5&gt; 마지막 작업
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6&gt; 개인정보 암호화
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
             
           
           
@@ -617,200 +629,200 @@
 
 
 
-  <h1>html</h1>
+  <h1>4 html</h1>
 
-<h2 id="html">서버에 html파일 자동 업로드툴을 만들자<a class="headerlink" href="#html" title="Permanent link">🔗</a></h2>
-<h3 id="workflows">목표: workflows 이해<a class="headerlink" href="#workflows" title="Permanent link">🔗</a></h3>
+<h2 id="html">서버에 html파일 자동 업로드툴을 만들자<a class="headerlink" href="#html" title="Permanent link">&para;</a></h2>
+<h3 id="workflows">목표: workflows 이해<a class="headerlink" href="#workflows" title="Permanent link">&para;</a></h3>
 <p>작성자: kkongnyang2 작성일: 2025-06-17</p>
 <hr />
-<h3 id="0">0&gt; 흐름<a class="headerlink" href="#0" title="Permanent link">🔗</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>   로컬 폴더    -push-&gt;  github 레지스토리  -workflow-&gt;  github action  -mkdocs   -&gt; -deploy-&gt; github.io/server-build
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>server-build            server-build                   클라이언트       html로   └─ -ssh-&gt; pi의 /var/www/html -apache2-&gt; i-kkongnyang2.myddns.me/server-build
-</span></code></pre></div>
+<h3 id="0">0&gt; 흐름<a class="headerlink" href="#0" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>   로컬 폴더    -push-&gt;  github 레지스토리  -workflow-&gt;  github action  -mkdocs   -&gt; -deploy-&gt; github.io/server-build
+server-build            server-build                   클라이언트       html로   └─ -ssh-&gt; pi의 /var/www/html -apache2-&gt; i-kkongnyang2.myddns.me/server-build
+</code></pre></div>
 <hr />
-<h3 id="1">1&gt; 폴더 구조<a class="headerlink" href="#1" title="Permanent link">🔗</a></h3>
+<h3 id="1">1&gt; 폴더 구조<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>step 1. 폴더 구조 만들기<br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>server-build/
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├─ docs/
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│   ├─ index.md
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│   ├─ 0.md
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│   └─ 1.md
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>├─ mkdocs.yml
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>└─ .github/workflows/deploy.yml
-</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code>server-build/
+├─ docs/
+│   ├─ index.md
+│   ├─ 0.md
+│   └─ 1.md
+├─ mkdocs.yml
+└─ .github/workflows/deploy.yml
+</code></pre></div></p>
 <p>step 2. index.md<br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>## 📚 목차
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>- [0. study](0-study.md)
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>- [1. pi](1-pi.md)
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>- [2. server](2-server.md)
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>- [3. cloud](3-cloud.md)
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>- [4. html](4-html.md)
-</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code>## 📚 목차
+
+- [0. study](0-study.md)
+- [1. pi](1-pi.md)
+- [2. server](2-server.md)
+- [3. cloud](3-cloud.md)
+- [4. html](4-html.md)
+</code></pre></div></p>
 <p>step 3. mkdocs.yml<br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>site_name: server-build
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>theme:
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  name: material
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>nav:                    #사이드바 목차
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  - 이론: 0-study.md
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  - pi: 1-pi.md
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  - server: 2-server.md
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  - cloud: 3-cloud.md
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  - html: 4-html.md
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>docs_dir: docs          #기본값은 docs. 따라서 안써도 되지만 그냥 명시
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>site_dir: site          #기본값은 site. 따라서 안써도 되지만 그냥 명시
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>markdown_extensions:
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  - admonition
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>  - toc:
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>      permalink: true
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>  - pymdownx.extra
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>  - pymdownx.highlight
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>  - pymdownx.superfences
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>  - nl2br       # ← 줄바꿈 자동 처리
-</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code>site_name: server-build
+theme:
+  name: material
+nav:                    #사이드바 목차
+  - 이론: 0-study.md
+  - pi: 1-pi.md
+  - server: 2-server.md
+  - cloud: 3-cloud.md
+  - html: 4-html.md
+docs_dir: docs          #기본값은 docs. 따라서 안써도 되지만 그냥 명시
+site_dir: site          #기본값은 site. 따라서 안써도 되지만 그냥 명시
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.extra
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - nl2br       # ← 줄바꿈 자동 처리
+</code></pre></div></p>
 <p>step 4. .github/workflows/deploy.yml<br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>~$ mkdir -p .github/workflows
-</span></code></pre></div><br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>name: Daily Deploy to GitHub Pages &amp; Raspberry Pi       #이름
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>on:
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  push:                 # 수동 push 시 즉시
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>#  schedule:             # 매일 18:00 UTC
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>#    - cron:  &#39;0 18 * * *&#39;
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>jobs:
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>  build:
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    runs-on: ubuntu-latest      #github가 제공하는 우분투 러너 사용
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    steps:
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    - uses: actions/checkout@v4
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    - uses: actions/setup-python@v5     #mkdocs가 필요로 하는 python 설치
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>      with: { python-version: &#39;3.11&#39; }
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>    - name: Install MkDocs &amp; theme
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>      run: pip install mkdocs mkdocs-material     #추가 플러그인 있으면 스페이스로 이어서 적을것
-</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
-</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>    - name: Build MkDocs
-</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>      run: mkdocs build --strict             # mkdocs.yml을 읽어 site/ 폴더 생성
-</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>
-</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>    # ---------- GitHub Pages 배포 ----------
-</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>    - name: Deploy to GitHub Pages
-</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>      uses: peaceiris/actions-gh-pages@v4
-</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>      with:
-</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>        github_token: ${{ secrets.GITHUB_TOKEN }}
-</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>        publish_dir:  site                   # site/ → gh-pages 브랜치 푸시
-</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>
-</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>    # ---------- Raspberry Pi 배포 ----------
-</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>    - name: Add Pi to known_hosts
-</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>      run: |
-</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>        mkdir -p ~/.ssh
-</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>        echo &quot;${{ secrets.PI_KNOWN_HOSTS }}&quot; &gt;&gt; ~/.ssh/known_hosts      #pi의 호스트 키 사전 등록
-</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>
-</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>    - name: Copy to Raspberry Pi
-</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>      uses: appleboy/scp-action@v0.1.3
-</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>      with:
-</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a>        host:       ${{ secrets.PI_HOST }}          #pi의 ip 주소
-</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a>        username:   ${{ secrets.PI_USER }}          #pi의 사용자
-</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a>        key:        ${{ secrets.PI_SSH_KEY }}       #ssh로그인을 위한 private key
-</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a>        source:     &quot;site/*&quot;                        #보낼것
-</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a>        target:     &quot;/var/www/html/${{ github.event.repository.name }}/&quot;   #붙이는거 없이 루트에 두려면 /var/www/html로 바꾸기
-</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a>        strip_components: 1                         # site/ 디렉터리 계층 제거
-</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code>~$ mkdir -p .github/workflows
+</code></pre></div><br />
+<div class="highlight"><pre><span></span><code>name: Daily Deploy to GitHub Pages &amp; Raspberry Pi       #이름
+
+on:
+  push:                 # 수동 push 시 즉시
+#  schedule:             # 매일 18:00 UTC
+#    - cron:  &#39;0 18 * * *&#39;
+
+jobs:
+  build:
+    runs-on: ubuntu-latest      #github가 제공하는 우분투 러너 사용
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-python@v5     #mkdocs가 필요로 하는 python 설치
+      with: { python-version: &#39;3.11&#39; }
+
+    - name: Install MkDocs &amp; theme
+      run: pip install mkdocs mkdocs-material     #추가 플러그인 있으면 스페이스로 이어서 적을것
+
+    - name: Build MkDocs
+      run: mkdocs build --strict             # mkdocs.yml을 읽어 site/ 폴더 생성
+
+    # ---------- GitHub Pages 배포 ----------
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir:  site                   # site/ → gh-pages 브랜치 푸시
+
+    # ---------- Raspberry Pi 배포 ----------
+    - name: Add Pi to known_hosts
+      run: |
+        mkdir -p ~/.ssh
+        echo &quot;${{ secrets.PI_KNOWN_HOSTS }}&quot; &gt;&gt; ~/.ssh/known_hosts      #pi의 호스트 키 사전 등록
+
+    - name: Copy to Raspberry Pi
+      uses: appleboy/scp-action@v0.1.3
+      with:
+        host:       ${{ secrets.PI_HOST }}          #pi의 ip 주소
+        username:   ${{ secrets.PI_USER }}          #pi의 사용자
+        key:        ${{ secrets.PI_SSH_KEY }}       #ssh로그인을 위한 private key
+        source:     &quot;site/*&quot;                        #보낼것
+        target:     &quot;/var/www/html/${{ github.event.repository.name }}/&quot;   #붙이는거 없이 루트에 두려면 /var/www/html로 바꾸기
+        strip_components: 1                         # site/ 디렉터리 계층 제거
+</code></pre></div></p>
 <hr />
-<h3 id="2">2&gt; 내 컴퓨터에서<a class="headerlink" href="#2" title="Permanent link">🔗</a></h3>
+<h3 id="2">2&gt; 내 컴퓨터에서<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>step 1. PI_KNOWN_HOSTS 알아내기<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>~$<span class="w"> </span>ssh-keyscan<span class="w"> </span>-p22<span class="w"> </span><span class="m">172</span>.30.1.222
-</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>ssh-keyscan<span class="w"> </span>-p22<span class="w"> </span><span class="m">172</span>.30.1.222
+</code></pre></div></p>
 <p>step 2. 비밀번호 없는 ssh 키 쌍 생성<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>~$<span class="w"> </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-f<span class="w"> </span>id_ed25519_pi<span class="w"> </span>-N<span class="w"> </span><span class="s2">&quot;&quot;</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Generating<span class="w"> </span>public/private<span class="w"> </span>ed25519<span class="w"> </span>key<span class="w"> </span>pair.
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Your<span class="w"> </span>identification<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>saved<span class="w"> </span><span class="k">in</span><span class="w"> </span>id_ed25519_pi<span class="w">       </span><span class="c1">#private key는 id_ed25519_pi에 저장</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Your<span class="w"> </span>public<span class="w"> </span>key<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>saved<span class="w"> </span><span class="k">in</span><span class="w"> </span>id_ed25519_pi.pub<span class="w">       </span><span class="c1">#public kye는 id_ed25519_pi.pub에 저장</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>The<span class="w"> </span>key<span class="w"> </span>fingerprint<span class="w"> </span>is:
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>SHA256:sDGJubvrofTtJOfdXydN052qkDMxUIGuitUg1SaNJJ8<span class="w"> </span>kkongnyang2@kkongnyang2-930XCJ-931XCJ-930XCR
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>The<span class="w"> </span>key<span class="err">&#39;</span>s<span class="w"> </span>randomart<span class="w"> </span>image<span class="w"> </span>is:
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>+--<span class="o">[</span>ED25519<span class="w"> </span><span class="m">256</span><span class="o">]</span>--+
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">|</span><span class="w"> </span>...+<span class="w">   </span>.o.<span class="w">      </span><span class="p">|</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">|</span><span class="w">  </span>o+.*<span class="w"> </span>o.<span class="w">        </span><span class="p">|</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="p">|</span><span class="w">  </span>.E<span class="o">=</span><span class="w"> </span>*.<span class="w">         </span><span class="p">|</span>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="p">|</span><span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>*.<span class="w">       </span>+<span class="p">|</span>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="p">|</span><span class="w">  </span>.<span class="w"> </span>+<span class="w"> </span>o<span class="w"> </span>So<span class="w">     </span>o+<span class="p">|</span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="p">|</span><span class="w">   </span>.<span class="w"> </span>+<span class="w">    </span>+<span class="w">   </span>.o.<span class="p">|</span>
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="p">|</span><span class="w">  </span>+<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">o</span><span class="w">  </span><span class="o">=</span><span class="w">   </span>.o<span class="w"> </span>o<span class="p">|</span>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="p">|</span><span class="w"> </span>o<span class="w"> </span>+<span class="w"> </span>O<span class="w"> </span>.<span class="w"> </span>.+<span class="w"> </span>..<span class="w"> </span>o<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="p">|</span><span class="w">  </span>..<span class="o">=</span>o+<span class="w"> </span>.<span class="w"> </span>.o.<span class="w">    </span><span class="p">|</span>
-</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>+----<span class="o">[</span>SHA256<span class="o">]</span>-----+
-</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-f<span class="w"> </span>id_ed25519_pi<span class="w"> </span>-N<span class="w"> </span><span class="s2">&quot;&quot;</span>
+Generating<span class="w"> </span>public/private<span class="w"> </span>ed25519<span class="w"> </span>key<span class="w"> </span>pair.
+Your<span class="w"> </span>identification<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>saved<span class="w"> </span><span class="k">in</span><span class="w"> </span>id_ed25519_pi<span class="w">       </span><span class="c1">#private key는 id_ed25519_pi에 저장</span>
+Your<span class="w"> </span>public<span class="w"> </span>key<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>saved<span class="w"> </span><span class="k">in</span><span class="w"> </span>id_ed25519_pi.pub<span class="w">       </span><span class="c1">#public kye는 id_ed25519_pi.pub에 저장</span>
+The<span class="w"> </span>key<span class="w"> </span>fingerprint<span class="w"> </span>is:
+SHA256:sDGJubvrofTtJOfdXydN052qkDMxUIGuitUg1SaNJJ8<span class="w"> </span>kkongnyang2@kkongnyang2-930XCJ-931XCJ-930XCR
+The<span class="w"> </span>key<span class="err">&#39;</span>s<span class="w"> </span>randomart<span class="w"> </span>image<span class="w"> </span>is:
++--<span class="o">[</span>ED25519<span class="w"> </span><span class="m">256</span><span class="o">]</span>--+
+<span class="p">|</span><span class="w"> </span>...+<span class="w">   </span>.o.<span class="w">      </span><span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>o+.*<span class="w"> </span>o.<span class="w">        </span><span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>.E<span class="o">=</span><span class="w"> </span>*.<span class="w">         </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>*.<span class="w">       </span>+<span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>.<span class="w"> </span>+<span class="w"> </span>o<span class="w"> </span>So<span class="w">     </span>o+<span class="p">|</span>
+<span class="p">|</span><span class="w">   </span>.<span class="w"> </span>+<span class="w">    </span>+<span class="w">   </span>.o.<span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>+<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">o</span><span class="w">  </span><span class="o">=</span><span class="w">   </span>.o<span class="w"> </span>o<span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>o<span class="w"> </span>+<span class="w"> </span>O<span class="w"> </span>.<span class="w"> </span>.+<span class="w"> </span>..<span class="w"> </span>o<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>..<span class="o">=</span>o+<span class="w"> </span>.<span class="w"> </span>.o.<span class="w">    </span><span class="p">|</span>
++----<span class="o">[</span>SHA256<span class="o">]</span>-----+
+</code></pre></div></p>
 <p>step 3. secret 입력</p>
 <p>github - repo - settings - secrets and varables - actions 에 들어가 입력</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>PI_HOST : U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용)      #pi의 공인ip주소
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>PI_USER : deployer       #pi의 사용자 이름
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>PI_SSH_KEY : #아까 keygen한 private key
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>-----BEGIN OPENSSH PRIVATE KEY-----
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>QyNTUxOQAAACBC4ALhGcfEwRoT0Twq9YNL3XyE6PDY6qmK74qyZvatuAAAALCs5NegrOTX
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>oAAAAAtzc2gtZWQyNTUxOQAAACBC4ALhGcfEwRoT0Twq9YNL3XyE6PDY6qmK74qyZvatuA
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>AAAEDTndvXduj9G0yedw1h6LTUrKLFIOKEXbEGm/yE6ydTD0LgAuEZx8TBGhPRPCr1g0vd
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>fITo8NjqqYrvirJm9q24AAAALGtrb25nbnlhbmcyQGtrb25nbnlhbmcyLTkzMFhDSi05Mz
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>FYQ0otOTMwWENSAQ==(업로드용)
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>-----END OPENSSH PRIVATE KEY-----
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>PI_KNOWN_HOSTS : #아까 찾아놓은 known_hosts
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>172.30.1.222 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKsC8q8JdGM+d6RIkWQLKM2kG2PnUdiNrnM4swlYYbnh
-</span></code></pre></div><br />
+<p><div class="highlight"><pre><span></span><code>PI_HOST : U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용)      #pi의 공인ip주소
+PI_USER : deployer       #pi의 사용자 이름
+PI_SSH_KEY : #아까 keygen한 private key
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+QyNTUxOQAAACBC4ALhGcfEwRoT0Twq9YNL3XyE6PDY6qmK74qyZvatuAAAALCs5NegrOTX
+oAAAAAtzc2gtZWQyNTUxOQAAACBC4ALhGcfEwRoT0Twq9YNL3XyE6PDY6qmK74qyZvatuA
+AAAEDTndvXduj9G0yedw1h6LTUrKLFIOKEXbEGm/yE6ydTD0LgAuEZx8TBGhPRPCr1g0vd
+fITo8NjqqYrvirJm9q24AAAALGtrb25nbnlhbmcyQGtrb25nbnlhbmcyLTkzMFhDSi05Mz
+FYQ0otOTMwWENSAQ==(업로드용)
+-----END OPENSSH PRIVATE KEY-----
+PI_KNOWN_HOSTS : #아까 찾아놓은 known_hosts
+172.30.1.222 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKsC8q8JdGM+d6RIkWQLKM2kG2PnUdiNrnM4swlYYbnh
+</code></pre></div><br />
 * 입력하는 이유? github action이 클라이언트가 되어 내 pi 서버에 로그인해야함</p>
 <hr />
-<h3 id="3-pi">3&gt; pi에서<a class="headerlink" href="#3-pi" title="Permanent link">🔗</a></h3>
+<h3 id="3-pi">3&gt; pi에서<a class="headerlink" href="#3-pi" title="Permanent link">&para;</a></h3>
 <p>step 1. 업로드용 사용자 생성<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>~$<span class="w"> </span>sudo<span class="w"> </span>adduser<span class="w"> </span>--disabled-password<span class="w"> </span>--gecos<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>deployer<span class="w">    </span><span class="c1">#비밀번호도 설명란도 없는 사용자 &#39;deployer&#39; 생성</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>~$<span class="w"> </span>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>www-data<span class="w"> </span>deployer<span class="w">         </span><span class="c1"># www-data를 그룹에 추가</span>
-</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>adduser<span class="w"> </span>--disabled-password<span class="w"> </span>--gecos<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>deployer<span class="w">    </span><span class="c1">#비밀번호도 설명란도 없는 사용자 &#39;deployer&#39; 생성</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>www-data<span class="w"> </span>deployer<span class="w">         </span><span class="c1"># www-data를 그룹에 추가</span>
+</code></pre></div></p>
 <p>step 2. 업로드할 곳 퍼미션 설정<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>~$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>deployer:www-data<span class="w"> </span>/var/www/html<span class="w">       </span><span class="c1">#/var/www/html의 소유자와 그룹 변경(퍼미션은 755니까 이러면 deployer만 write할수 있음)</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>~$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/www/html/nextcloud<span class="w">     </span><span class="c1">#내부에 nextcloud의 소유자와 그룹도 바꼈을테니 다시 올바르게(퍼미션은 바꾼적 없으니 750 잘되어있음)</span>
-</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>deployer:www-data<span class="w"> </span>/var/www/html<span class="w">       </span><span class="c1">#/var/www/html의 소유자와 그룹 변경(퍼미션은 755니까 이러면 deployer만 write할수 있음)</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/www/html/nextcloud<span class="w">     </span><span class="c1">#내부에 nextcloud의 소유자와 그룹도 바꼈을테니 다시 올바르게(퍼미션은 바꾼적 없으니 750 잘되어있음)</span>
+</code></pre></div></p>
 <p>step 3. public key 등록<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>-u<span class="w"> </span>deployer<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/home/deployer/.ssh<span class="w">       </span><span class="c1">#해당 계정 home에서 .ssh 디렉토리 생성</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>sudo<span class="w"> </span>-u<span class="w"> </span>deployer<span class="w"> </span>chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>/home/deployer/.ssh<span class="w">      </span><span class="c1">#디렉토리 퍼미션을 700으로 해두기</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>sudo<span class="w"> </span>-u<span class="w"> </span>deployer<span class="w"> </span>nano<span class="w"> </span>/home/deployer/.ssh/authorized_keys<span class="w">   </span><span class="c1">#아까 내 컴퓨터에서 생성한 ssh 키 중 public key 입력</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/home/deployer/.ssh/authorized_keys<span class="w">  </span><span class="c1">#파일 퍼미션을 600으로 해두기</span>
-</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>deployer<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/home/deployer/.ssh<span class="w">       </span><span class="c1">#해당 계정 home에서 .ssh 디렉토리 생성</span>
+sudo<span class="w"> </span>-u<span class="w"> </span>deployer<span class="w"> </span>chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>/home/deployer/.ssh<span class="w">      </span><span class="c1">#디렉토리 퍼미션을 700으로 해두기</span>
+sudo<span class="w"> </span>-u<span class="w"> </span>deployer<span class="w"> </span>nano<span class="w"> </span>/home/deployer/.ssh/authorized_keys<span class="w">   </span><span class="c1">#아까 내 컴퓨터에서 생성한 ssh 키 중 public key 입력</span>
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/home/deployer/.ssh/authorized_keys<span class="w">  </span><span class="c1">#파일 퍼미션을 600으로 해두기</span>
+</code></pre></div></p>
 <hr />
-<h3 id="4-kkongnyang2githubio">4&gt; kkongnyang2.github.io 레포 추가<a class="headerlink" href="#4-kkongnyang2githubio" title="Permanent link">🔗</a></h3>
+<h3 id="4-kkongnyang2githubio">4&gt; kkongnyang2.github.io 레포 추가<a class="headerlink" href="#4-kkongnyang2githubio" title="Permanent link">&para;</a></h3>
 <p>웹페이지 제일 첫 페이지가 될 거</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>kkongnyang2.github.io/
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>├─ index.html
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>└─ .github/workflows/deploy.yml
-</span></code></pre></div>
+<div class="highlight"><pre><span></span><code>kkongnyang2.github.io/
+├─ index.html
+└─ .github/workflows/deploy.yml
+</code></pre></div>
 <p>얘는 이미 html파일이라 docs.yml를 넣어줄 필요가 없다.<br />
 deploy.yml에서 mkdocs 부분만 빼고 target:     "/var/www/html/"으로만 수정하면 됨</p>
 <hr />
-<h3 id="5">5&gt; 마지막 작업<a class="headerlink" href="#5" title="Permanent link">🔗</a></h3>
+<h3 id="5">5&gt; 마지막 작업<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
 <p>step 1. 모든 레포 공개 public 으로 당연히 바꿔주기</p>
 <p>step 2. repo - settings - actions - general 들어가서<br />
 workflow permissions 섹션에서 read and write permissions 로 변경</p>
 <p>step 3. 공유기 페이지 들어가서 22번 포트 포트포워딩 해주기</p>
 <p>step 4. 첫 업로드 이후 repo - settings → Pages 에서 Deploy from branch → gh-pages / (root) 설정     #얘는 github pages에 업로드하는 브랜치</p>
 <hr />
-<h3 id="6">6&gt; 개인정보 암호화<a class="headerlink" href="#6" title="Permanent link">🔗</a></h3>
-<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;원하는 문구&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>enc<span class="w"> </span>-aes-256-cbc<span class="w"> </span>-a<span class="w"> </span>-salt<span class="w"> </span>-pbkdf2<span class="w"> </span>-pass<span class="w"> </span>pass:내비밀번호
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>암호<span class="w"> </span>문구
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;암호 문구&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>openssl<span class="w"> </span>enc<span class="w"> </span>-aes-256-cbc<span class="w"> </span>-a<span class="w"> </span>-d<span class="w"> </span>-pbkdf2<span class="w"> </span>-pass<span class="w"> </span>pass:내비밀번호
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>원래<span class="w"> </span>문구
-</span></code></pre></div><br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>비밀번호 -&gt; U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>공인ip주소 -&gt; U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용)
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>비밀번호2 -&gt; U2FsdGVkX1+pMjybe35mgNJBuIV/tF+brc3SX+Rcqvw=(업로드용)
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>개인키 -&gt; U2FsdGVkX18oowmiNgvyUfNYrIgmveJ77XIBl8f6/CkWhmNdJTX1DtzJ0Ym5lgoE
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>QVcHLcQae5I9hnvEGdpE0wDyYmmhU9ToeUycUPYROGaGhO5PQC9XQQ0kZY7g5JR6
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>QmziVX/r4McqHpemsYihgTE3OZb4M9efkUgQDw5wpE5S5xg+YbgTYu/aJEfIpjA/
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>39LFLDy1BzcUr9pCjN4WZuzqCSMwquxFU/CNCwfLGy9bhHCNR/jn6H2gnMzZKeSj
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>j+hU3avIPgbwwl49TVYGyLVd6c2OglGOdzAK8HSJdJY/0BTan2R8NwILFugBqu5A
-</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>fCq9SCP7KQNydfEkfXKiUd2LGwcfw7j0NCDno8wK2BZse+xvC0Wjc1idIs80RL+n
-</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>sWuHI0zkxc0lEjTENS5AcSkcTtrcOLQOVYd39j8/T0nF1cF2rVCIJxlopV8cv533
-</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>WIGtKORT4nXF5q3qTERqBHvhrpoB5WopAIi33zERYHHHtkodf4cBQJo2fr0/AaiI
-</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>7tp8zAN8OX7pGcYku8v5ng==(업로드용)
-</span></code></pre></div></p>
+<h3 id="6">6&gt; 개인정보 암호화<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;원하는 문구&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>enc<span class="w"> </span>-aes-256-cbc<span class="w"> </span>-a<span class="w"> </span>-salt<span class="w"> </span>-pbkdf2<span class="w"> </span>-pass<span class="w"> </span>pass:내비밀번호
+암호<span class="w"> </span>문구
+~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;암호 문구&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+openssl<span class="w"> </span>enc<span class="w"> </span>-aes-256-cbc<span class="w"> </span>-a<span class="w"> </span>-d<span class="w"> </span>-pbkdf2<span class="w"> </span>-pass<span class="w"> </span>pass:내비밀번호
+원래<span class="w"> </span>문구
+</code></pre></div><br />
+<div class="highlight"><pre><span></span><code>비밀번호 -&gt; U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)
+공인ip주소 -&gt; U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용)
+비밀번호2 -&gt; U2FsdGVkX1+pMjybe35mgNJBuIV/tF+brc3SX+Rcqvw=(업로드용)
+개인키 -&gt; U2FsdGVkX18oowmiNgvyUfNYrIgmveJ77XIBl8f6/CkWhmNdJTX1DtzJ0Ym5lgoE
+QVcHLcQae5I9hnvEGdpE0wDyYmmhU9ToeUycUPYROGaGhO5PQC9XQQ0kZY7g5JR6
+QmziVX/r4McqHpemsYihgTE3OZb4M9efkUgQDw5wpE5S5xg+YbgTYu/aJEfIpjA/
+39LFLDy1BzcUr9pCjN4WZuzqCSMwquxFU/CNCwfLGy9bhHCNR/jn6H2gnMzZKeSj
+j+hU3avIPgbwwl49TVYGyLVd6c2OglGOdzAK8HSJdJY/0BTan2R8NwILFugBqu5A
+fCq9SCP7KQNydfEkfXKiUd2LGwcfw7j0NCDno8wK2BZse+xvC0Wjc1idIs80RL+n
+sWuHI0zkxc0lEjTENS5AcSkcTtrcOLQOVYd39j8/T0nF1cF2rVCIJxlopV8cv533
+WIGtKORT4nXF5q3qTERqBHvhrpoB5WopAIi33zERYHHHtkodf4cBQJo2fr0/AaiI
+7tp8zAN8OX7pGcYku8v5ng==(업로드용)
+</code></pre></div></p>
 
 
 
@@ -859,7 +871,7 @@ workflow permissions 섹션에서 read and write permissions 로 변경</p>
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.instant", "content.code.copy", "toc.integrate", "header.autohide", "search.suggest"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>

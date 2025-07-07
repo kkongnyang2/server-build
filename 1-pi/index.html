@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="ko" class="no-js">
+<html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -15,12 +15,12 @@
         <link rel="next" href="../2-server/">
       
       
-      <link rel="icon" href="../assets/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
-        <title>pi - Server Build</title>
+        <title>1 pi - Server-Build</title>
       
     
     
@@ -46,6 +46,8 @@
       
     
     
+      <link rel="stylesheet" href="../soft-era.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -63,7 +65,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="deep-purple">
+    <body dir="ltr" data-md-color-scheme="apple" data-md-color-primary="white" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -73,7 +75,7 @@
       
         
         <a href="#ubuntu-2204-server-arm64img" class="md-skip">
-          콘텐츠로 이동
+          Skip to content
         </a>
       
     </div>
@@ -84,9 +86,11 @@
     
       
 
-<header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
-    <a href=".." title="Server Build" class="md-header__button md-logo" aria-label="Server Build" data-md-component="logo">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Server-Build" class="md-header__button md-logo" aria-label="Server-Build" data-md-component="logo">
       
   <img src="../assets/logo.svg" alt="logo">
 
@@ -99,13 +103,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Server Build
+            Server-Build
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              pi
+              1 pi
             
           </span>
         </div>
@@ -118,16 +122,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="deep-purple"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="apple" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Soft Era"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Soft Era" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.38 20.9a2 2 0 0 1-1.28-1.27L19.63 3.1a2 2 0 0 1 1.27 1.28zM20 16v2h-7v-2zM3 6h3V3h2v3h3v2H8v3H6V8H3z"/></svg>
+      </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="deep-purple"  aria-label="다크 모드"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="soft" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Apple Classic"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="다크 모드" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      <label class="md-header__button md-icon" title="Apple Classic" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20.71 4.63-1.34-1.34c-.37-.39-1.02-.39-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.04 0-1.41M7 14a3 3 0 0 0-3 3c0 1.31-1.16 2-2 2 .92 1.22 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3"/></svg>
       </label>
     
   
@@ -149,29 +157,27 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="검색">
+      <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            검색 초기화
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -191,131 +197,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  개요
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../0-study/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  study
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
-        
-  
-  
-    
-  
-  pi
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../2-server/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  server
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../3-cloud/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  cloud
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../4-html/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  html
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -329,19 +210,15 @@
                     
 
 
-  
 
-
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="네비게이션" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Server Build" class="md-nav__button md-logo" aria-label="Server Build" data-md-component="logo">
+    <a href=".." title="Server-Build" class="md-nav__button md-logo" aria-label="Server-Build" data-md-component="logo">
       
   <img src="../assets/logo.svg" alt="logo">
 
     </a>
-    Server Build
+    Server-Build
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -358,7 +235,7 @@
   
   
   <span class="md-ellipsis">
-    개요
+    Home
     
   </span>
   
@@ -380,7 +257,7 @@
   
   
   <span class="md-ellipsis">
-    study
+    0 study
     
   </span>
   
@@ -409,7 +286,7 @@
   
   
   <span class="md-ellipsis">
-    pi
+    1 pi
     
   </span>
   
@@ -422,7 +299,7 @@
   
   
   <span class="md-ellipsis">
-    pi
+    1 pi
     
   </span>
   
@@ -431,14 +308,14 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="목차">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      목차
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -531,7 +408,7 @@
   
   
   <span class="md-ellipsis">
-    server
+    2 server
     
   </span>
   
@@ -553,7 +430,7 @@
   
   
   <span class="md-ellipsis">
-    cloud
+    3 cloud
     
   </span>
   
@@ -575,7 +452,29 @@
   
   
   <span class="md-ellipsis">
-    html
+    4 html
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5-webdesign/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5 webdesign
     
   </span>
   
@@ -592,6 +491,99 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ubuntu-2204-server-arm64img" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ubuntu-22.04-server-arm64.img를 설치하자
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ubuntu-22.04-server-arm64.img를 설치하자">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      목표: 미니 컴퓨터 이해
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      0&gt; 환경 점검
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-sd-1-etcher-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      1&gt; sd 카드 만들기 - 방법1. etcher로 굽기(권장x)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sd-2-raspi-imager" class="md-nav__link">
+    <span class="md-ellipsis">
+      2&gt; sd 카드 만들기 - 방법2. raspi-imager로 굽기
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3&gt; 부팅하기
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4&gt; 부팅 설정파일 만들어지는 과정
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
@@ -601,13 +593,13 @@
 
 
 
-  <h1>pi</h1>
+  <h1>1 pi</h1>
 
-<h2 id="ubuntu-2204-server-arm64img">Ubuntu-22.04-server-arm64.img를 설치하자<a class="headerlink" href="#ubuntu-2204-server-arm64img" title="Permanent link">🔗</a></h2>
-<h3 id="_1">목표: 미니 컴퓨터 이해<a class="headerlink" href="#_1" title="Permanent link">🔗</a></h3>
+<h2 id="ubuntu-2204-server-arm64img">Ubuntu-22.04-server-arm64.img를 설치하자<a class="headerlink" href="#ubuntu-2204-server-arm64img" title="Permanent link">&para;</a></h2>
+<h3 id="_1">목표: 미니 컴퓨터 이해<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>작성자: kkongnyang2 작성일: 2025-06-09</p>
 <hr />
-<h3 id="0">0&gt; 환경 점검<a class="headerlink" href="#0" title="Permanent link">🔗</a></h3>
+<h3 id="0">0&gt; 환경 점검<a class="headerlink" href="#0" title="Permanent link">&para;</a></h3>
 <p>하드웨어: raspberrypi4 model B<br />
 ├─cpu: arm cortex A72<br />
 ├─ram: 4GB<br />
@@ -619,35 +611,35 @@
 ⚠️ 모니터 연결을 위해선 microHDMI가 필요하지만 ssh로 대체 가능.</p>
 </blockquote>
 <hr />
-<h3 id="1-sd-1-etcher-x">1&gt; sd 카드 만들기 - 방법1. etcher로 굽기(권장x)<a class="headerlink" href="#1-sd-1-etcher-x" title="Permanent link">🔗</a></h3>
+<h3 id="1-sd-1-etcher-x">1&gt; sd 카드 만들기 - 방법1. etcher로 굽기(권장x)<a class="headerlink" href="#1-sd-1-etcher-x" title="Permanent link">&para;</a></h3>
 <p>step 1. ubuntu-22.04.5-preinstalled-server-arm64+raspi.img.xz 다운받기<br />
 * preintalled: 얘는 따로 설치 없이 이미 그 자체를 저장장치로 씀.</p>
 <p>step 2. balena-etcher 2.1.2 다운로드<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>인터넷에서<span class="w"> </span>balena-etcher.deb<span class="w"> </span>파일<span class="w"> </span>다운
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>~$<span class="w"> </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>~/Downloads/balena-etcher_2.1.2_amd64.deb
-</span></code></pre></div><br />
+<div class="highlight"><pre><span></span><code>인터넷에서<span class="w"> </span>balena-etcher.deb<span class="w"> </span>파일<span class="w"> </span>다운
+~$<span class="w"> </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>~/Downloads/balena-etcher_2.1.2_amd64.deb
+</code></pre></div><br />
 step 3. balenaEtcher로 해당 이미지를 sd 카드에 굽기</p>
 <p>step 4. 부팅시 ssh를 위해 system-boot에서 cloud-init 미리 설정해주기</p>
-<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>~$<span class="w"> </span>touch<span class="w"> </span>/media/<span class="nv">$USER</span>/system-boot/ssh<span class="w">       </span><span class="c1">#ssh 빈파일 만들기</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>~$<span class="w"> </span>nano<span class="w"> </span>/media/<span class="nv">$USER</span>/system-boot/network-config<span class="w"> </span><span class="c1">#네트워크 설정</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>wifis:
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>wlan0:
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span>dhcp4:<span class="w"> </span><span class="nb">true</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span>optional:<span class="w"> </span><span class="nb">true</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span>access-points:
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="s2">&quot;KT_GiGA_1D39&quot;</span>:
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span>password:<span class="w"> </span><span class="s2">&quot;eec0hc4206&quot;</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span>regulatory-domain:<span class="w"> </span>KR
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>~$<span class="w"> </span>nano<span class="w"> </span>/media/<span class="nv">$USER</span>/system-boot/cloud-config<span class="w">   </span><span class="c1">#사용자 설정</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>hostname:<span class="w"> </span>raspberrypi
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>ssh_pwauth:<span class="w"> </span><span class="nb">true</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>disable_root:<span class="w"> </span><span class="nb">false</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>chpasswd:
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">  </span>list:<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span>ubuntu:ubuntu
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">  </span>expire:<span class="w"> </span><span class="nb">false</span>
-</span></code></pre></div><br />
+<p><div class="highlight"><pre><span></span><code>~$<span class="w"> </span>touch<span class="w"> </span>/media/<span class="nv">$USER</span>/system-boot/ssh<span class="w">       </span><span class="c1">#ssh 빈파일 만들기</span>
+~$<span class="w"> </span>nano<span class="w"> </span>/media/<span class="nv">$USER</span>/system-boot/network-config<span class="w"> </span><span class="c1">#네트워크 설정</span>
+wifis:
+<span class="w">  </span>wlan0:
+<span class="w">    </span>dhcp4:<span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span>optional:<span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span>access-points:
+<span class="w">      </span><span class="s2">&quot;KT_GiGA_1D39&quot;</span>:
+<span class="w">        </span>password:<span class="w"> </span><span class="s2">&quot;eec0hc4206&quot;</span>
+
+<span class="w">    </span>regulatory-domain:<span class="w"> </span>KR
+~$<span class="w"> </span>nano<span class="w"> </span>/media/<span class="nv">$USER</span>/system-boot/cloud-config<span class="w">   </span><span class="c1">#사용자 설정</span>
+hostname:<span class="w"> </span>raspberrypi
+ssh_pwauth:<span class="w"> </span><span class="nb">true</span>
+disable_root:<span class="w"> </span><span class="nb">false</span>
+chpasswd:
+<span class="w">  </span>list:<span class="w"> </span><span class="p">|</span>
+<span class="w">    </span>ubuntu:ubuntu
+<span class="w">  </span>expire:<span class="w"> </span><span class="nb">false</span>
+</code></pre></div><br />
 * <code>hostname</code>: 네트워크에서 표시될 이름<br />
 * <code>ssh_pwauth</code>: true: SSH 비밀번호 로그인 허용<br />
 * <code>chpasswd</code>: 초기 사용자 계정(ubuntu) 비밀번호 설정</p>
@@ -655,72 +647,72 @@ step 3. balenaEtcher로 해당 이미지를 sd 카드에 굽기</p>
 <p>⚠️ 만약 라즈비언os라면 wpa_supplicant.conf를 만들어주기</p>
 </blockquote>
 <hr />
-<h3 id="2-sd-2-raspi-imager">2&gt; sd 카드 만들기 - 방법2. raspi-imager로 굽기<a class="headerlink" href="#2-sd-2-raspi-imager" title="Permanent link">🔗</a></h3>
+<h3 id="2-sd-2-raspi-imager">2&gt; sd 카드 만들기 - 방법2. raspi-imager로 굽기<a class="headerlink" href="#2-sd-2-raspi-imager" title="Permanent link">&para;</a></h3>
 <p>step 1. ubuntu-22.04.5-preinstalled-server-arm64+raspi.img.xz 다운받기<br />
 * preintalled: 얘는 따로 설치 없이 이미 그 자체를 저장장치로 씀.</p>
 <p>step 2. rpi-imgaer 1.9.3 다운로드<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>~$<span class="w"> </span>sudo<span class="w"> </span>snap<span class="w"> </span>install<span class="w"> </span>rpi-imager
-</span></code></pre></div><br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>snap<span class="w"> </span>install<span class="w"> </span>rpi-imager
+</code></pre></div><br />
 step 3. rpi-imager에서 굽기 전 사용자 커스터마이징<br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>hostname: raspberrypi.local
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>사용자 이름: kkongnyang2
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>비밀번호: U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>무선 LAN SSID: KT_GiGA_1D39
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>무선 LAN 비밀번호: eec0hc4206
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>무선 LAN 국가: KR
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>로케일 설정 지정: Asia/Seoul
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>키보드 레이아웃: us
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>ssh 사용: 비밀번호로
-</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code>hostname: raspberrypi.local
+사용자 이름: kkongnyang2
+비밀번호: U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)
+무선 LAN SSID: KT_GiGA_1D39
+무선 LAN 비밀번호: eec0hc4206
+무선 LAN 국가: KR
+로케일 설정 지정: Asia/Seoul
+키보드 레이아웃: us
+ssh 사용: 비밀번호로
+</code></pre></div></p>
 <hr />
-<h3 id="3">3&gt; 부팅하기<a class="headerlink" href="#3" title="Permanent link">🔗</a></h3>
+<h3 id="3">3&gt; 부팅하기<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>step 1. 라즈베리파이에 sd를 꽂고 act led가 적어질 때까지 기다리기</p>
 <p>step 2. 공유기 들어가서 새로 연결된 단말의 ip 확인<br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>http://172.30.1.254로 들어갔더니 라즈베리파이 172.30.1.89 확인
-</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code>http://172.30.1.254로 들어갔더니 라즈베리파이 172.30.1.89 확인
+</code></pre></div></p>
 <p>step 3. 노트북에서 라즈베리파이 ssh 접속<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>~$<span class="w"> </span>ssh<span class="w"> </span>kkongnyang2@172.30.1.89
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>The<span class="w"> </span>authenticity<span class="w"> </span>of<span class="w"> </span>host<span class="w"> </span><span class="s1">&#39;172.30.1.89 (172.30.1.89)&#39;</span><span class="w"> </span>can<span class="s1">&#39;t be established.</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="s1">ED25519 key fingerprint is SHA256:B5ycXkgh3UjpXdAqAmERIIt83MZghSEiIo+p+tj3fvo.    #처음에 ssh키 생성</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="s1">This key is not known by any other names</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="s1">Are you sure you want to continue connecting (yes/no/[fingerprint])?  yes</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="s1">Warning: Permanently added &#39;</span><span class="m">172</span>.30.1.89<span class="s1">&#39; (ED25519) to the list of known hosts.</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="s1">kkongnyang2@172.30.1.89&#39;</span>s<span class="w"> </span>password:<span class="w"> </span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>Welcome<span class="w"> </span>to<span class="w"> </span>Ubuntu<span class="w"> </span><span class="m">22</span>.04.5<span class="w"> </span>LTS<span class="w"> </span><span class="o">(</span>GNU/Linux<span class="w"> </span><span class="m">5</span>.15.0-1061-raspi<span class="w"> </span>aarch64<span class="o">)</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>~$<span class="w"> </span><span class="nb">exit</span><span class="w">                       </span><span class="c1">#ssh 종료 명령어</span>
-</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>ssh<span class="w"> </span>kkongnyang2@172.30.1.89
+The<span class="w"> </span>authenticity<span class="w"> </span>of<span class="w"> </span>host<span class="w"> </span><span class="s1">&#39;172.30.1.89 (172.30.1.89)&#39;</span><span class="w"> </span>can<span class="s1">&#39;t be established.</span>
+<span class="s1">ED25519 key fingerprint is SHA256:B5ycXkgh3UjpXdAqAmERIIt83MZghSEiIo+p+tj3fvo.    #처음에 ssh키 생성</span>
+<span class="s1">This key is not known by any other names</span>
+<span class="s1">Are you sure you want to continue connecting (yes/no/[fingerprint])?  yes</span>
+<span class="s1">Warning: Permanently added &#39;</span><span class="m">172</span>.30.1.89<span class="s1">&#39; (ED25519) to the list of known hosts.</span>
+<span class="s1">kkongnyang2@172.30.1.89&#39;</span>s<span class="w"> </span>password:<span class="w"> </span>
+Welcome<span class="w"> </span>to<span class="w"> </span>Ubuntu<span class="w"> </span><span class="m">22</span>.04.5<span class="w"> </span>LTS<span class="w"> </span><span class="o">(</span>GNU/Linux<span class="w"> </span><span class="m">5</span>.15.0-1061-raspi<span class="w"> </span>aarch64<span class="o">)</span>
+~$<span class="w"> </span><span class="nb">exit</span><span class="w">                       </span><span class="c1">#ssh 종료 명령어</span>
+</code></pre></div></p>
 <blockquote>
 <p>⚠️ 기존 known_hosts를 지워야 한다면<br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>~$ ssh-keygen -R 172.30.1.89
-</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code>~$ ssh-keygen -R 172.30.1.89
+</code></pre></div></p>
 </blockquote>
 <p>step 4. 패키지 최신상태 확인<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>~$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>커널<span class="w"> </span>새버전<span class="w"> </span>업데이트<span class="w"> </span>됐는데<span class="w"> </span>알아서<span class="w"> </span>재부팅하라는<span class="w"> </span>안내문<span class="w"> </span>-&gt;<span class="w"> </span>확인
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>서비스들<span class="w"> </span>지금<span class="w"> </span>재시작할거니?<span class="w"> </span>-&gt;<span class="w"> </span>tab으로<span class="w"> </span>cancel<span class="w"> </span>선택<span class="o">(</span>어차피<span class="w"> </span>재부팅할거니<span class="o">)</span>
-</span></code></pre></div><br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+커널<span class="w"> </span>새버전<span class="w"> </span>업데이트<span class="w"> </span>됐는데<span class="w"> </span>알아서<span class="w"> </span>재부팅하라는<span class="w"> </span>안내문<span class="w"> </span>-&gt;<span class="w"> </span>확인
+서비스들<span class="w"> </span>지금<span class="w"> </span>재시작할거니?<span class="w"> </span>-&gt;<span class="w"> </span>tab으로<span class="w"> </span>cancel<span class="w"> </span>선택<span class="o">(</span>어차피<span class="w"> </span>재부팅할거니<span class="o">)</span>
+</code></pre></div><br />
 * &amp;&amp;는 명령어 연속. -y는 자동 yes</p>
 <p>step 5. 재부팅<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>~$<span class="w"> </span>sudo<span class="w"> </span>poweroff<span class="w">          </span><span class="c1">#전원끄기</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>act<span class="w"> </span>led<span class="w"> </span>반응<span class="w"> </span>없고<span class="w"> </span>빨간불만<span class="w"> </span>남으면<span class="w"> </span>전원<span class="w"> </span>뽑기.
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>그리고<span class="w"> </span>전원<span class="w"> </span>꼽으면<span class="w"> </span>다시<span class="w"> </span>부팅
-</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>poweroff<span class="w">          </span><span class="c1">#전원끄기</span>
+act<span class="w"> </span>led<span class="w"> </span>반응<span class="w"> </span>없고<span class="w"> </span>빨간불만<span class="w"> </span>남으면<span class="w"> </span>전원<span class="w"> </span>뽑기.
+그리고<span class="w"> </span>전원<span class="w"> </span>꼽으면<span class="w"> </span>다시<span class="w"> </span>부팅
+</code></pre></div></p>
 <p>step 6. eeprom 최신상태 확인<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>~$<span class="w"> </span>sudo<span class="w"> </span>rpi-eeprom-update
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>BOOTLOADER:<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">   </span>CURRENT:<span class="w"> </span>Tue<span class="w"> </span>Jan<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">14</span>:30:41<span class="w"> </span>UTC<span class="w"> </span><span class="m">2022</span><span class="w"> </span><span class="o">(</span><span class="m">1643121041</span><span class="o">)</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span>LATEST:<span class="w"> </span>Tue<span class="w"> </span>Jan<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">14</span>:30:41<span class="w"> </span>UTC<span class="w"> </span><span class="m">2022</span><span class="w"> </span><span class="o">(</span><span class="m">1643121041</span><span class="o">)</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">   </span>RELEASE:<span class="w"> </span>default<span class="w"> </span><span class="o">(</span>/lib/firmware/raspberrypi/bootloader/default<span class="o">)</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">            </span>Use<span class="w"> </span>raspi-config<span class="w"> </span>to<span class="w"> </span>change<span class="w"> </span>the<span class="w"> </span>release.
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span>VL805_FW:<span class="w"> </span>Dedicated<span class="w"> </span>VL805<span class="w"> </span>EEPROM
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">     </span>VL805:<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">   </span>CURRENT:<span class="w"> </span>000138a1
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span>LATEST:<span class="w"> </span>000138a1
-</span></code></pre></div><br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>rpi-eeprom-update
+BOOTLOADER:<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date
+<span class="w">   </span>CURRENT:<span class="w"> </span>Tue<span class="w"> </span>Jan<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">14</span>:30:41<span class="w"> </span>UTC<span class="w"> </span><span class="m">2022</span><span class="w"> </span><span class="o">(</span><span class="m">1643121041</span><span class="o">)</span>
+<span class="w">    </span>LATEST:<span class="w"> </span>Tue<span class="w"> </span>Jan<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">14</span>:30:41<span class="w"> </span>UTC<span class="w"> </span><span class="m">2022</span><span class="w"> </span><span class="o">(</span><span class="m">1643121041</span><span class="o">)</span>
+<span class="w">   </span>RELEASE:<span class="w"> </span>default<span class="w"> </span><span class="o">(</span>/lib/firmware/raspberrypi/bootloader/default<span class="o">)</span>
+<span class="w">            </span>Use<span class="w"> </span>raspi-config<span class="w"> </span>to<span class="w"> </span>change<span class="w"> </span>the<span class="w"> </span>release.
+
+<span class="w">  </span>VL805_FW:<span class="w"> </span>Dedicated<span class="w"> </span>VL805<span class="w"> </span>EEPROM
+<span class="w">     </span>VL805:<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date
+<span class="w">   </span>CURRENT:<span class="w"> </span>000138a1
+<span class="w">    </span>LATEST:<span class="w"> </span>000138a1
+</code></pre></div><br />
 * 이미 최신 버전이니 건드릴 필요x</p>
 <hr />
-<h3 id="4">4&gt; 부팅 설정파일 만들어지는 과정<a class="headerlink" href="#4" title="Permanent link">🔗</a></h3>
+<h3 id="4">4&gt; 부팅 설정파일 만들어지는 과정<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>step 0. SD 카드 제작:   pi OS 이미지를 굽는 시점에 /boot/firmware/network-config, user-data, meta-data 등의 시드(seed) 파일을 넣어 둔다.<br />
 step 1. init-local: cloud-init-local.service가 파티션 확장, seed 파일 수집.<br />
 step 2. init: cloud-init.service가 시드 설정으로 /etc/netplan/50-cloud-init.yaml•/etc/hostname 등을 작성.<br />
@@ -778,7 +770,7 @@ step 4. 정상 부팅: 이제부터는 일반 부팅 루틴. systemd-networkd, s
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.instant", "content.code.copy", "toc.integrate", "header.autohide", "search.suggest"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
