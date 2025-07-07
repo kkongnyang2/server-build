@@ -1,23 +1,65 @@
+/*  Soft Era theme for MkDocs Material (scheme: soft)  */
+/*  Generated from VS Code Soft Era color theme JSON   */
+
 [data-md-color-scheme="soft"] {
   /* Core palette */
-  --md-primary-fg-color: #f7dfe8;   /* Soft Era pink */
+  --md-primary-fg-color: #f7dfe8;
   --md-accent-fg-color:  #ff83a6;
+
+  --md-primary-bg-color: #f7dfe822;
+  --md-accent-bg-color:  #ff83a622;
 
   /* Surfaces & text */
   --md-default-bg-color: #f9f5f5;
   --md-default-fg-color: #c29ba3;
   --md-typeset-color:    var(--md-default-fg-color);
 
-  /* Code blocks */
+  /* Code block base */
   --md-code-bg-color: #fff7fa;
   --md-code-fg-color: #4a4543;
 
   /* Links */
   --md-typeset-a-color: #dd698c;
 
-  /* Shiki tokens (approx) */
-  --shiki-token-keyword:  #c678dd;
-  --shiki-token-function: #61afef;
-  --shiki-token-string:   #98c379;
-  --shiki-token-constant: #e06c75;
+  /* Code token highlight variables (Material names) */
+  --md-code-hl-keyword-color:   #c678dd;
+  --md-code-hl-function-color:  #61afef;
+  --md-code-hl-string-color:    #98c379;
+  --md-code-hl-constant-color:  #e06c75;
+  --md-code-hl-number-color:    #d19a66;
+  --md-code-hl-operator-color:  var(--md-code-hl-keyword-color);
+  --md-code-hl-builtin-color:   #be88d9;
+  --md-code-hl-property-color:  #25b7b8;
+  --md-code-hl-punctuation-color: #4a4543;
+  --md-code-hl-comment-color:   #948484;
+  --md-code-hl-variable-color:  #e4846f;
 }
+
+[data-md-color-scheme="soft"] .md-typeset {
+  color: #554b4f;
+}
+
+[data-md-color-scheme="soft"] .md-typeset a       { color: #dd698c; }
+[data-md-color-scheme="soft"] .md-typeset a:hover { text-decoration: underline; }
+
+/* Headings */
+[data-md-color-scheme="soft"] .md-typeset h1 { color:#ff83a6; }
+[data-md-color-scheme="soft"] .md-typeset h2 { color:#f9a5b9; }
+[data-md-color-scheme="soft"] .md-typeset h3 { color:#d77e9d; }
+[data-md-color-scheme="soft"] .md-typeset h4,
+[data-md-color-scheme="soft"] .md-typeset h5,
+[data-md-color-scheme="soft"] .md-typeset h6 { color:#c46b88; }
+
+/* Ordered / unordered list markers */
+[data-md-color-scheme="soft"] .md-typeset ol > li::marker { color:#c678dd; }
+[data-md-color-scheme="soft"] .md-typeset ul > li::marker { color:#61afef; }
+
+/* Inline code */
+[data-md-color-scheme="soft"] .md-typeset code,
+[data-md-color-scheme="soft"] .md-typeset pre > code {
+  background:#fff1f5;
+  color:#e06c75;
+}
+
+[data-md-color-scheme="soft"] .md-typeset strong { color:#c678dd; }
+[data-md-color-scheme="soft"] .md-typeset em     { color:#61afef; }

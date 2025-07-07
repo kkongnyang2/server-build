@@ -21,14 +21,7 @@ theme:
         name: Apple Classic
 
 extra_css:
-  - soft-era.css         # docs/css/soft-era.css 에 둘 경우
-  # 같은 위치라면 "- soft-era.css"
+  - soft-era.css
 
 markdown_extensions:
-  - admonition
-  - toc:
-      permalink: true
-  - pymdownx.extra
-  - pymdownx.highlight
-  - pymdownx.superfences
   - nl2br                     # 줄바꿈 자동 처리
