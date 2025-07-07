@@ -11,7 +11,7 @@ theme:
       primary: white
       accent: indigo
       toggle:
-        icon: material/contrast
+        icon: material/brush
         name: Soft Era
     - scheme: soft           # 커스텀 팔레트
       primary: custom        # custom → CSS 변수에서 덮어씀
@@ -24,4 +24,6 @@ extra_css:
   - soft-era.css
 
 markdown_extensions:
+  - pymdownx.extra            # 유용 기능들 모음
+  - pymdownx.highlight        # 코드 블럭 문법 강조
   - nl2br                     # 줄바꿈 자동 처리

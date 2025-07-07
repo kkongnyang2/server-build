@@ -1,31 +1,24 @@
 [data-md-color-scheme="soft"] {
-  /* 기본 배경 & 텍스트 */
-  --md-default-bg-color:     #f9f5f5;   /* 에디터 배경, 전체 tone */
-  --md-default-fg-color:     #c29ba3;   /* 메인 텍스트 색 (editor.foreground) */
-  --md-typeset-color:        var(--md-default-fg-color);
+  --md-default-bg-color:        #f9f5f4;     /* 전체 기본 배경 (editor background) */
+  --md-default-fg-color:        #c29ba3;     /* 기본 텍스트 색상 (editor foreground) */
+  --md-typeset-color:           #c29ba3;     /* 문단/본문 색상 */
 
-  /* 강조 요소 (링크, 강조 텍스트) */
-  --md-accent-fg-color:      #dd698c;   /* 링크 등 강조 색 */
-  --md-primary-fg-color:     #f7dfe8;   /* 메인 강조 색상 계열 */
+  --md-accent-fg-color:         #dd698c;     /* 강조 색상 (링크 등) */
+  --md-primary-fg-color:        #f7dfe8;     /* 연한 핑크 포인트 컬러 */
+  --md-typeset-a-color:         #dd698c;     /* 링크 색상 */
 
-  /* 코드 블럭 */
-  --md-code-bg-color:        #fff7fa;   /* 코드 영역 배경 (선택적) */
-  --md-code-fg-color:        #4a4543;   /* 코드 기본 텍스트 */
+  --md-code-bg-color:           #fff7fa;     /* 코드 블럭 배경 */
+  --md-code-fg-color:           #4a4543;     /* 코드 기본 텍스트 색상 */
 
-  /* 코드 하이라이트 */
-  --md-code-hl-keyword-color:   #c678dd; /* 키워드 색상 */
-  --md-code-hl-function-color:  #61afef; /* 함수 이름 */
-  --md-code-hl-string-color:    #98c4ba; /* 문자열 */
+  --md-code-hl-keyword-color:   #c678dd;     /* 코드 키워드 (ex. `if`, `return`) */
+  --md-code-hl-function-color:  #61afef;     /* 함수 이름 등 */
+  --md-code-hl-string-color:    #98c4ba;     /* 문자열 */
+  --md-code-hl-constant-color:  #be88d9;     /* 숫자, 상수 등 */
+  --md-code-hl-variable-color:  #db90a7;     /* 변수, 인자 등 */
+  --md-code-hl-comment-color:   #948484;     /* 주석 */
+  --md-code-hl-punctuation-color: #4a4543d2; /* 구두점 (괄호, 연산자 등) */
 
-  /* 링크 색상 */
-  --md-typeset-a-color:      #dd698c;
-
-  /* 강조 배경 */
-  --md-admonition-bg-color:  #e4bcbf33; /* 블록 강조 배경 (주의, 경고 등) */
-
-  /* 테두리 또는 라인 구분 */
-  --md-border-color:         #e3e6ed;
-
-  /* 선택 영역 강조 */
-  --md-selection-bg-color:   #c8bfff34;
+  --md-admonition-bg-color:     #e4bcbf33;   /* 참고/주의 박스 배경 */
+  --md-border-color:            #e3e6ed;     /* 구분선, 테두리 등 */
+  --md-selection-bg-color:      #c8bfff34;   /* 텍스트 드래그 시 배경 */
 }
