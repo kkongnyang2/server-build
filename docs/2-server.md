@@ -213,7 +213,7 @@ step 4. html 파일 업로드
 ~$ sudo nano /var/www/html/dev-environment/1-os.html    #파일 수정
 ~$ ls -ld /var/www/html/dev-environment/1-os.html       #권한 정상인지 확인
 -rw-r--r-- 1 root root 7962 Jun 14 05:28 /var/www/html/dev-environment/1-os.html
-~$ sudo rm -rf /var/www/html/dev-environment      # 콘텐츠·폴더 모두 완전 삭제
+~$ sudo rm -r /var/www/html/dev-environment      # 폴더 삭제
 ```
 
 ---
