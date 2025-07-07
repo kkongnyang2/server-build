@@ -2,7 +2,7 @@ site_name: Server-Build
 
 theme:
   name: material
-  logo: assets/logo.svg
+  logo: logo.svg
 extra:
   homepage: ..  
   font:
