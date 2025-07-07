@@ -3,6 +3,8 @@ site_name: Server-Build
 theme:
   name: material
   logo: assets/logo.svg
+extra:
+  homepage: ..  
   font:
     text: Inter
     code: "JetBrains Mono"
@@ -19,6 +21,10 @@ theme:
       toggle:
         icon: material/brush
         name: Apple Classic
+  features:
+    - navigation.tabs           # 상단 탭 내비게이션
+    - content.code.copy         # 코드 블록 Copy 버튼
+    - header.autohide           # 스크롤 시 헤더 숨김
 
 extra_css:
   - soft-era.css

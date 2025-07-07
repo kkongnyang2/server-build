@@ -19,30 +19,17 @@ step 1. 폴더 구조 만들기
 server-build/
 ├─ docs/
 │   ├─ index.md
-│   ├─ 0.md
 │   └─ 1.md
 ├─ mkdocs.yml
 └─ .github/workflows/deploy.yml
 ```
 
-step 2. index.md
-```
-## 📚 목차
-
-- [0. study](0-study.md)
-- [1. pi](1-pi.md)
-- [2. server](2-server.md)
-- [3. cloud](3-cloud.md)
-- [4. html](4-html.md)
-```
-
-step 3. mkdocs.yml
+step 2. mkdocs.yml
 ```
 site_name: server-build
 theme:
   name: material
 nav:                    #사이드바 목차
-  - 이론: 0-study.md
   - pi: 1-pi.md
   - server: 2-server.md
   - cloud: 3-cloud.md
@@ -50,16 +37,10 @@ nav:                    #사이드바 목차
 docs_dir: docs          #기본값은 docs. 따라서 안써도 되지만 그냥 명시
 site_dir: site          #기본값은 site. 따라서 안써도 되지만 그냥 명시
 markdown_extensions:
-  - admonition
-  - toc:
-      permalink: true
-  - pymdownx.extra
-  - pymdownx.highlight
-  - pymdownx.superfences
   - nl2br       # ← 줄바꿈 자동 처리
 ```
 
-step 4. .github/workflows/deploy.yml
+step 3. .github/workflows/deploy.yml
 ```
 ~$ mkdir -p .github/workflows
 ```
@@ -187,15 +168,8 @@ sudo chmod 600 /home/deployer/.ssh/authorized_keys  #파일 퍼미션을 600으�
 ---
 ### 4> kkongnyang2.github.io 레포 추가
 
-웹페이지 제일 첫 페이지가 될 거
+웹페이지 제일 첫 페이지가 될 루트이다. 직접 만든 index.html과 .github/workflows/deploy.yml을 넣어준다.
 
-```
-kkongnyang2.github.io/
-├─ index.html
-└─ .github/workflows/deploy.yml
-```
-
-얘는 이미 html파일이라 docs.yml를 넣어줄 필요가 없다.
 deploy.yml에서 mkdocs 부분만 빼고 target:     "/var/www/html/"으로만 수정하면 됨
 
 ---
