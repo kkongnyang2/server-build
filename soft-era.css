@@ -1,6 +1,6 @@
 [data-md-color-scheme="soft"] {
   --md-default-bg-color:        #f9f5f4;     /* 전체 기본 배경 (editor background) */
-  --md-default-fg-color:        #c29ba3;     /* 기본 텍스트 색상 (editor foreground) */
+  --md-default-fg-color:        #666d7dbb;   /* 기본 텍스트 색상 (editor foreground) */
   --md-typeset-color:           #c29ba3;     /* 문단/본문 색상 */
 
   --md-accent-fg-color:         #dd698c;     /* 강조 색상 (링크 등) */
@@ -21,4 +21,12 @@
   --md-admonition-bg-color:     #e4bcbf33;   /* 참고/주의 박스 배경 */
   --md-border-color:            #e3e6ed;     /* 구분선, 테두리 등 */
   --md-selection-bg-color:      #c8bfff34;   /* 텍스트 드래그 시 배경 */
+
+  .md-typeset h2 {
+    color: #6f557388;
+  }
+
+  .md-typeset h3 {
+    color: #98c4ba;
+  }
 }
