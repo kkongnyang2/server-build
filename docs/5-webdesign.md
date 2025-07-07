@@ -19,6 +19,9 @@ kkongnyang2.github.io/
 └─ .github/workflows/deploy.yml
 ```
 
+각 html 파일들을 만들어주면 된다.
+
+---
 ### > 카테고리 페이지
 
 우선 실시간으로 편하게 볼 수 있도록
@@ -40,12 +43,13 @@ server-build/
 │   ├─ 3.md
 │   ├─ 4.md
 │   ├─ 5.md
+│   ├─ logo.svg
 │   └─ soft-era.css
 ├─ mkdocs.yml
 └─ .github/workflows/deploy.yml
 ```
 
-index 파일에는 맨 처음에 # 개요를 넣어준다.
+index 파일에는 맨 처음에 # Home를 적어준다.
 
 mkdocs.yml은
 ```
@@ -53,10 +57,13 @@ site_name: Server-Build
 
 theme:
   name: material
-  logo: assets/logo.svg
+  logo: logo.svg
+  favicon: logo.svg
+
   font:
     text: Inter
     code: "JetBrains Mono"
+
   palette:
     - scheme: apple          # 기본(라이트)
       primary: white
@@ -70,10 +77,14 @@ theme:
       toggle:
         icon: material/brush
         name: Apple Classic
+
   features:
     - navigation.tabs           # 상단 탭 내비게이션
     - content.code.copy         # 코드 블록 Copy 버튼
     - header.autohide           # 스크롤 시 헤더 숨김
+
+extra:
+  homepage: .. 
 
 extra_css:
   - soft-era.css
@@ -82,6 +93,7 @@ markdown_extensions:
   - pymdownx.extra            # 유용 기능들 모음
   - pymdownx.highlight        # 코드 블럭 문법 강조
   - nl2br                     # 줄바꿈 자동 처리
+
 ```
 meterial 테마를 베이스로 쓰되 두 팔레트를 토글할 수 있도록 만들어둔다. 그리고 사이드바가 아닌 상단 탭 내비게이션이 나아 features를 넣어주었다.
 
