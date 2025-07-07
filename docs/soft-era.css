@@ -1,0 +1,23 @@
+[data-md-color-scheme="soft"] {
+  /* Core palette */
+  --md-primary-fg-color: #f7dfe8;   /* Soft Era pink */
+  --md-accent-fg-color:  #ff83a6;
+
+  /* Surfaces & text */
+  --md-default-bg-color: #f9f5f5;
+  --md-default-fg-color: #c29ba3;
+  --md-typeset-color:    var(--md-default-fg-color);
+
+  /* Code blocks */
+  --md-code-bg-color: #fff7fa;
+  --md-code-fg-color: #4a4543;
+
+  /* Links */
+  --md-typeset-a-color: #dd698c;
+
+  /* Shiki tokens (approx) */
+  --shiki-token-keyword:  #c678dd;
+  --shiki-token-function: #61afef;
+  --shiki-token-string:   #98c379;
+  --shiki-token-constant: #e06c75;
+}

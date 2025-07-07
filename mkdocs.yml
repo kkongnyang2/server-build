@@ -1,52 +1,34 @@
-site_name: Server Build         # 첫 글자만 대문자 → 더 깔끔
+site_name: Server-Build
+
 theme:
-  name: material                # Material 9.x (2025-07 현재 최신: 9.6.15) :contentReference[oaicite:0]{index=0}
-  language: ko                  # 한글 UI 번역
-  logo: assets/logo.svg         # 상단 작은 로고 (선택)
-  favicon: assets/favicon.png
+  name: material
+  logo: assets/logo.svg
   font:
-    text: Inter                 # 메인 사이트와 동일 폰트
-    code: JetBrains Mono
-  palette:                      # 라이트·다크 자동 전환
-    - scheme: default
-      primary: pink
-      accent: deep purple
-    - scheme: slate
-      primary: pink
-      accent: deep purple
+    text: Inter
+    code: "JetBrains Mono"
+  palette:
+    - scheme: apple          # 기본(라이트)
+      primary: white
+      accent: indigo
       toggle:
-        icon: material/weather-night
-        name: 다크 모드
-  features:
-    - navigation.tabs           # 상단 탭 내비게이션
-    - navigation.instant        # 페이지 전환 빠르게
-    - content.code.copy         # 코드 블록 Copy 버튼
-    - toc.integrate             # 오른쪽 고정형 목차
-    - header.autohide           # 스크롤 시 헤더 숨김
-    - search.suggest            # 검색어 추천(9.x 신기능) :contentReference[oaicite:1]{index=1}
+        icon: material/contrast
+        name: Soft Era
+    - scheme: soft           # 커스텀 팔레트
+      primary: custom        # custom → CSS 변수에서 덮어씀
+      accent: custom
+      toggle:
+        icon: material/brush
+        name: Apple Classic
 
-nav:                            # 사이드바
-  - 개요: index.md               # 각 섹션마다 index.md 에 한-눈 요약
-  - study: 0-study.md
-  - pi: 1-pi.md
-  - server: 2-server.md
-  - cloud: 3-cloud.md
-  - html: 4-html.md
-
-# 문서·출력 경로는 기본값을 쓰면 더 짧아집니다
-# docs_dir: docs
-# site_dir: site
+extra_css:
+  - soft-era.css         # docs/css/soft-era.css 에 둘 경우
+  # 같은 위치라면 "- soft-era.css"
 
 markdown_extensions:
   - admonition
-  - pymdownx.details            # 접히는 Admonition
   - toc:
-      permalink: '🔗'           # 작은 체인 아이콘
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
+      permalink: true
+  - pymdownx.extra
+  - pymdownx.highlight
   - pymdownx.superfences
-  - pymdownx.inlinehilite
-  - pymdownx.snippets           # 외부 코드 include
-  - nl2br                       # ← 줄바꿈 자동 처리
+  - nl2br                     # 줄바꿈 자동 처리
