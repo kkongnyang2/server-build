@@ -125,7 +125,7 @@
     <input class="md-option" data-md-color-media="" data-md-color-scheme="apple" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Soft Era"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Soft Era" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.38 20.9a2 2 0 0 1-1.28-1.27L19.63 3.1a2 2 0 0 1 1.27 1.28zM20 16v2h-7v-2zM3 6h3V3h2v3h3v2H8v3H6V8H3z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20.71 4.63-1.34-1.34c-.37-.39-1.02-.39-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.04 0-1.41M7 14a3 3 0 0 0-3 3c0 1.31-1.16 2-2 2 .92 1.22 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3"/></svg>
       </label>
     
   
@@ -705,11 +705,11 @@
 </ul>
 <hr />
 <h3 id="2-ip">2&gt; ip 주소 확인</h3>
-<p>step 1. 내 기기 ip 주소 확인</p>
-<pre><code class="language-bash">~$ ip a
-</code></pre>
-<p>결과: </p>
-<pre><code>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+<p>step 1. 내 기기 ip 주소 확인<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>ip<span class="w"> </span>a
+</code></pre></div><br />
+결과: <br />
+<div class="highlight"><pre><span></span><code>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
@@ -722,50 +722,46 @@
        valid_lft 2048sec preferred_lft 2048sec
     inet6 fe80::699e:5519:cade:8599/64 scope link noprefixroute 
        valid_lft forever preferred_lft forever
-</code></pre>
-<ul>
-<li><code>lo</code> : 자기 자신과 통신하는 루프백 인터페이스(네트워크 카드가 없는 가상 네트워크)</li>
-<li><code>scope host</code> : 이 주소는 자기 자신에게만</li>
-<li><code>wlo1</code> : 실제 무선 네트워크 인터페이스(wifi)</li>
-<li><code>BROADCAST</code>: 브로드캐스트 기능 사용 가능 (네트워크 전체에 신호 보내기)</li>
-<li><code>MULTICAST</code>: 멀티캐스트 기능 가능 (특정 그룹에만 데이터 보내기)</li>
-<li><code>UP</code>: 장치가 활성화됨</li>
-<li><code>LOWER_UP</code>: 연결도 됨 (Wi-Fi가 연결된 상태)</li>
-<li><code>mtu 1500</code>: 한 번에 보낼 수 있는 최대 패킷 크기 (보통 1500 byte)</li>
-<li><code>link/ether</code>: 이더넷 방식의 링크계층(wifi든 유선이든 lan 방식이면) </li>
-<li><code>0c:7a:15:96:bb:e9</code> : 내 네트워크 카드의 mac주소(이름표)</li>
-<li><code>altname</code> : 자세한 이름 wlp0s20f3</li>
-<li><code>inet</code> : 내 기기의 IPv4 주소는 172.30.1.54(논리적 로컬주소)</li>
-<li><code>/24</code> : 서브넷마스크(ip 대역폭의 범위). 앞 24비트가 네트워크 부분, 나머지 8비트는 호스트 부분. 따라서 172.30.1.0~172.30.1.255가 같은 네트워크.</li>
-<li><code>brd</code> : 브로드캐스트 IPv4 주소는 172.30.1.255</li>
-<li><code>scope gloabl</code> : 이 주소는 외부에서 접근 가능</li>
-<li><code>dynamic</code> : DHCP로 자동 할당됨. 즉 부팅할때마다 바뀜</li>
-<li><code>noprefixroute</code> : 고급 라우팅 설정이 비활성화</li>
-<li><code>valid_lft</code> : 이 ip가 유효한 기간</li>
-<li><code>preferred_lft</code> : 이 ip가 우선적으로 사용되는 기간</li>
-<li><code>inet6</code> : IPv6주소</li>
-</ul>
-<p>step 2. 공유기 ip주소 확인</p>
-<pre><code class="language-bash">~$ ip route
-</code></pre>
-<pre><code>default via 172.30.1.254 dev wlo1 proto dhcp metric 600 
+</code></pre></div><br />
+* <code>lo</code> : 자기 자신과 통신하는 루프백 인터페이스(네트워크 카드가 없는 가상 네트워크)<br />
+* <code>scope host</code> : 이 주소는 자기 자신에게만<br />
+* <code>wlo1</code> : 실제 무선 네트워크 인터페이스(wifi)<br />
+* <code>BROADCAST</code>: 브로드캐스트 기능 사용 가능 (네트워크 전체에 신호 보내기)<br />
+* <code>MULTICAST</code>: 멀티캐스트 기능 가능 (특정 그룹에만 데이터 보내기)<br />
+* <code>UP</code>: 장치가 활성화됨<br />
+* <code>LOWER_UP</code>: 연결도 됨 (Wi-Fi가 연결된 상태)<br />
+* <code>mtu 1500</code>: 한 번에 보낼 수 있는 최대 패킷 크기 (보통 1500 byte)<br />
+* <code>link/ether</code>: 이더넷 방식의 링크계층(wifi든 유선이든 lan 방식이면) <br />
+* <code>0c:7a:15:96:bb:e9</code> : 내 네트워크 카드의 mac주소(이름표)<br />
+* <code>altname</code> : 자세한 이름 wlp0s20f3<br />
+* <code>inet</code> : 내 기기의 IPv4 주소는 172.30.1.54(논리적 로컬주소)<br />
+* <code>/24</code> : 서브넷마스크(ip 대역폭의 범위). 앞 24비트가 네트워크 부분, 나머지 8비트는 호스트 부분. 따라서 172.30.1.0~172.30.1.255가 같은 네트워크.<br />
+* <code>brd</code> : 브로드캐스트 IPv4 주소는 172.30.1.255<br />
+* <code>scope gloabl</code> : 이 주소는 외부에서 접근 가능<br />
+* <code>dynamic</code> : DHCP로 자동 할당됨. 즉 부팅할때마다 바뀜<br />
+* <code>noprefixroute</code> : 고급 라우팅 설정이 비활성화<br />
+* <code>valid_lft</code> : 이 ip가 유효한 기간<br />
+* <code>preferred_lft</code> : 이 ip가 우선적으로 사용되는 기간<br />
+* <code>inet6</code> : IPv6주소</p>
+<p>step 2. 공유기 ip주소 확인<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>ip<span class="w"> </span>route
+</code></pre></div><br />
+<div class="highlight"><pre><span></span><code>default via 172.30.1.254 dev wlo1 proto dhcp metric 600 
 169.254.0.0/16 dev wlo1 scope link metric 1000 
 172.30.1.0/24 dev wlo1 proto kernel scope link src 172.30.1.210 metric 600
-</code></pre>
-<ul>
-<li>172.30.1.254로 확인</li>
-</ul>
+</code></pre></div><br />
+* 172.30.1.254로 확인</p>
 <hr />
 <h3 id="3-ip-server">3&gt; ip 주소 고정 - server 버전</h3>
-<pre><code>step 1. netplan 설정파일 수정
+<p><div class="highlight"><pre><span></span><code>step 1. netplan 설정파일 수정
 ```bash
 ~$ ls /etc/netplan/             #파일이름 확인
 50-cloud-init.yaml
 ~$ sudo cp /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.bak      #백업파일생성
 ~$ sudo nano /etc/netplan/50-cloud-init.yaml
-</code></pre>
-<p>원본:</p>
-<pre><code>network:
+</code></pre></div><br />
+원본:<br />
+<div class="highlight"><pre><span></span><code>network:
     version: 2
     wifis:
         renderer: networkd
@@ -775,9 +771,9 @@
                     password: 4cfa7026f817ab13ef66eb1e898d54830629ad2b1734471844c7cb8ca7d31fba
             dhcp4: true
             optional: true
-</code></pre>
-<p>수정:</p>
-<pre><code>network:
+</code></pre></div><br />
+수정:<br />
+<div class="highlight"><pre><span></span><code>network:
     version: 2
     wifis:
         renderer: networkd
@@ -794,171 +790,165 @@
                 - 8.8.8.8
                 - 1.1.1.1
             optional: true
-</code></pre>
-<ul>
-<li>dhcp4 할당을 없애고, 주소를 172.30.1.222으로 고정</li>
-<li>gateway4는 공유기 주소 입력란. 우리는 172.30.1.254임</li>
-<li>8.8.8.8은 구글에서 제공하는 DNS 서버</li>
-</ul>
+</code></pre></div><br />
+* dhcp4 할당을 없애고, 주소를 172.30.1.222으로 고정<br />
+* gateway4는 공유기 주소 입력란. 우리는 172.30.1.254임<br />
+* 8.8.8.8은 구글에서 제공하는 DNS 서버</p>
 <blockquote>
-<p>⚠️ 만약 부팅 파일이 어떤 일이 있어도 영향을 안주게 하고 싶다면 주석이 시키는대로 (어차피 최초 부팅때 netplan/50-cloud-init.yaml을 생성하고 사라지긴 함)</p>
-</blockquote>
-<pre><code># /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
+<p>⚠️ 만약 부팅 파일이 어떤 일이 있어도 영향을 안주게 하고 싶다면 주석이 시키는대로 (어차피 최초 부팅때 netplan/50-cloud-init.yaml을 생성하고 사라지긴 함)<br />
+<div class="highlight"><pre><span></span><code># /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
 # network: {config: disabled}
-</code></pre>
-<p>step 3. 적용</p>
-<pre><code>~$ sudo netplan generate      #문법 확인
+</code></pre></div></p>
+</blockquote>
+<p>step 3. 적용<br />
+<div class="highlight"><pre><span></span><code>~$ sudo netplan generate      #문법 확인
 ~$ sudo netplan apply
-</code></pre>
-<p>step 4. ip 주소 변화로 ssh 끊겼으니 재접속</p>
-<pre><code class="language-bash">~$ ssh-keygen -R 172.30.1.89      #기존 known_hosts 삭제
-~$ ssh kkongnyang2@172.30.1.222
-The authenticity of host '172.30.1.222 (172.30.1.222)' can't be established.
-ED25519 key fingerprint is SHA256:B5ycXkgh3UjpXdAqAmERIIt83MZghSEiIo+p+tj3fvo.
-This key is not known by any other names
-Are you sure you want to continue connecting (yes/no/[fingerprint])?  yes
-Warning: Permanently added '172.30.1.222' (ED25519) to the list of known hosts.
-kkongnyang2@172.30.1.222's password: 
-Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 5.15.0-1079-raspi aarch64)
-</code></pre>
+</code></pre></div></p>
+<p>step 4. ip 주소 변화로 ssh 끊겼으니 재접속<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>ssh-keygen<span class="w"> </span>-R<span class="w"> </span><span class="m">172</span>.30.1.89<span class="w">      </span><span class="c1">#기존 known_hosts 삭제</span>
+~$<span class="w"> </span>ssh<span class="w"> </span>kkongnyang2@172.30.1.222
+The<span class="w"> </span>authenticity<span class="w"> </span>of<span class="w"> </span>host<span class="w"> </span><span class="s1">&#39;172.30.1.222 (172.30.1.222)&#39;</span><span class="w"> </span>can<span class="s1">&#39;t be established.</span>
+<span class="s1">ED25519 key fingerprint is SHA256:B5ycXkgh3UjpXdAqAmERIIt83MZghSEiIo+p+tj3fvo.</span>
+<span class="s1">This key is not known by any other names</span>
+<span class="s1">Are you sure you want to continue connecting (yes/no/[fingerprint])?  yes</span>
+<span class="s1">Warning: Permanently added &#39;</span><span class="m">172</span>.30.1.222<span class="s1">&#39; (ED25519) to the list of known hosts.</span>
+<span class="s1">kkongnyang2@172.30.1.222&#39;</span>s<span class="w"> </span>password:<span class="w"> </span>
+Welcome<span class="w"> </span>to<span class="w"> </span>Ubuntu<span class="w"> </span><span class="m">22</span>.04.5<span class="w"> </span>LTS<span class="w"> </span><span class="o">(</span>GNU/Linux<span class="w"> </span><span class="m">5</span>.15.0-1079-raspi<span class="w"> </span>aarch64<span class="o">)</span>
+</code></pre></div></p>
 <hr />
 <h3 id="4-ip-desktop">4&gt; ip 주소 고정 - desktop 버전</h3>
 <p>*ubuntu desktop에서는 netplan보다 networkmanager우선</p>
-<p>step 1. networkmanager 설정</p>
-<pre><code class="language-bash">~$ ls ~$ nm-connection-editor
-KT_GiGA_1D39 - IPv4 settings 들어가서
-dhcp가 아닌 manual로 바꾸고
-address: 170.30.1.210, netmask: 24, gateway: 172.30.1.254
-DNS servers: 8.8.8.8, 1.1.1.1 입력
-</code></pre>
+<p>step 1. networkmanager 설정<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>ls<span class="w"> </span>~$<span class="w"> </span>nm-connection-editor
+KT_GiGA_1D39<span class="w"> </span>-<span class="w"> </span>IPv4<span class="w"> </span>settings<span class="w"> </span>들어가서
+dhcp가<span class="w"> </span>아닌<span class="w"> </span>manual로<span class="w"> </span>바꾸고
+address:<span class="w"> </span><span class="m">170</span>.30.1.210,<span class="w"> </span>netmask:<span class="w"> </span><span class="m">24</span>,<span class="w"> </span>gateway:<span class="w"> </span><span class="m">172</span>.30.1.254
+DNS<span class="w"> </span>servers:<span class="w"> </span><span class="m">8</span>.8.8.8,<span class="w"> </span><span class="m">1</span>.1.1.1<span class="w"> </span>입력
+</code></pre></div></p>
 <p>step 2. 저장 후 wifi 껐다 키기</p>
 <blockquote>
-<p>⚠️ 안될때 테스트:</p>
+<p>⚠️ 안될때 테스트:<br />
+<div class="highlight"><pre><span></span><code>ping<span class="w"> </span><span class="m">172</span>.30.1.254<span class="w">     </span><span class="c1">#안되면 로컬 공유기 통신 문제</span>
+ping<span class="w"> </span><span class="m">8</span>.8.8.8<span class="w">          </span><span class="c1">#안되면 게이트웨이 문제</span>
+ping<span class="w"> </span>google.com<span class="w">       </span><span class="c1">#안되면 DNS 문제</span>
+</code></pre></div></p>
 </blockquote>
-<pre><code class="language-bash">ping 172.30.1.254     #안되면 로컬 공유기 통신 문제
-ping 8.8.8.8          #안되면 게이트웨이 문제
-ping google.com       #안되면 DNS 문제
-</code></pre>
 <p>여기까지 하면 내 기기의 ip주소를 하나로 고정한거임!</p>
 <hr />
 <h3 id="5-apache2">5&gt; Apache2 웹 서버 설치</h3>
 <p>Apache2는 가장 널리 쓰이는 웹 서버로, 브라우저에서 http://내IP로 접속하면 html페이지를 보여줌</p>
-<p>step 1. 설치</p>
-<pre><code class="language-bash">~$ sudo apt update &amp;&amp; sudo apt install apache2
-~$ apache2 -version
-Server version: Apache/2.4.52 (Ubuntu)
-Server built:   2025-04-03T09:05:48
-</code></pre>
-<p>step 2. 확인</p>
-<pre><code>~$ sudo timedatectl set-timezone Asia/Seoul     #서버 시간 업데이트
+<p>step 1. 설치<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>apache2
+~$<span class="w"> </span>apache2<span class="w"> </span>-version
+Server<span class="w"> </span>version:<span class="w"> </span>Apache/2.4.52<span class="w"> </span><span class="o">(</span>Ubuntu<span class="o">)</span>
+Server<span class="w"> </span>built:<span class="w">   </span><span class="m">2025</span>-04-03T09:05:48
+</code></pre></div></p>
+<p>step 2. 확인<br />
+<div class="highlight"><pre><span></span><code>~$ sudo timedatectl set-timezone Asia/Seoul     #서버 시간 업데이트
 로컬 네트워크로 http://172.30.1.222 들어가보기
-</code></pre>
-<p>step 3. 소유자 및 퍼미션 확인</p>
-<pre><code>~$ ls -ld /var/www/html
+</code></pre></div></p>
+<p>step 3. 소유자 및 퍼미션 확인<br />
+<div class="highlight"><pre><span></span><code>~$ ls -ld /var/www/html
 drwxr-xr-x 2 root root 4096 Jun 14 04:55 /var/www/html      #이미 잘 되어있지만 안되어 있으면 아래대로
 ~$ sudo chown root:root /var/www/html
 ~$ sudo find /var/www/html -type d -exec chmod 755 {} \;
 ~$ sudo find /var/www/html -type f -exec chmod 644 {} \;
-</code></pre>
-<ul>
-<li>소유자는 root:root, 755(디렉토리)임을 확인</li>
-<li>apache2 기본 페이지는 정적 사이트로 html만 업로드 할거기에 변경 필요 없음.</li>
-<li>만일 쓰기가 필요한 동적 폴더가 있다면 따로 chown(소유자)를 www-data:www-data로 줘야함.</li>
-</ul>
-<p>step 4. html 파일 업로드</p>
-<pre><code>~$ sudo nano /var/www/html/index.html           #index 파일 수정
+</code></pre></div><br />
+* 소유자는 root:root, 755(디렉토리)임을 확인<br />
+* apache2 기본 페이지는 정적 사이트로 html만 업로드 할거기에 변경 필요 없음.<br />
+* 만일 쓰기가 필요한 동적 폴더가 있다면 따로 chown(소유자)를 www-data:www-data로 줘야함.</p>
+<p>step 4. html 파일 업로드<br />
+<div class="highlight"><pre><span></span><code>~$ sudo nano /var/www/html/index.html           #index 파일 수정
 ~$ sudo mkdir /var/www/html/dev-environment     #새 디렉토리 생성
 ~$ sudo touch /var/www/html/dev-environment/1-os.html   #파일 생성
 ~$ sudo nano /var/www/html/dev-environment/1-os.html    #파일 수정
 ~$ ls -ld /var/www/html/dev-environment/1-os.html       #권한 정상인지 확인
 -rw-r--r-- 1 root root 7962 Jun 14 05:28 /var/www/html/dev-environment/1-os.html
 ~$ sudo rm -rf /var/www/html/dev-environment      # 콘텐츠·폴더 모두 완전 삭제
-</code></pre>
+</code></pre></div></p>
 <hr />
 <h3 id="6">6&gt; 포트포워딩</h3>
 <p>외부에서 접속 가능하도록.<br />
 외부 공인 ip인 U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용) 를 치고 들어오면 공유기(안내원)가 포트포워딩 규칙에 의해 172.30.1.222 서버로 전달되도록.</p>
-<p>step 1. 포트 연결</p>
-<pre><code>http://172.30.1.254 로 접속(공유기 페이지)
+<p>step 1. 포트 연결<br />
+<div class="highlight"><pre><span></span><code>http://172.30.1.254 로 접속(공유기 페이지)
 외부 포트 80과 U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용) -&gt; 내부 포트 80과 172.30.1.222로 대응. 프로토콜은 TCP.
 외부 포트 443과 U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용) -&gt; 내부 포트 443과 172.30.1.222로 대응. 프로토콜은 TCP.
-</code></pre>
-<p>step 2. 확인</p>
-<pre><code>외부 네트워크로 http://U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용) 들어가보기
-</code></pre>
-<p>step 3. 방화벽 설정</p>
-<pre><code class="language-bash">~$ sudo ufw status verbose
-Status: inactive          #방화벽 비활성화인거 확인
-~$ sudo ufw allow 22/tcp     #얘넨 허용
-~$ sudo ufw allow 80,443/tcp #얘넨 허용
-~$ sudo ufw enable           #방화벽 활성화
-~$ sudo ufw status verbose
-To                         Action      From
---                         ------      ----
-22/tcp                     ALLOW IN    Anywhere                  
-80,443/tcp                 ALLOW IN    Anywhere                  
-22/tcp (v6)                ALLOW IN    Anywhere (v6)             
-80,443/tcp (v6)            ALLOW IN    Anywhere (v6) 
-</code></pre>
+</code></pre></div></p>
+<p>step 2. 확인<br />
+<div class="highlight"><pre><span></span><code>외부 네트워크로 http://U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용) 들어가보기
+</code></pre></div></p>
+<p>step 3. 방화벽 설정<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>ufw<span class="w"> </span>status<span class="w"> </span>verbose
+Status:<span class="w"> </span>inactive<span class="w">          </span><span class="c1">#방화벽 비활성화인거 확인</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">22</span>/tcp<span class="w">     </span><span class="c1">#얘넨 허용</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">80</span>,443/tcp<span class="w"> </span><span class="c1">#얘넨 허용</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>ufw<span class="w"> </span><span class="nb">enable</span><span class="w">           </span><span class="c1">#방화벽 활성화</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>ufw<span class="w"> </span>status<span class="w"> </span>verbose
+To<span class="w">                         </span>Action<span class="w">      </span>From
+--<span class="w">                         </span>------<span class="w">      </span>----
+<span class="m">22</span>/tcp<span class="w">                     </span>ALLOW<span class="w"> </span>IN<span class="w">    </span>Anywhere<span class="w">                  </span>
+<span class="m">80</span>,443/tcp<span class="w">                 </span>ALLOW<span class="w"> </span>IN<span class="w">    </span>Anywhere<span class="w">                  </span>
+<span class="m">22</span>/tcp<span class="w"> </span><span class="o">(</span>v6<span class="o">)</span><span class="w">                </span>ALLOW<span class="w"> </span>IN<span class="w">    </span>Anywhere<span class="w"> </span><span class="o">(</span>v6<span class="o">)</span><span class="w">             </span>
+<span class="m">80</span>,443/tcp<span class="w"> </span><span class="o">(</span>v6<span class="o">)</span><span class="w">            </span>ALLOW<span class="w"> </span>IN<span class="w">    </span>Anywhere<span class="w"> </span><span class="o">(</span>v6<span class="o">)</span><span class="w"> </span>
+</code></pre></div></p>
 <hr />
 <h3 id="7-ddns">7&gt; 도메인 및 DDNS</h3>
-<p>step 1. No-ip 사이트 가입</p>
-<pre><code>이메일: i.kkongnyang2@gmail.com
+<p>step 1. No-ip 사이트 가입<br />
+<div class="highlight"><pre><span></span><code>이메일: i.kkongnyang2@gmail.com
 비번: U2FsdGVkX1+pMjybe35mgNJBuIV/tF+brc3SX+Rcqvw=(업로드용)
-</code></pre>
-<p>step 2. 도메인 생성</p>
-<pre><code>도메인 http://i-kkongnyang2.myddns.me와 외부 공인 ip(현재는 U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용)) 연결.
-</code></pre>
+</code></pre></div></p>
+<p>step 2. 도메인 생성<br />
+<div class="highlight"><pre><span></span><code>도메인 http://i-kkongnyang2.myddns.me와 외부 공인 ip(현재는 U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용)) 연결.
+</code></pre></div></p>
 <blockquote>
 <p>⚠️ KT 공유기 NAT 문제로 이건 안해놓음. 그래서 외부 공인 ip 바뀌면 수동으로 바꿔줘야 함.<br />
-step 3. DDNS 클라이언트 설치</p>
+step 3. DDNS 클라이언트 설치<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>wget<span class="w"> </span>https://www.noip.com/client/linux/noip-duc-linux.tar.gz
+~$<span class="w"> </span>tar<span class="w"> </span>xzf<span class="w"> </span>noip-duc-linux.tar.gz
+~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>noip-2.1.9-1
+~/noip-2.1.9-1$<span class="w"> </span>sudo<span class="w"> </span>make
+~/noip-2.1.9-1$<span class="w"> </span>sudo<span class="w"> </span>make<span class="w"> </span>install
+가입한<span class="w"> </span>이메일<span class="w"> </span>입력
+가입한<span class="w"> </span>비번<span class="w"> </span>입력
+도메인<span class="w"> </span>선택
+갱신<span class="w"> </span>시간<span class="w"> </span>설정<span class="o">(</span>기본<span class="w"> </span>30분<span class="o">)</span>
+갱신되면<span class="w"> </span>뭐<span class="w"> </span>할거니?<span class="w"> </span>y
+그<span class="w"> </span>프로그램<span class="w"> </span>이름<span class="w"> </span>입력<span class="w"> </span>안함
+이<span class="w"> </span>설정파일들은<span class="w"> </span>/usr/local/etc/no-ip2.conf<span class="w"> </span>에<span class="w"> </span>저장
+</code></pre></div></p>
 </blockquote>
-<pre><code class="language-bash">~$ wget https://www.noip.com/client/linux/noip-duc-linux.tar.gz
-~$ tar xzf noip-duc-linux.tar.gz
-~$ cd noip-2.1.9-1
-~/noip-2.1.9-1$ sudo make
-~/noip-2.1.9-1$ sudo make install
-가입한 이메일 입력
-가입한 비번 입력
-도메인 선택
-갱신 시간 설정(기본 30분)
-갱신되면 뭐 할거니? y
-그 프로그램 이름 입력 안함
-이 설정파일들은 /usr/local/etc/no-ip2.conf 에 저장
-</code></pre>
-<p>step 4. DDNS 클라이언트 실행</p>
-<pre><code class="language-bash">~$ sudo /usr/local/bin/noip2            #실행
-~$ sudo /usr/local/bin/noip2 -S         #실행 확인
-</code></pre>
-<ul>
-<li>NAT=주소 변환<br />
+<p>step 4. DDNS 클라이언트 실행<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>/usr/local/bin/noip2<span class="w">            </span><span class="c1">#실행</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>/usr/local/bin/noip2<span class="w"> </span>-S<span class="w">         </span><span class="c1">#실행 확인</span>
+</code></pre></div><br />
+* NAT=주소 변환<br />
 [Raspberry Pi] 172.30.1.220 ──<br />
                            ├─ 포트포워딩 (80/443)<br />
 [공유기]        112.168.5.119 (1차 IP)<br />
                            │  &lt;─ 내부 NAT (KT 라우터/BRAS)<br />
-[KT망]          U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용) (2차 IP) ── Internet</li>
-</ul>
+[KT망]          U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용) (2차 IP) ── Internet</p>
 <hr />
 <h3 id="8-https">8&gt; https로 리디렉션</h3>
-<p>step 1. apache2 설정파일에 도메인 추가</p>
-<pre><code class="language-bash">~$ sudo nano /etc/apache2/sites-available/000-default.conf
-ServerName i-kkongnyang2.myddns.me
-ServerAdmin webmaster@localhost
-DocumentRoot /var/www/html
-</code></pre>
-<p>step 2. certbot 설치</p>
-<pre><code class="language-bash">~$ sudo apt install certbot python3-certbot-apache
-~$ sudo certbot --apache -d i-kkongnyang2.myddns.me
-안내받을 이메일 i.kkongnyang2@gmail.com
-약관동의 y
-광고수신동의 N
-Successfully deployed certificate for i-kkongnyang2.myddns.me to /etc/apache2/sites-available/000-default-le-ssl.conf
-Congratulations! You have successfully enabled HTTPS on https://i-kkongnyang2.myddns.me
-</code></pre>
+<p>step 1. apache2 설정파일에 도메인 추가<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/apache2/sites-available/000-default.conf
+ServerName<span class="w"> </span>i-kkongnyang2.myddns.me
+ServerAdmin<span class="w"> </span>webmaster@localhost
+DocumentRoot<span class="w"> </span>/var/www/html
+</code></pre></div></p>
+<p>step 2. certbot 설치<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>certbot<span class="w"> </span>python3-certbot-apache
+~$<span class="w"> </span>sudo<span class="w"> </span>certbot<span class="w"> </span>--apache<span class="w"> </span>-d<span class="w"> </span>i-kkongnyang2.myddns.me
+안내받을<span class="w"> </span>이메일<span class="w"> </span>i.kkongnyang2@gmail.com
+약관동의<span class="w"> </span>y
+광고수신동의<span class="w"> </span>N
+Successfully<span class="w"> </span>deployed<span class="w"> </span>certificate<span class="w"> </span><span class="k">for</span><span class="w"> </span>i-kkongnyang2.myddns.me<span class="w"> </span>to<span class="w"> </span>/etc/apache2/sites-available/000-default-le-ssl.conf
+Congratulations!<span class="w"> </span>You<span class="w"> </span>have<span class="w"> </span>successfully<span class="w"> </span>enabled<span class="w"> </span>HTTPS<span class="w"> </span>on<span class="w"> </span>https://i-kkongnyang2.myddns.me
+</code></pre></div></p>
 <hr />
 <h3 id="9">9&gt; 테스트</h3>
-<pre><code>  테스트 환경                 로컬IP                 외부IP              도메인
-</code></pre>
+<div class="highlight"><pre><span></span><code>  테스트 환경                 로컬IP                 외부IP              도메인
+</code></pre></div>
 <p>KT_GiGA_1D39(동일 와이파이)          O                     X                X            #NAT loopback이 없어서 불가능<br />
 KT_GiGA_5G_1D39(다른 와이파이)       O                     O                O<br />
 LTE/5G 데이터                       X                     O                O           #인터넷에선 로컬 ip주소를 쳤을때 안내해줄 안내원이 없음</p>

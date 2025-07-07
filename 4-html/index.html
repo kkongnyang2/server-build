@@ -125,7 +125,7 @@
     <input class="md-option" data-md-color-media="" data-md-color-scheme="apple" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Soft Era"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Soft Era" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.38 20.9a2 2 0 0 1-1.28-1.27L19.63 3.1a2 2 0 0 1 1.27 1.28zM20 16v2h-7v-2zM3 6h3V3h2v3h3v2H8v3H6V8H3z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20.71 4.63-1.34-1.34c-.37-.39-1.02-.39-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.04 0-1.41M7 14a3 3 0 0 0-3 3c0 1.31-1.16 2-2 2 .92 1.22 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3"/></svg>
       </label>
     
   
@@ -636,31 +636,31 @@
 <p>작성자: kkongnyang2 작성일: 2025-06-17</p>
 <hr />
 <h3 id="0">0&gt; 흐름</h3>
-<pre><code>   로컬 폴더    -push-&gt;  github 레지스토리  -workflow-&gt;  github action  -mkdocs   -&gt; -deploy-&gt; github.io/server-build
+<div class="highlight"><pre><span></span><code>   로컬 폴더    -push-&gt;  github 레지스토리  -workflow-&gt;  github action  -mkdocs   -&gt; -deploy-&gt; github.io/server-build
 server-build            server-build                   클라이언트       html로   └─ -ssh-&gt; pi의 /var/www/html -apache2-&gt; i-kkongnyang2.myddns.me/server-build
-</code></pre>
+</code></pre></div>
 <hr />
 <h3 id="1">1&gt; 폴더 구조</h3>
-<p>step 1. 폴더 구조 만들기</p>
-<pre><code>server-build/
+<p>step 1. 폴더 구조 만들기<br />
+<div class="highlight"><pre><span></span><code>server-build/
 ├─ docs/
 │   ├─ index.md
 │   ├─ 0.md
 │   └─ 1.md
 ├─ mkdocs.yml
 └─ .github/workflows/deploy.yml
-</code></pre>
-<p>step 2. index.md</p>
-<pre><code>## 📚 목차
+</code></pre></div></p>
+<p>step 2. index.md<br />
+<div class="highlight"><pre><span></span><code>## 📚 목차
 
 - [0. study](0-study.md)
 - [1. pi](1-pi.md)
 - [2. server](2-server.md)
 - [3. cloud](3-cloud.md)
 - [4. html](4-html.md)
-</code></pre>
-<p>step 3. mkdocs.yml</p>
-<pre><code>site_name: server-build
+</code></pre></div></p>
+<p>step 3. mkdocs.yml<br />
+<div class="highlight"><pre><span></span><code>site_name: server-build
 theme:
   name: material
 nav:                    #사이드바 목차
@@ -679,16 +679,16 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
   - nl2br       # ← 줄바꿈 자동 처리
-</code></pre>
-<p>step 4. .github/workflows/deploy.yml</p>
-<pre><code>~$ mkdir -p .github/workflows
-</code></pre>
-<pre><code>name: Daily Deploy to GitHub Pages &amp; Raspberry Pi       #이름
+</code></pre></div></p>
+<p>step 4. .github/workflows/deploy.yml<br />
+<div class="highlight"><pre><span></span><code>~$ mkdir -p .github/workflows
+</code></pre></div><br />
+<div class="highlight"><pre><span></span><code>name: Daily Deploy to GitHub Pages &amp; Raspberry Pi       #이름
 
 on:
   push:                 # 수동 push 시 즉시
 #  schedule:             # 매일 18:00 UTC
-#    - cron:  '0 18 * * *'
+#    - cron:  &#39;0 18 * * *&#39;
 
 jobs:
   build:
@@ -697,7 +697,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - uses: actions/setup-python@v5     #mkdocs가 필요로 하는 python 설치
-      with: { python-version: '3.11' }
+      with: { python-version: &#39;3.11&#39; }
 
     - name: Install MkDocs &amp; theme
       run: pip install mkdocs mkdocs-material     #추가 플러그인 있으면 스페이스로 이어서 적을것
@@ -727,35 +727,35 @@ jobs:
         source:     &quot;site/*&quot;                        #보낼것
         target:     &quot;/var/www/html/${{ github.event.repository.name }}/&quot;   #붙이는거 없이 루트에 두려면 /var/www/html로 바꾸기
         strip_components: 1                         # site/ 디렉터리 계층 제거
-</code></pre>
+</code></pre></div></p>
 <hr />
 <h3 id="2">2&gt; 내 컴퓨터에서</h3>
-<p>step 1. PI_KNOWN_HOSTS 알아내기</p>
-<pre><code class="language-bash">~$ ssh-keyscan -p22 172.30.1.222
-</code></pre>
-<p>step 2. 비밀번호 없는 ssh 키 쌍 생성</p>
-<pre><code class="language-bash">~$ ssh-keygen -t ed25519 -f id_ed25519_pi -N &quot;&quot;
-Generating public/private ed25519 key pair.
-Your identification has been saved in id_ed25519_pi       #private key는 id_ed25519_pi에 저장
-Your public key has been saved in id_ed25519_pi.pub       #public kye는 id_ed25519_pi.pub에 저장
-The key fingerprint is:
-SHA256:sDGJubvrofTtJOfdXydN052qkDMxUIGuitUg1SaNJJ8 kkongnyang2@kkongnyang2-930XCJ-931XCJ-930XCR
-The key's randomart image is:
-+--[ED25519 256]--+
-| ...+   .o.      |
-|  o+.* o.        |
-|  .E= *.         |
-| . . . *.       +|
-|  . + o So     o+|
-|   . +    +   .o.|
-|  + = o  =   .o o|
-| o + O . .+ .. o |
-|  ..=o+ . .o.    |
-+----[SHA256]-----+
-</code></pre>
+<p>step 1. PI_KNOWN_HOSTS 알아내기<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>ssh-keyscan<span class="w"> </span>-p22<span class="w"> </span><span class="m">172</span>.30.1.222
+</code></pre></div></p>
+<p>step 2. 비밀번호 없는 ssh 키 쌍 생성<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-f<span class="w"> </span>id_ed25519_pi<span class="w"> </span>-N<span class="w"> </span><span class="s2">&quot;&quot;</span>
+Generating<span class="w"> </span>public/private<span class="w"> </span>ed25519<span class="w"> </span>key<span class="w"> </span>pair.
+Your<span class="w"> </span>identification<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>saved<span class="w"> </span><span class="k">in</span><span class="w"> </span>id_ed25519_pi<span class="w">       </span><span class="c1">#private key는 id_ed25519_pi에 저장</span>
+Your<span class="w"> </span>public<span class="w"> </span>key<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>saved<span class="w"> </span><span class="k">in</span><span class="w"> </span>id_ed25519_pi.pub<span class="w">       </span><span class="c1">#public kye는 id_ed25519_pi.pub에 저장</span>
+The<span class="w"> </span>key<span class="w"> </span>fingerprint<span class="w"> </span>is:
+SHA256:sDGJubvrofTtJOfdXydN052qkDMxUIGuitUg1SaNJJ8<span class="w"> </span>kkongnyang2@kkongnyang2-930XCJ-931XCJ-930XCR
+The<span class="w"> </span>key<span class="err">&#39;</span>s<span class="w"> </span>randomart<span class="w"> </span>image<span class="w"> </span>is:
++--<span class="o">[</span>ED25519<span class="w"> </span><span class="m">256</span><span class="o">]</span>--+
+<span class="p">|</span><span class="w"> </span>...+<span class="w">   </span>.o.<span class="w">      </span><span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>o+.*<span class="w"> </span>o.<span class="w">        </span><span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>.E<span class="o">=</span><span class="w"> </span>*.<span class="w">         </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>*.<span class="w">       </span>+<span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>.<span class="w"> </span>+<span class="w"> </span>o<span class="w"> </span>So<span class="w">     </span>o+<span class="p">|</span>
+<span class="p">|</span><span class="w">   </span>.<span class="w"> </span>+<span class="w">    </span>+<span class="w">   </span>.o.<span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>+<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">o</span><span class="w">  </span><span class="o">=</span><span class="w">   </span>.o<span class="w"> </span>o<span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>o<span class="w"> </span>+<span class="w"> </span>O<span class="w"> </span>.<span class="w"> </span>.+<span class="w"> </span>..<span class="w"> </span>o<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>..<span class="o">=</span>o+<span class="w"> </span>.<span class="w"> </span>.o.<span class="w">    </span><span class="p">|</span>
++----<span class="o">[</span>SHA256<span class="o">]</span>-----+
+</code></pre></div></p>
 <p>step 3. secret 입력</p>
 <p>github - repo - settings - secrets and varables - actions 에 들어가 입력</p>
-<pre><code>PI_HOST : U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용)      #pi의 공인ip주소
+<p><div class="highlight"><pre><span></span><code>PI_HOST : U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용)      #pi의 공인ip주소
 PI_USER : deployer       #pi의 사용자 이름
 PI_SSH_KEY : #아까 keygen한 private key
 -----BEGIN OPENSSH PRIVATE KEY-----
@@ -768,33 +768,31 @@ FYQ0otOTMwWENSAQ==(업로드용)
 -----END OPENSSH PRIVATE KEY-----
 PI_KNOWN_HOSTS : #아까 찾아놓은 known_hosts
 172.30.1.222 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKsC8q8JdGM+d6RIkWQLKM2kG2PnUdiNrnM4swlYYbnh
-</code></pre>
-<ul>
-<li>입력하는 이유? github action이 클라이언트가 되어 내 pi 서버에 로그인해야함</li>
-</ul>
+</code></pre></div><br />
+* 입력하는 이유? github action이 클라이언트가 되어 내 pi 서버에 로그인해야함</p>
 <hr />
 <h3 id="3-pi">3&gt; pi에서</h3>
-<p>step 1. 업로드용 사용자 생성</p>
-<pre><code class="language-bash">~$ sudo adduser --disabled-password --gecos &quot;&quot; deployer    #비밀번호도 설명란도 없는 사용자 'deployer' 생성
-~$ sudo usermod -aG www-data deployer         # www-data를 그룹에 추가
-</code></pre>
-<p>step 2. 업로드할 곳 퍼미션 설정</p>
-<pre><code class="language-bash">~$ sudo chown -R deployer:www-data /var/www/html       #/var/www/html의 소유자와 그룹 변경(퍼미션은 755니까 이러면 deployer만 write할수 있음)
-~$ sudo chown -R www-data:www-data /var/www/html/nextcloud     #내부에 nextcloud의 소유자와 그룹도 바꼈을테니 다시 올바르게(퍼미션은 바꾼적 없으니 750 잘되어있음)
-</code></pre>
-<p>step 3. public key 등록</p>
-<pre><code class="language-bash">sudo -u deployer mkdir -p /home/deployer/.ssh       #해당 계정 home에서 .ssh 디렉토리 생성
-sudo -u deployer chmod 700 /home/deployer/.ssh      #디렉토리 퍼미션을 700으로 해두기
-sudo -u deployer nano /home/deployer/.ssh/authorized_keys   #아까 내 컴퓨터에서 생성한 ssh 키 중 public key 입력
-sudo chmod 600 /home/deployer/.ssh/authorized_keys  #파일 퍼미션을 600으로 해두기
-</code></pre>
+<p>step 1. 업로드용 사용자 생성<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>adduser<span class="w"> </span>--disabled-password<span class="w"> </span>--gecos<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>deployer<span class="w">    </span><span class="c1">#비밀번호도 설명란도 없는 사용자 &#39;deployer&#39; 생성</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>www-data<span class="w"> </span>deployer<span class="w">         </span><span class="c1"># www-data를 그룹에 추가</span>
+</code></pre></div></p>
+<p>step 2. 업로드할 곳 퍼미션 설정<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>deployer:www-data<span class="w"> </span>/var/www/html<span class="w">       </span><span class="c1">#/var/www/html의 소유자와 그룹 변경(퍼미션은 755니까 이러면 deployer만 write할수 있음)</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/www/html/nextcloud<span class="w">     </span><span class="c1">#내부에 nextcloud의 소유자와 그룹도 바꼈을테니 다시 올바르게(퍼미션은 바꾼적 없으니 750 잘되어있음)</span>
+</code></pre></div></p>
+<p>step 3. public key 등록<br />
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>deployer<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/home/deployer/.ssh<span class="w">       </span><span class="c1">#해당 계정 home에서 .ssh 디렉토리 생성</span>
+sudo<span class="w"> </span>-u<span class="w"> </span>deployer<span class="w"> </span>chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>/home/deployer/.ssh<span class="w">      </span><span class="c1">#디렉토리 퍼미션을 700으로 해두기</span>
+sudo<span class="w"> </span>-u<span class="w"> </span>deployer<span class="w"> </span>nano<span class="w"> </span>/home/deployer/.ssh/authorized_keys<span class="w">   </span><span class="c1">#아까 내 컴퓨터에서 생성한 ssh 키 중 public key 입력</span>
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/home/deployer/.ssh/authorized_keys<span class="w">  </span><span class="c1">#파일 퍼미션을 600으로 해두기</span>
+</code></pre></div></p>
 <hr />
 <h3 id="4-kkongnyang2githubio">4&gt; kkongnyang2.github.io 레포 추가</h3>
 <p>웹페이지 제일 첫 페이지가 될 거</p>
-<pre><code>kkongnyang2.github.io/
+<div class="highlight"><pre><span></span><code>kkongnyang2.github.io/
 ├─ index.html
 └─ .github/workflows/deploy.yml
-</code></pre>
+</code></pre></div>
 <p>얘는 이미 html파일이라 docs.yml를 넣어줄 필요가 없다.<br />
 deploy.yml에서 mkdocs 부분만 빼고 target:     "/var/www/html/"으로만 수정하면 됨</p>
 <hr />
@@ -806,13 +804,13 @@ workflow permissions 섹션에서 read and write permissions 로 변경</p>
 <p>step 4. 첫 업로드 이후 repo - settings → Pages 에서 Deploy from branch → gh-pages / (root) 설정     #얘는 github pages에 업로드하는 브랜치</p>
 <hr />
 <h3 id="6">6&gt; 개인정보 암호화</h3>
-<pre><code class="language-bash">~$ echo -n &quot;원하는 문구&quot; | openssl enc -aes-256-cbc -a -salt -pbkdf2 -pass pass:내비밀번호
-암호 문구
-~$ echo &quot;암호 문구&quot; | \
-openssl enc -aes-256-cbc -a -d -pbkdf2 -pass pass:내비밀번호
-원래 문구
-</code></pre>
-<pre><code>비밀번호 -&gt; U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)
+<p><div class="highlight"><pre><span></span><code>~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;원하는 문구&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>enc<span class="w"> </span>-aes-256-cbc<span class="w"> </span>-a<span class="w"> </span>-salt<span class="w"> </span>-pbkdf2<span class="w"> </span>-pass<span class="w"> </span>pass:내비밀번호
+암호<span class="w"> </span>문구
+~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;암호 문구&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+openssl<span class="w"> </span>enc<span class="w"> </span>-aes-256-cbc<span class="w"> </span>-a<span class="w"> </span>-d<span class="w"> </span>-pbkdf2<span class="w"> </span>-pass<span class="w"> </span>pass:내비밀번호
+원래<span class="w"> </span>문구
+</code></pre></div><br />
+<div class="highlight"><pre><span></span><code>비밀번호 -&gt; U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)
 공인ip주소 -&gt; U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용)
 비밀번호2 -&gt; U2FsdGVkX1+pMjybe35mgNJBuIV/tF+brc3SX+Rcqvw=(업로드용)
 개인키 -&gt; U2FsdGVkX18oowmiNgvyUfNYrIgmveJ77XIBl8f6/CkWhmNdJTX1DtzJ0Ym5lgoE
@@ -824,7 +822,7 @@ fCq9SCP7KQNydfEkfXKiUd2LGwcfw7j0NCDno8wK2BZse+xvC0Wjc1idIs80RL+n
 sWuHI0zkxc0lEjTENS5AcSkcTtrcOLQOVYd39j8/T0nF1cF2rVCIJxlopV8cv533
 WIGtKORT4nXF5q3qTERqBHvhrpoB5WopAIi33zERYHHHtkodf4cBQJo2fr0/AaiI
 7tp8zAN8OX7pGcYku8v5ng==(업로드용)
-</code></pre>
+</code></pre></div></p>
 
 
 

@@ -125,7 +125,7 @@
     <input class="md-option" data-md-color-media="" data-md-color-scheme="apple" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Soft Era"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Soft Era" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.38 20.9a2 2 0 0 1-1.28-1.27L19.63 3.1a2 2 0 0 1 1.27 1.28zM20 16v2h-7v-2zM3 6h3V3h2v3h3v2H8v3H6V8H3z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20.71 4.63-1.34-1.34c-.37-.39-1.02-.39-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.04 0-1.41M7 14a3 3 0 0 0-3 3c0 1.31-1.16 2-2 2 .92 1.22 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3"/></svg>
       </label>
     
   
@@ -644,138 +644,128 @@
 외부 저장장치: 256GB usb</p>
 <hr />
 <h3 id="1-mariadb">1&gt; mariaDB 설치</h3>
-<p>step 1. mariaDB 설치</p>
-<pre><code class="language-bash">~$ sudo apt install mariadb-server
-~$ sudo systemctl enable --now mariadb
-~$ sudo mysql --version
-mysql  Ver 15.1 Distrib 10.6.22-MariaDB, for debian-linux-gnu (aarch64) using  EditLine wrapper
-</code></pre>
-<p>step 2. mariaDB 보안 설정</p>
-<pre><code class="language-bash">~$ sudo mysql_secure_installation
-Enter password for root U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)                  #비번 설정
-Switch to unix_socket authentication [Y/n] n  #우분투의 root 권한과 동일시. n하면 디폴트는 비밀번호
-Change the root password? [Y/n] n     #비번 변경
-Remove anonymous users? [Y/n] y       #익명 사용자 제거
-Disallow root login remotely? [Y/n] y #원격 루트 계정 로그인 금지
-Remove test database and access to it? [Y/n] y  #테스트 데베 삭제
-Reload privilege tables now? [Y/n] y    #권한 테이블 재로딩
-</code></pre>
-<p>step 3. mariaDB 사용자 생성</p>
-<pre><code class="language-bash">~$ sudo mysql -u root -p
-MariaDB [(none)]&gt; CREATE DATABASE nextcloud CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-MariaDB [(none)]&gt; CREATE USER 'kkongnyang2'@'localhost' IDENTIFIED BY 'U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)';
-MariaDB [(none)]&gt; GRANT ALL PRIVILEGES ON nextcloud.* TO 'kkongnyang2'@'localhost';
-MariaDB [(none)]&gt; FLUSH PRIVILEGES;
-MariaDB [(none)]&gt; SELECT User, Host FROM mysql.user;
+<p>step 1. mariaDB 설치<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mariadb-server
+~$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>mariadb
+~$<span class="w"> </span>sudo<span class="w"> </span>mysql<span class="w"> </span>--version
+mysql<span class="w">  </span>Ver<span class="w"> </span><span class="m">15</span>.1<span class="w"> </span>Distrib<span class="w"> </span><span class="m">10</span>.6.22-MariaDB,<span class="w"> </span><span class="k">for</span><span class="w"> </span>debian-linux-gnu<span class="w"> </span><span class="o">(</span>aarch64<span class="o">)</span><span class="w"> </span>using<span class="w">  </span>EditLine<span class="w"> </span>wrapper
+</code></pre></div><br />
+step 2. mariaDB 보안 설정<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>mysql_secure_installation
+Enter<span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>root<span class="w"> </span>U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs<span class="o">=(</span>업로드용<span class="o">)</span><span class="w">                  </span><span class="c1">#비번 설정</span>
+Switch<span class="w"> </span>to<span class="w"> </span>unix_socket<span class="w"> </span>authentication<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span><span class="w"> </span>n<span class="w">  </span><span class="c1">#우분투의 root 권한과 동일시. n하면 디폴트는 비밀번호</span>
+Change<span class="w"> </span>the<span class="w"> </span>root<span class="w"> </span>password?<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span><span class="w"> </span>n<span class="w">     </span><span class="c1">#비번 변경</span>
+Remove<span class="w"> </span>anonymous<span class="w"> </span>users?<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span><span class="w"> </span>y<span class="w">       </span><span class="c1">#익명 사용자 제거</span>
+Disallow<span class="w"> </span>root<span class="w"> </span>login<span class="w"> </span>remotely?<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span><span class="w"> </span>y<span class="w"> </span><span class="c1">#원격 루트 계정 로그인 금지</span>
+Remove<span class="w"> </span><span class="nb">test</span><span class="w"> </span>database<span class="w"> </span>and<span class="w"> </span>access<span class="w"> </span>to<span class="w"> </span>it?<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span><span class="w"> </span>y<span class="w">  </span><span class="c1">#테스트 데베 삭제</span>
+Reload<span class="w"> </span>privilege<span class="w"> </span>tables<span class="w"> </span>now?<span class="w"> </span><span class="o">[</span>Y/n<span class="o">]</span><span class="w"> </span>y<span class="w">    </span><span class="c1">#권한 테이블 재로딩</span>
+</code></pre></div></p>
+<p>step 3. mariaDB 사용자 생성<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p
+MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>CREATE<span class="w"> </span>DATABASE<span class="w"> </span>nextcloud<span class="w"> </span>CHARACTER<span class="w"> </span>SET<span class="w"> </span>utf8mb4<span class="w"> </span>COLLATE<span class="w"> </span>utf8mb4_general_ci<span class="p">;</span>
+MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>CREATE<span class="w"> </span>USER<span class="w"> </span><span class="s1">&#39;kkongnyang2&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="w"> </span>IDENTIFIED<span class="w"> </span>BY<span class="w"> </span><span class="s1">&#39;U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)&#39;</span><span class="p">;</span>
+MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>GRANT<span class="w"> </span>ALL<span class="w"> </span>PRIVILEGES<span class="w"> </span>ON<span class="w"> </span>nextcloud.*<span class="w"> </span>TO<span class="w"> </span><span class="s1">&#39;kkongnyang2&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>FLUSH<span class="w"> </span>PRIVILEGES<span class="p">;</span>
+MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>SELECT<span class="w"> </span>User,<span class="w"> </span>Host<span class="w"> </span>FROM<span class="w"> </span>mysql.user<span class="p">;</span>
 +-------------+-----------+
-| User        | Host      |
+<span class="p">|</span><span class="w"> </span>User<span class="w">        </span><span class="p">|</span><span class="w"> </span>Host<span class="w">      </span><span class="p">|</span>
 +-------------+-----------+
-| kkongnyang2 | localhost |
-| mariadb.sys | localhost |
-| mysql       | localhost |
-| root        | localhost |
+<span class="p">|</span><span class="w"> </span>kkongnyang2<span class="w"> </span><span class="p">|</span><span class="w"> </span>localhost<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>mariadb.sys<span class="w"> </span><span class="p">|</span><span class="w"> </span>localhost<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>mysql<span class="w">       </span><span class="p">|</span><span class="w"> </span>localhost<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>root<span class="w">        </span><span class="p">|</span><span class="w"> </span>localhost<span class="w"> </span><span class="p">|</span>
 +-------------+-----------+
-MariaDB [(none)]&gt; EXIT;
-</code></pre>
+MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>EXIT<span class="p">;</span>
+</code></pre></div></p>
 <hr />
 <h3 id="2-php">2&gt; php 설치</h3>
 <p>php란 동적 웹페이지를 만드는 스크립트 언어. php 코드를 해석하여 html로 변환하는 모듈</p>
-<pre><code class="language-bash">~$ sudo apt install php libapache2-mod-php php-mysql php-xml php-mbstring php-curl php-zip php-gd php-intl php-bcmath php-imagick php-cli unzip
-~$ sudo systemctl restart apache2        # 새 모듈 로드
-~$ php -v                                # 버전 확인
-PHP 8.1.2-1ubuntu2.21 (cli) (built: Mar 24 2025 19:04:23) (NTS)
-</code></pre>
-<ul>
-<li>libapache2-mod-php: apache2와 php를 직접 연동</li>
-<li>php-mysql: mariaDB와 연결</li>
-<li>php-xml/mbstring/curl/zip/gd: 이미지 날짜 압축 등 nextcloud 같은 php앱이 요구하는 표준 기능</li>
-<li>php-cli: 터미널에서 php script.php 실행</li>
-<li>unzip: 플러그인 압축 해제용</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>php<span class="w"> </span>libapache2-mod-php<span class="w"> </span>php-mysql<span class="w"> </span>php-xml<span class="w"> </span>php-mbstring<span class="w"> </span>php-curl<span class="w"> </span>php-zip<span class="w"> </span>php-gd<span class="w"> </span>php-intl<span class="w"> </span>php-bcmath<span class="w"> </span>php-imagick<span class="w"> </span>php-cli<span class="w"> </span>unzip
+~$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2<span class="w">        </span><span class="c1"># 새 모듈 로드</span>
+~$<span class="w"> </span>php<span class="w"> </span>-v<span class="w">                                </span><span class="c1"># 버전 확인</span>
+PHP<span class="w"> </span><span class="m">8</span>.1.2-1ubuntu2.21<span class="w"> </span><span class="o">(</span>cli<span class="o">)</span><span class="w"> </span><span class="o">(</span>built:<span class="w"> </span>Mar<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">2025</span><span class="w"> </span><span class="m">19</span>:04:23<span class="o">)</span><span class="w"> </span><span class="o">(</span>NTS<span class="o">)</span>
+</code></pre></div><br />
+* libapache2-mod-php: apache2와 php를 직접 연동<br />
+* php-mysql: mariaDB와 연결<br />
+* php-xml/mbstring/curl/zip/gd: 이미지 날짜 압축 등 nextcloud 같은 php앱이 요구하는 표준 기능<br />
+* php-cli: 터미널에서 php script.php 실행<br />
+* unzip: 플러그인 압축 해제용</p>
 <hr />
 <h3 id="3-nextcloud">3&gt; Nextcloud 설치</h3>
 <p>Nextcloud는 웹 기반의 파일 서버로, 아까 Apache 환경 위에 설치되는 핵심 애플리케이션.</p>
-<p>step 1. nextcloud 설치</p>
-<pre><code class="language-bash">~$ wget https://download.nextcloud.com/server/releases/latest.zip
-~$ unzip latest.zip
-</code></pre>
-<p>step 2. apache 경로에 넣기</p>
-<pre><code class="language-bash">~$ sudo mv nextcloud /var/www/html/
-</code></pre>
-<ul>
-<li>이러면 폴더대로 http://ip주소를 입력했을 때는 apache 화면을, http://ip주소/nextcloud를 입력햇을 때는 nextcloud화면을 띄어준다.</li>
-</ul>
+<p>step 1. nextcloud 설치<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>wget<span class="w"> </span>https://download.nextcloud.com/server/releases/latest.zip
+~$<span class="w"> </span>unzip<span class="w"> </span>latest.zip
+</code></pre></div><br />
+step 2. apache 경로에 넣기<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>mv<span class="w"> </span>nextcloud<span class="w"> </span>/var/www/html/
+</code></pre></div><br />
+* 이러면 폴더대로 http://ip주소를 입력했을 때는 apache 화면을, http://ip주소/nextcloud를 입력햇을 때는 nextcloud화면을 띄어준다.</p>
 <blockquote>
-<p>⚠️ 만약 기본 경로를 nextcloud로 설정하고 싶다면:</p>
-</blockquote>
-<pre><code class="language-bash">~$ sudo nano /etc/apache2/sites-available/nextcloud.conf
-&lt;VirtualHost *:80&gt;
-    ServerAdmin i.kkongnyang2@gmail.com
-    DocumentRoot /var/www/nextcloud
-    ServerName 172.30.1.220
+<p>⚠️ 만약 기본 경로를 nextcloud로 설정하고 싶다면:<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/apache2/sites-available/nextcloud.conf
+&lt;VirtualHost<span class="w"> </span>*:80&gt;
+<span class="w">    </span>ServerAdmin<span class="w"> </span>i.kkongnyang2@gmail.com
+<span class="w">    </span>DocumentRoot<span class="w"> </span>/var/www/nextcloud
+<span class="w">    </span>ServerName<span class="w"> </span><span class="m">172</span>.30.1.220
 
-    &lt;Directory /var/www/nextcloud/&gt;
-        Options +FollowSymlinks
-        AllowOverride All
-        Require all granted
-    &lt;/Directory&gt;
+<span class="w">    </span>&lt;Directory<span class="w"> </span>/var/www/nextcloud/&gt;
+<span class="w">        </span>Options<span class="w"> </span>+FollowSymlinks
+<span class="w">        </span>AllowOverride<span class="w"> </span>All
+<span class="w">        </span>Require<span class="w"> </span>all<span class="w"> </span>granted
+<span class="w">    </span>&lt;/Directory&gt;
 
-    ErrorLog ${APACHE_LOG_DIR}/nextcloud_error.log
-    CustomLog ${APACHE_LOG_DIR}/nextcloud_access.log combined
+<span class="w">    </span>ErrorLog<span class="w"> </span><span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/nextcloud_error.log
+<span class="w">    </span>CustomLog<span class="w"> </span><span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/nextcloud_access.log<span class="w"> </span>combined
 
 &lt;/VirtualHost&gt;
-~$ sudo a2dissite 000-default.conf      #원래 default 파일 비활성화
-~$ sudo a2ensite nextcloud.conf         #새 설정파일 활성화
-~$ sudo systemctl reload apache2
-</code></pre>
-<p>step 3. 퍼미션 설정</p>
-<pre><code class="language-bash">~$ ls -ld /var/www/html/nextcloud       #기본 퍼미션 확인 
-drwxr-xr-x 15 kkongnyang2 kkongnyang2 4096 Jun 12 16:25 /var/www/html/nextcloud
-~$ sudo chown -R www-data:www-data /var/www/html/nextcloud
-~$ sudo find /var/www/html/nextcloud -type d -exec chmod 750 {} \;
-~$ sudo find /var/www/html/nextcloud -type f -exec chmod 640 {} \;
-~$ ls -ld /var/www/html/nextcloud      #다시 확인
-drwxr-x--- 15 www-data www-data 4096 Jun 12 16:25 /var/www/html/nextcloud
-</code></pre>
-<ul>
-<li><code>chown</code>: 소유자 변경</li>
-<li><code>chowd</code>: 폴더 접근 권한</li>
-</ul>
+~$<span class="w"> </span>sudo<span class="w"> </span>a2dissite<span class="w"> </span><span class="m">000</span>-default.conf<span class="w">      </span><span class="c1">#원래 default 파일 비활성화</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>a2ensite<span class="w"> </span>nextcloud.conf<span class="w">         </span><span class="c1">#새 설정파일 활성화</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>apache2
+</code></pre></div></p>
+</blockquote>
+<p>step 3. 퍼미션 설정<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>ls<span class="w"> </span>-ld<span class="w"> </span>/var/www/html/nextcloud<span class="w">       </span><span class="c1">#기본 퍼미션 확인 </span>
+drwxr-xr-x<span class="w"> </span><span class="m">15</span><span class="w"> </span>kkongnyang2<span class="w"> </span>kkongnyang2<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">16</span>:25<span class="w"> </span>/var/www/html/nextcloud
+~$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/www/html/nextcloud
+~$<span class="w"> </span>sudo<span class="w"> </span>find<span class="w"> </span>/var/www/html/nextcloud<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-exec<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>find<span class="w"> </span>/var/www/html/nextcloud<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-exec<span class="w"> </span>chmod<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+~$<span class="w"> </span>ls<span class="w"> </span>-ld<span class="w"> </span>/var/www/html/nextcloud<span class="w">      </span><span class="c1">#다시 확인</span>
+drwxr-x---<span class="w"> </span><span class="m">15</span><span class="w"> </span>www-data<span class="w"> </span>www-data<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">16</span>:25<span class="w"> </span>/var/www/html/nextcloud
+</code></pre></div><br />
+* <code>chown</code>: 소유자 변경<br />
+* <code>chowd</code>: 폴더 접근 권한</p>
 <hr />
 <h3 id="4">4&gt; 외장 저장장치 세팅</h3>
-<p>step 1. usb ext4으로 포맷</p>
-<pre><code class="language-bash">GUI환경에서 disks 들어가기
-format disk 에서 erase는 overwirte with zeros 선택, partitioning은 gpt 선택하여 포맷
-create partition 에서 파티션 사이즈 풀로, free space는 0으로, volume name은 NC_DATA로, ext4로 생성
-</code></pre>
-<ul>
-<li>MBR은 예전에 많이 썼던 파티션 테이블 구조, 요즘은 GPT 많이 씀</li>
-<li>exFAT은 가장 무난한 파일시스템, ext4는 리눅스에서 서버용으로 많이 쓰는 파일시스템</li>
-</ul>
-<p>step 2. 파일 수동 마운트</p>
-<pre><code class="language-bash">~$ lsblk -o NAME,UUID,SIZE,MOUNTPOINT | grep sd     #이름 확인
-sda                                               233G 
-└─sda1      82fa760d-f62e-4e16-b428-e78040b3980a  233G
-~$ sudo mkdir -p /srv/nextcloud-data                #마운트 포인트 생성
-~$ echo &quot;UUID=82fa760d-f62e-4e16-b428-e78040b3980a  /srv/nextcloud-data  ext4  defaults,noatime,nofail,x-systemd.automount  0  2&quot; \
- | sudo tee -a /etc/fstab       #fstab 등록
-~$ sudo mount -a                #마운트 적용
-</code></pre>
-<ul>
-<li>nofail은 이거 없이 부팅해도 켜지긴 한다는 뜻</li>
-<li>x-systemd.automount 필요해질 때 마운트</li>
-<li>umount는 sudo poweroff시 자동으로</li>
-</ul>
-<p>step 3. 퍼미션 설정</p>
-<pre><code>~$ sudo chown -R www-data:www-data /srv/nextcloud-data
+<p>step 1. usb ext4으로 포맷<br />
+<div class="highlight"><pre><span></span><code>GUI환경에서<span class="w"> </span>disks<span class="w"> </span>들어가기
+format<span class="w"> </span>disk<span class="w"> </span>에서<span class="w"> </span>erase는<span class="w"> </span>overwirte<span class="w"> </span>with<span class="w"> </span>zeros<span class="w"> </span>선택,<span class="w"> </span>partitioning은<span class="w"> </span>gpt<span class="w"> </span>선택하여<span class="w"> </span>포맷
+create<span class="w"> </span>partition<span class="w"> </span>에서<span class="w"> </span>파티션<span class="w"> </span>사이즈<span class="w"> </span>풀로,<span class="w"> </span>free<span class="w"> </span>space는<span class="w"> </span>0으로,<span class="w"> </span>volume<span class="w"> </span>name은<span class="w"> </span>NC_DATA로,<span class="w"> </span>ext4로<span class="w"> </span>생성
+</code></pre></div><br />
+* MBR은 예전에 많이 썼던 파티션 테이블 구조, 요즘은 GPT 많이 씀<br />
+* exFAT은 가장 무난한 파일시스템, ext4는 리눅스에서 서버용으로 많이 쓰는 파일시스템</p>
+<p>step 2. 파일 수동 마운트<br />
+<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>lsblk<span class="w"> </span>-o<span class="w"> </span>NAME,UUID,SIZE,MOUNTPOINT<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>sd<span class="w">     </span><span class="c1">#이름 확인</span>
+sda<span class="w">                                               </span>233G<span class="w"> </span>
+└─sda1<span class="w">      </span>82fa760d-f62e-4e16-b428-e78040b3980a<span class="w">  </span>233G
+~$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/srv/nextcloud-data<span class="w">                </span><span class="c1">#마운트 포인트 생성</span>
+~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;UUID=82fa760d-f62e-4e16-b428-e78040b3980a  /srv/nextcloud-data  ext4  defaults,noatime,nofail,x-systemd.automount  0  2&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/fstab<span class="w">       </span><span class="c1">#fstab 등록</span>
+~$<span class="w"> </span>sudo<span class="w"> </span>mount<span class="w"> </span>-a<span class="w">                </span><span class="c1">#마운트 적용</span>
+</code></pre></div><br />
+* nofail은 이거 없이 부팅해도 켜지긴 한다는 뜻<br />
+* x-systemd.automount 필요해질 때 마운트<br />
+* umount는 sudo poweroff시 자동으로</p>
+<p>step 3. 퍼미션 설정<br />
+<div class="highlight"><pre><span></span><code>~$ sudo chown -R www-data:www-data /srv/nextcloud-data
 ~$ sudo chmod 750 /srv/nextcloud-data
 ~$ ls -ld /srv/nextcloud-data
 drwxr-x--- 3 www-data www-data 4096 Jun 16 03:48 /srv/nextcloud-data
-</code></pre>
+</code></pre></div></p>
 <hr />
 <h3 id="5-nextcloud">5&gt; Nextcloud 설정</h3>
-<p>nextcloud 설정:</p>
-<pre><code>https://i-kkongnyang2.myddns.me/nextcloud 페이지에 들어가
+<p>nextcloud 설정:<br />
+<div class="highlight"><pre><span></span><code>https://i-kkongnyang2.myddns.me/nextcloud 페이지에 들어가
 아이디: kkongnyang2
 비밀번호: U2FsdGVkX1+pMjybe35mgNJBuIV/tF+brc3SX+Rcqvw=(업로드용)
 Data folder: /srv/nextcloud-data
@@ -783,10 +773,8 @@ Database account: kkongnyang2
 Database password: U2FsdGVkX19dkJUxkq0yzdg74lVWKoQtbJma/YUyJCs=(업로드용)
 Database name: nextcloud
 Database host: localhost
-</code></pre>
-<ul>
-<li>기본 파일은 데이터 폴더 경로와 연동, database는 그 데이터들의 메타데이터용.</li>
-</ul>
+</code></pre></div><br />
+* 기본 파일은 데이터 폴더 경로와 연동, database는 그 데이터들의 메타데이터용.</p>
 <hr />
 <h3 id="6">6&gt; 추가 백업 안정장치(선택)</h3>
 <p>서버 날라갈거 대비해 2차 외장 저장장치에 백업 rsync+cron</p>
