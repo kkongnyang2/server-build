@@ -34,6 +34,7 @@ kkongnyang2.github.io/
 ~$ mkdocs serve
 ```
 
+각 카테고리별로 구조
 ```
 server-build/
 ├─ docs/
