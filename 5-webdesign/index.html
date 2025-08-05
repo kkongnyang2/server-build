@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -511,17 +511,17 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      서버에 페이지를 본격적으로 꾸며보자
+      웹페이지를 본격적으로 꾸며보자
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="서버에 페이지를 본격적으로 꾸며보자">
+    <nav class="md-nav" aria-label="웹페이지를 본격적으로 꾸며보자">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      목표: 웹 디자인
+      메인 페이지
     </span>
   </a>
   
@@ -530,16 +530,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      &gt; 메인 페이지
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      &gt; 카테고리 페이지
+      카테고리 페이지
     </span>
   </a>
   
@@ -585,17 +576,17 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      서버에 페이지를 본격적으로 꾸며보자
+      웹페이지를 본격적으로 꾸며보자
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="서버에 페이지를 본격적으로 꾸며보자">
+    <nav class="md-nav" aria-label="웹페이지를 본격적으로 꾸며보자">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      목표: 웹 디자인
+      메인 페이지
     </span>
   </a>
   
@@ -604,16 +595,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      &gt; 메인 페이지
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      &gt; 카테고리 페이지
+      카테고리 페이지
     </span>
   </a>
   
@@ -642,11 +624,10 @@
 
   <h1>5 webdesign</h1>
 
-<h2 id="_1">서버에 페이지를 본격적으로 꾸며보자</h2>
-<h3 id="_2">목표: 웹 디자인</h3>
+<h2 id="_1">웹페이지를 본격적으로 꾸며보자</h2>
 <p>작성자: kkongnyang2 작성일: 2025-07-07</p>
 <hr />
-<h3 id="_3">&gt; 메인 페이지</h3>
+<h3 id="_2">메인 페이지</h3>
 <div class="highlight"><pre><span></span><code>kkongnyang2.github.io/
 ├─ index.html
 ├─ profile.html
@@ -660,13 +641,13 @@
 </code></pre></div>
 <p>각 html 파일들을 만들어주면 된다.</p>
 <hr />
-<h3 id="_4">&gt; 카테고리 페이지</h3>
+<h3 id="_3">카테고리 페이지</h3>
 <p>우선 실시간으로 편하게 볼 수 있도록</p>
-<div class="highlight"><pre><span></span><code>~$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mkdocs
-~$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>mkdocs-material<span class="w"> </span>mkdocs-awesome-pages-plugin<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>mkdocs-minify-plugin<span class="w"> </span>mkdocs-git-revision-date-localized-plugin
-~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>server-build
-~$<span class="w"> </span>mkdocs<span class="w"> </span>serve
+<div class="highlight"><pre><span></span><code>$ sudo apt install mkdocs
+$ pip install -U mkdocs-material mkdocs-awesome-pages-plugin \
+  mkdocs-minify-plugin mkdocs-git-revision-date-localized-plugin
+$ cd server-build
+$ mkdocs serve
 </code></pre></div>
 <p>각 카테고리별로 구조<br />
 <div class="highlight"><pre><span></span><code>server-build/
@@ -896,7 +877,7 @@ meterial 테마를 베이스로 쓰되 두 팔레트를 토글할 수 있도록 
       <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "content.code.copy", "header.autohide"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
       
     
   </body>
