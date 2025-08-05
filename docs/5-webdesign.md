@@ -1,10 +1,9 @@
-## 서버에 페이지를 본격적으로 꾸며보자
+## 웹페이지를 본격적으로 꾸며보자
 
-### 목표: 웹 디자인
 작성자: kkongnyang2 작성일: 2025-07-07
 
 ---
-### > 메인 페이지
+### 메인 페이지
 
 ```
 kkongnyang2.github.io/
@@ -22,16 +21,16 @@ kkongnyang2.github.io/
 각 html 파일들을 만들어주면 된다.
 
 ---
-### > 카테고리 페이지
+### 카테고리 페이지
 
 우선 실시간으로 편하게 볼 수 있도록
 
-```bash
-~$ sudo apt install mkdocs
-~$ pip install -U mkdocs-material mkdocs-awesome-pages-plugin \
+```
+$ sudo apt install mkdocs
+$ pip install -U mkdocs-material mkdocs-awesome-pages-plugin \
   mkdocs-minify-plugin mkdocs-git-revision-date-localized-plugin
-~$ cd server-build
-~$ mkdocs serve
+$ cd server-build
+$ mkdocs serve
 ```
 
 각 카테고리별로 구조

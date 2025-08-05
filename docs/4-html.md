@@ -1,10 +1,9 @@
-## 서버에 html파일 자동 업로드툴을 만들자
+## 웹서버에 html파일 자동 업로드툴을 만들자
 
-### 목표: workflows 이해
 작성자: kkongnyang2 작성일: 2025-06-17
 
 ---
-### 0> 흐름
+### 흐름
 
 ```
    로컬 폴더    -push->  github 레지스토리  -workflow->  github action  -mkdocs   -> -deploy-> github.io/server-build
@@ -12,9 +11,9 @@ server-build            server-build                   클라이언트       htm
 ```
 
 ---
-### 1> 폴더 구조
+### 폴더 구조
 
-step 1. 폴더 구조 만들기
+폴더 구조 만들기
 ```
 server-build/
 ├─ docs/
@@ -24,7 +23,7 @@ server-build/
 └─ .github/workflows/deploy.yml
 ```
 
-step 2. mkdocs.yml
+mkdocs.yml
 ```
 site_name: server-build
 theme:
@@ -92,16 +91,16 @@ jobs:
 ```
 
 ---
-### 2> 내 컴퓨터에서
+### 내 컴퓨터에서
 
-step 1. PI_KNOWN_HOSTS 알아내기
-```bash
-~$ ssh-keyscan -p22 172.30.1.222
+PI_KNOWN_HOSTS 알아내기
+```
+$ ssh-keyscan -p22 172.30.1.222
 ```
 
-step 2. 비밀번호 없는 ssh 키 쌍 생성
-```bash
-~$ ssh-keygen -t ed25519 -f id_ed25519_pi -N ""
+ssh 키 쌍 생성
+```
+$ ssh-keygen -t ed25519 -f id_ed25519_pi -N ""
 Generating public/private ed25519 key pair.
 Your identification has been saved in id_ed25519_pi       #private key는 id_ed25519_pi에 저장
 Your public key has been saved in id_ed25519_pi.pub       #public kye는 id_ed25519_pi.pub에 저장
@@ -121,9 +120,7 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-step 3. secret 입력
-
-github - repo - settings - secrets and varables - actions 에 들어가 입력
+github - repo - settings - secrets and varables - actions 에 들어가 secret 입력
 
 ```
 PI_HOST : U2FsdGVkX19uR7WUsjBbuMdF4oG3heLi0O+nMKzum2Y=(업로드용)      #pi의 공인ip주소
@@ -143,54 +140,54 @@ PI_KNOWN_HOSTS : #아까 찾아놓은 known_hosts
 * 입력하는 이유? github action이 클라이언트가 되어 내 pi 서버에 로그인해야함
 
 ---
-### 3> pi에서
+### pi에서
 
-step 1. 업로드용 사용자 생성
-```bash
-~$ sudo adduser --disabled-password --gecos "" deployer    #비밀번호도 설명란도 없는 사용자 'deployer' 생성
-~$ sudo usermod -aG www-data deployer         # www-data를 그룹에 추가
+업로드용 사용자 생성
+```
+$ sudo adduser --disabled-password --gecos "" deployer    #비밀번호도 설명란도 없는 사용자 'deployer' 생성
+$ sudo usermod -aG www-data deployer         # www-data를 그룹에 추가
 ```
 
-step 2. 업로드할 곳 퍼미션 설정
-```bash
-~$ sudo chown -R deployer:www-data /var/www/html       #/var/www/html의 소유자와 그룹 변경(퍼미션은 755니까 이러면 deployer만 write할수 있음)
-~$ sudo chown -R www-data:www-data /var/www/html/nextcloud     #내부에 nextcloud의 소유자와 그룹도 바꼈을테니 다시 올바르게(퍼미션은 바꾼적 없으니 750 잘되어있음)
+업로드할 곳 퍼미션 설정
+```
+$ sudo chown -R deployer:www-data /var/www/html       # /var/www/html의 소유자와 그룹 변경(퍼미션은 755니까 이러면 deployer만 write할수 있음)
+$ sudo chown -R www-data:www-data /var/www/html/nextcloud     # 내부에 nextcloud의 소유자와 그룹도 바꼈을테니 다시 올바르게(퍼미션은 바꾼적 없으니 750 잘되어있음)
 ```
 
-step 3. public key 등록
-```bash
-sudo -u deployer mkdir -p /home/deployer/.ssh       #해당 계정 home에서 .ssh 디렉토리 생성
-sudo -u deployer chmod 700 /home/deployer/.ssh      #디렉토리 퍼미션을 700으로 해두기
-sudo -u deployer nano /home/deployer/.ssh/authorized_keys   #아까 내 컴퓨터에서 생성한 ssh 키 중 public key 입력
-sudo chmod 600 /home/deployer/.ssh/authorized_keys  #파일 퍼미션을 600으로 해두기
+public key 등록
+```
+$ sudo -u deployer mkdir -p /home/deployer/.ssh       # 해당 계정 home에서 .ssh 디렉토리 생성
+$ sudo -u deployer chmod 700 /home/deployer/.ssh      # 디렉토리 퍼미션을 700으로 해두기
+$ sudo -u deployer nano /home/deployer/.ssh/authorized_keys   # 아까 내 컴퓨터에서 생성한 ssh 키 중 public key 입력
+$ sudo chmod 600 /home/deployer/.ssh/authorized_keys  # 파일 퍼미션을 600으로 해두기
 ```
 
 ---
-### 4> kkongnyang2.github.io 레포 추가
+### kkongnyang2.github.io 레포 추가
 
 웹페이지 제일 첫 페이지가 될 루트이다. 직접 만든 index.html과 .github/workflows/deploy.yml을 넣어준다.
 
 deploy.yml에서 mkdocs 부분만 빼고 target:     "/var/www/html/"으로만 수정하면 됨
 
 ---
-### 5> 마지막 작업
+### 마지막 작업
 
-step 1. 모든 레포 공개 public 으로 당연히 바꿔주기
+모든 레포 공개 public 으로 당연히 바꿔주기
 
-step 2. repo - settings - actions - general 들어가서
+repo - settings - actions - general 들어가서
 workflow permissions 섹션에서 read and write permissions 로 변경
 
-step 3. 공유기 페이지 들어가서 22번 포트 포트포워딩 해주기
+공유기 페이지 들어가서 22번 포트 포트포워딩 해주기
 
-step 4. 첫 업로드 이후 repo - settings → Pages 에서 Deploy from branch → gh-pages / (root) 설정     #얘는 github pages에 업로드하는 브랜치
+첫 업로드 이후 repo - settings → Pages 에서 Deploy from branch → gh-pages / (root) 설정     # 얘는 github pages에 업로드하는 브랜치
 
 ---
-### 6> 개인정보 암호화
+### 개인정보 암호화
 
-```bash
-~$ echo -n "원하는 문구" | openssl enc -aes-256-cbc -a -salt -pbkdf2 -pass pass:내비밀번호
+```
+$ echo -n "원하는 문구" | openssl enc -aes-256-cbc -a -salt -pbkdf2 -pass pass:내비밀번호
 암호 문구
-~$ echo "암호 문구" | \
+$ echo "암호 문구" | \
 openssl enc -aes-256-cbc -a -d -pbkdf2 -pass pass:내비밀번호
 원래 문구
 ```
@@ -208,3 +205,18 @@ sWuHI0zkxc0lEjTENS5AcSkcTtrcOLQOVYd39j8/T0nF1cF2rVCIJxlopV8cv533
 WIGtKORT4nXF5q3qTERqBHvhrpoB5WopAIi33zERYHHHtkodf4cBQJo2fr0/AaiI
 7tp8zAN8OX7pGcYku8v5ng==(업로드용)
 ```
+
+### 암호화?
+
+암호 알고리즘 AES, RSA
+실제 계산을 담당하는 수학적 방법
+
+- 대칭키 암호화 (암호화 복호화에 키 사용) AES
+- 공개키 암호화 (공개키/개인키 쌍) RSA
+- 해시 알고리즘 (사실 암호화는 아님) SHA256
+
+도구/라이브러리 openssl, gpg, age, bcrypt
+암호 알고리즘을 실행하는 프로그램
+
+포맷/규약/표준 PGP, PEM
+암호화 데이터를 저장하고 교환하는 방식을 정의한 문서 형식
